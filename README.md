@@ -16,12 +16,14 @@ Add this to your flake
     };
 
     outputs = {self, nixpkgs, haxix, ...} : {
-        packages."x86_64-linux".default = haxix.buildGame {
-            name = "my-game";
-            src = self;
-            version = "0.0.1-alpha";
-            debug = false;
-            release = false;
+        packages."x86_64-linux" = {
+            default = haxix.lib."x86_64-linux".heaps.buildGame {
+                name = "my-game";
+                src = self;
+                version = "0.0.1-alpha";
+                debug = false;
+                release = false;
+            };
         };
     };
 }
