@@ -2,6 +2,5 @@
 -lib heaps
 -lib hlsdl
 -lib hlopenal
--lib hashlink
--hl  out/game.c
+-hl  game.hl
 -main Main
