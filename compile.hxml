@@ -1,5 +1,7 @@
 -cp src
 -lib heaps
 -lib hlsdl
--hl hello.hl
--main main
+-lib hlopenal
+-lib hashlink
+-hl  out/game.c
+-main Main
