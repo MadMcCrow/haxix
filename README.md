@@ -9,7 +9,7 @@ Add this to your flake
 ```nix
 {
     inputs = {
-        haxix.url = "github:MadMcCrow/haxix"
+        haxix.url = "github:MadMcCrow/haxix";
         # not mandatory but should work just fine :
         # haxix.inputs.nixpkgs.follows = "nixpkgs";
         ...
