@@ -13,14 +13,40 @@ let
   hl = haxenix.hashlink_latest;
   haxe = haxenix.haxe_latest;
 
+  
+  withCommas = lib.replaceStrings [ "." ] [ "," ];
+
+    installLibHaxe = { libname, version, files ? "*" }: ''
+    mkdir -p "$out/lib/haxe/${withCommas libname}/${withCommas version}"
+    echo -n "${version}" > $out/lib/haxe/${withCommas libname}/.current
+    cp -dpR ${files} "$out/lib/haxe/${withCommas libname}/${withCommas version}/"
+  '';
+
+  heaps_latest = stdenv.mkDerivation {
+       name = "heaps";
+          src = pkgs.fetchFromGitHub {
+            owner = "HeapsIO";
+            repo = "heaps";
+            rev = "c83ba0299da99f93e2d64bfdaf3acfca66698f9c";
+            sha256 = "sha256-hsuNaXLc1HBAT3u7ipQrdPagdGoq7QznZ90e0eLh0pk=";
+          };
+          installPhase = installLibHaxe { libname = "heaps"; version = "alpha"; };
+          meta = {
+            homepage = "http://heaps.io";
+            license = lib.licenses.mit;
+            platforms = lib.platforms.all;
+            description = "Heaps : Haxe Game Framework";
+    };
+  };
+
   # the whole heaps.io engine
   heaps = [
     haxe
     hl
-    pkgs.haxePackages.heaps
+    heaps_latest
+    pkgs.haxePackages.hlsdl
     pkgs.haxePackages.format
     pkgs.haxePackages.hlopenal
-    pkgs.haxePackages.hlsdl  
   ];
 
   # compilation dependancies 

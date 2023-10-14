@@ -16,16 +16,17 @@ let
   '';
 
   # Custom HL with libraries for haxelib added
-  my_hashlink = {version, sha256,...}@args : pkgs.hashlink.overrideAttrs (finalAttrs: previousAttrs: {
+  my_hashlink = {version, sha256, rev,...}@args : pkgs.hashlink.overrideAttrs (finalAttrs: previousAttrs: {
     inherit version;
     postInstall = (previousAttrs.postInstall or "") + ''
       ${installLibHaxe { libname = "${finalAttrs.pname}"; files ="other/haxelib/*"; inherit version; }}
+      ${installLibHaxe { libname = "hlsdl"; files = "libs/sdl/*"; inherit version; }}
     '';
 
     src = pkgs.fetchFromGitHub {
     owner = "HaxeFoundation";
     repo = "hashlink";
-    rev = version;
+    inherit rev;
     inherit sha256;
   };
   });
@@ -34,18 +35,17 @@ let
   # haxe 4.3.2 : sha256-wSSX9d/WBzylQ+XYhjM/qpdAXtMNDoQUIWRPL/2AnMo= -> not compiling
   # haxe 4.3.0 : sha256-uLvtrreMK5OaLk2aLGcdqX9yaRU8qAI6SWQl7yGpLz0= -> not compiling
   # haxe 4.2.5 : sha256-Y0gx6uOQX4OZgg8nK4GJxRR1rKh0S2JUjZQFVQ4cfTs= -> works
-  my_haxe = {version, sha256, ocaml-ng, ... } @args : pkgs.haxe.overrideAttrs (finalAttrs: previousAttrs: rec {
+  my_haxe = {version, sha256, ocaml-ng, rev, ... } @args : pkgs.haxe.overrideAttrs (finalAttrs: previousAttrs: rec {
     inherit version;
     src = pkgs.fetchFromGitHub {
-      rev = version;
+      inherit rev;
       inherit sha256;
       owner = "HaxeFoundation";
       repo = "haxe";
       fetchSubmodules = true;
     };
     buildInputs = let 
-    # newer ocaml
-      ocamlDependencies = with ocaml-ng; [
+        ocamlDependencies = with ocaml-ng; [
         ocaml
         findlib
         sedlex
@@ -54,12 +54,21 @@ let
         camlp5
         sha
         dune_3
-        luv
+        ipaddr
+        camlp-streams
+        (luv.overrideAttrs (final: prev: {
+          version = "0.5.12";
+           src = pkgs.fetchurl {
+              url = "https://github.com/aantron/luv/releases/download/0.5.12/luv-0.5.12.tar.gz";
+              sha256 = "sha256-dp9qCIYqSdROIAQ+Jw73F3vMe7hnkDe8BgZWImNMVsA=";
+            };
+
+        }))
         extlib
         stdlib-shims
       ];
     in
-    (with pkgs; [ zlib pcre neko mbedtls_2 ]) ++ ocamlDependencies ++
+    (with pkgs; [ zlib pcre2 neko mbedtls_2 ]) ++ ocamlDependencies ++
     (lib.optional (stdenv.isDarwin) pkgs.darwin.apple_sdk.frameworks.Security) ;
   });
 
@@ -68,15 +77,17 @@ in
 {
   # haxe with version newer than the one in nixpkgs
   haxe_latest = my_haxe {  
-    version = "4.2.5";
-    sha256 = "sha256-Y0gx6uOQX4OZgg8nK4GJxRR1rKh0S2JUjZQFVQ4cfTs=";
-    ocaml-ng = pkgs.ocaml-ng.ocamlPackages_4_14;
+    version = "alpha";
+    sha256 = "sha256-6HqzabA7HxdSn2utjCbnPaWQlBrddJnDWfHQPFUZUYw=";
+    rev = "f47841dcf0b4ade93478381a6b0ac0524251bee8";
+    ocaml-ng = pkgs.ocaml-ng.ocamlPackages_4_08;
   };
 
   # this is not realy latest, but still
   hashlink_latest = my_hashlink {
-    version = "1.13";
-    sha256 = "lpHW0JWxbLtOBns3By56ZBn47CZsDzwOFBuW9MlERrE=";
+    version = "alpha";
+    sha256 = "sha256-QtFN1nHw+G4OaZRQRCLx5JJxnojHQMWwxWilSkYRxmU=";
+    rev = "5185f82e7950331a4b96ac13361a71f1081202e2";
   };
 
   # helper to build libraries

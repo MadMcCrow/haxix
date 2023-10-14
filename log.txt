@@ -1,0 +1,987 @@
+@nix { "action": "setPhase", "phase": "unpackPhase" }
+unpacking sources
+unpacking source archive /nix/store/lazzfmwyigfkmk6ngz18gsb84d8hxfqi-source
+source root is source
+@nix { "action": "setPhase", "phase": "patchPhase" }
+patching sources
+@nix { "action": "setPhase", "phase": "updateAutotoolsGnuConfigScriptsPhase" }
+updateAutotoolsGnuConfigScriptsPhase
+@nix { "action": "setPhase", "phase": "configurePhase" }
+configuring
+no configure script, doing nothing
+@nix { "action": "setPhase", "phase": "buildPhase" }
+building
+build flags: SHELL=/nix/store/vqvj60h076bhqj6977caz0pfxs6543nb-bash-5.2-p15/bin/bash all tools
+/nix/store/vqvj60h076bhqj6977caz0pfxs6543nb-bash-5.2-p15/bin/bash: line 1: git: command not found
+/nix/store/vqvj60h076bhqj6977caz0pfxs6543nb-bash-5.2-p15/bin/bash: line 1: git: command not found
+dune build --workspace dune-workspace.dev src-prebuild/prebuild.exe
+Scanned 100 directories                       Scanned 300 directories                       Scanned 400 directories                       Scanned 700 directories                       Scanned 900 directories                       Done: 100% (2/2, 0 left) (jobs: 0)                                  Done: 66% (2/3, 1 left) (jobs: 0)                                 Done: 50% (3/6, 3 left) (jobs: 0)                                 Done: 57% (4/7, 3 left) (jobs: 0)                                 Done: 50% (7/14, 7 left) (jobs: 0)                                  Done: 46% (7/15, 8 left) (jobs: 0)                                  Done: 44% (8/18, 10 left) (jobs: 0)                                   Done: 44% (8/18, 10 left) (jobs: 0)                                   Done: 44% (8/18, 10 left) (jobs: 1)                                   Done: 50% (9/18, 9 left) (jobs: 1)                                  Done: 55% (10/18, 8 left) (jobs: 1)                                   Done: 61% (11/18, 7 left) (jobs: 1)                                   Done: 66% (12/18, 6 left) (jobs: 1)                                   Done: 77% (14/18, 4 left) (jobs: 1)                                   Done: 83% (15/18, 3 left) (jobs: 2)                                   Done: 88% (16/18, 2 left) (jobs: 1)                                   Done: 94% (17/18, 1 left) (jobs: 1)                                   _build/default/src-prebuild/prebuild.exe libparams -cclib -lpcre2-8 -cclib -lz -cclib -lmbedtls -cclib -lmbedx509 -cclib -lmbedcrypto > lib.sexp
+_build/default/src-prebuild/prebuild.exe version "0" "" "" > src/compiler/version.ml
+dune build --workspace dune-workspace.dev src/haxe.exe
+Scanned 100 directories                       Scanned 300 directories                       Scanned 500 directories                       Scanned 800 directories                       Done: 0% (0/0, 0 left) (jobs: 0)                                Done: 100% (2/2, 0 left) (jobs: 0)                                  Done: 100% (2/2, 0 left) (jobs: 0)                                  Done: 100% (2/2, 0 left) (jobs: 0)                                  Done: 100% (2/2, 0 left) (jobs: 0)                                  Done: 100% (2/2, 0 left) (jobs: 0)                                  Done: 40% (2/5, 3 left) (jobs: 0)                                 Done: 60% (3/5, 2 left) (jobs: 0)                                 Done: 57% (4/7, 3 left) (jobs: 0)                                 Done: 50% (4/8, 4 left) (jobs: 0)                                 Done: 50% (5/10, 5 left) (jobs: 0)                                  Done: 1% (6/473, 467 left) (jobs: 0)                                    Done: 1% (6/474, 468 left) (jobs: 0)                                    Done: 3% (24/722, 698 left) (jobs: 0)                                     Done: 2% (24/936, 912 left) (jobs: 0)                                     Done: 11% (133/1166, 1033 left) (jobs: 1)                                         Done: 19% (228/1166, 938 left) (jobs: 0)                                        Done: 20% (240/1166, 926 left) (jobs: 8)                                        Done: 21% (246/1167, 921 left) (jobs: 8)                                        Done: 21% (246/1168, 922 left) (jobs: 8)                                        Done: 21% (254/1186, 932 left) (jobs: 8)                                        Done: 21% (256/1186, 930 left) (jobs: 8)                                        Done: 22% (261/1186, 925 left) (jobs: 8)                                        Done: 22% (267/1186, 919 left) (jobs: 8)                                        Done: 21% (273/1283, 1010 left) (jobs: 8)                                         Done: 21% (276/1283, 1007 left) (jobs: 8)                                         Done: 20% (283/1371, 1088 left) (jobs: 8)                                         Done: 20% (287/1371, 1084 left) (jobs: 8)                                         Done: 26% (372/1413, 1041 left) (jobs: 8)                                         Done: 25% (378/1463, 1085 left) (jobs: 8)                                         Done: 26% (383/1465, 1082 left) (jobs: 8)                                         Done: 26% (384/1467, 1083 left) (jobs: 8)                                         Done: 26% (391/1468, 1077 left) (jobs: 8)                                         Done: 26% (396/1468, 1072 left) (jobs: 8)                                         Done: 27% (399/1468, 1069 left) (jobs: 8)                                         Done: 27% (406/1468, 1062 left) (jobs: 8)                                         Done: 28% (419/1469, 1050 left) (jobs: 8)                                         Done: 28% (422/1475, 1053 left) (jobs: 8)                                         Done: 29% (428/1475, 1047 left) (jobs: 8)                                         Done: 29% (431/1475, 1044 left) (jobs: 8)                                         Done: 29% (433/1475, 1042 left) (jobs: 8)                                         Done: 29% (435/1475, 1040 left) (jobs: 8)                                         Done: 29% (438/1475, 1037 left) (jobs: 8)                                         Done: 29% (441/1475, 1034 left) (jobs: 8)                                         Done: 30% (444/1475, 1031 left) (jobs: 8)                                         Done: 30% (449/1475, 1026 left) (jobs: 8)                                         Done: 30% (450/1475, 1025 left) (jobs: 8)                                         Done: 30% (454/1475, 1021 left) (jobs: 8)                                         Done: 31% (464/1475, 1011 left) (jobs: 8)                                         Done: 32% (472/1475, 1003 left) (jobs: 8)                                         Done: 32% (477/1475, 998 left) (jobs: 8)                                        Done: 32% (478/1475, 997 left) (jobs: 8)                                        Done: 32% (486/1475, 989 left) (jobs: 8)                                        Done: 33% (491/1475, 984 left) (jobs: 8)                                        Done: 33% (495/1475, 980 left) (jobs: 8)                                        Done: 33% (500/1475, 975 left) (jobs: 8)                                        Done: 34% (510/1475, 965 left) (jobs: 8)                                        Done: 34% (515/1475, 960 left) (jobs: 8)                                        Done: 35% (524/1475, 951 left) (jobs: 8)                                        Done: 36% (533/1475, 942 left) (jobs: 8)                                        Done: 36% (540/1475, 935 left) (jobs: 8)                                        Done: 36% (545/1475, 930 left) (jobs: 8)                                        Done: 37% (548/1475, 927 left) (jobs: 8)                                        Done: 37% (551/1475, 924 left) (jobs: 8)                                        Done: 37% (555/1475, 920 left) (jobs: 8)                                        Done: 37% (560/1475, 915 left) (jobs: 8)                                        Done: 39% (581/1475, 894 left) (jobs: 8)                                        Done: 39% (587/1475, 888 left) (jobs: 8)                                        Done: 40% (600/1475, 875 left) (jobs: 8)                                        [1mFile "libs/extc/extc.ml", line 116, characters 12-24[0m:
+116 | 				let r = zlib_inflate z (Bytes.unsafe_to_string tmp_in) pos len tmp_out 0 bufsize (if pos = 0 && len = 0 then Z_FINISH else Z_SYNC_FLUSH) in
+      				        [1;35m^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels src, spos, slen, dst, dpos, dlen were omitted in the application of this function.
+[1mFile "libs/extc/extc.ml", line 158, characters 10-22[0m:
+158 | 		let r = zlib_deflate z (Bytes.unsafe_to_string out) 0 !p tmp_out 0 bufsize (if finish then Z_FINISH else Z_SYNC_FLUSH) in
+      		        [1;35m^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels src, spos, slen, dst, dpos, dlen were omitted in the application of this function.
+Done: 40% (600/1475, 875 left) (jobs: 8)                                        Done: 41% (606/1475, 869 left) (jobs: 8)                                        Done: 41% (613/1475, 862 left) (jobs: 8)                                        Done: 42% (622/1475, 853 left) (jobs: 8)                                        Done: 42% (626/1475, 849 left) (jobs: 8)                                        Done: 43% (636/1475, 839 left) (jobs: 8)                                        Done: 43% (645/1475, 830 left) (jobs: 8)                                        Done: 44% (657/1475, 818 left) (jobs: 8)                                        Done: 45% (665/1475, 810 left) (jobs: 8)                                        Done: 45% (668/1475, 807 left) (jobs: 8)                                        Done: 45% (677/1475, 798 left) (jobs: 8)                                        Done: 46% (688/1475, 787 left) (jobs: 8)                                        Done: 47% (696/1475, 779 left) (jobs: 8)                                        Done: 47% (703/1475, 772 left) (jobs: 8)                                        Done: 47% (706/1475, 769 left) (jobs: 8)                                        Done: 48% (708/1475, 767 left) (jobs: 8)                                        Done: 48% (710/1475, 765 left) (jobs: 8)                                        Done: 48% (711/1475, 764 left) (jobs: 8)                                        Done: 48% (714/1475, 761 left) (jobs: 8)                                        Done: 48% (718/1475, 757 left) (jobs: 8)                                        Done: 48% (720/1475, 755 left) (jobs: 8)                                        [1mFile "libs/extc/extc.ml", line 116, characters 12-24[0m:
+116 | 				let r = zlib_inflate z (Bytes.unsafe_to_string tmp_in) pos len tmp_out 0 bufsize (if pos = 0 && len = 0 then Z_FINISH else Z_SYNC_FLUSH) in
+      				        [1;35m^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels src, spos, slen, dst, dpos, dlen were omitted in the application of this function.
+[1mFile "libs/extc/extc.ml", line 158, characters 10-22[0m:
+158 | 		let r = zlib_deflate z (Bytes.unsafe_to_string out) 0 !p tmp_out 0 bufsize (if finish then Z_FINISH else Z_SYNC_FLUSH) in
+      		        [1;35m^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels src, spos, slen, dst, dpos, dlen were omitted in the application of this function.
+Done: 48% (720/1475, 755 left) (jobs: 8)                                        Done: 49% (723/1475, 752 left) (jobs: 8)                                        Done: 49% (726/1475, 749 left) (jobs: 8)                                        Done: 49% (727/1475, 748 left) (jobs: 8)                                        [0;1mFile "libs/pcre2/dune", line 7, characters 9-20:[0m
+7 | 		(names pcre2_stubs))
+             ^^^^^^^^^^^
+[1mpcre2_stubs.c:57:10:[0m [1;31mfatal error: [0mpcre2.h: No such file or directory
+   57 | #include [1;31m<pcre2.h>[0m
+      |          [1;31m^~~~~~~~~[0m
+compilation terminated.
+Done: 49% (727/1475, 748 left) (jobs: 8)                                        Done: 51% (756/1475, 719 left, 1 failed) (jobs: 8)                                                  Done: 51% (758/1475, 717 left, 1 failed) (jobs: 8)                                                  Done: 51% (759/1475, 716 left, 1 failed) (jobs: 8)                                                  Done: 54% (802/1475, 673 left, 1 failed) (jobs: 8)                                                  Done: 54% (804/1475, 671 left, 1 failed) (jobs: 8)                                                  Done: 54% (805/1475, 670 left, 1 failed) (jobs: 8)                                                  Done: 54% (806/1475, 669 left, 1 failed) (jobs: 8)                                                  Done: 54% (807/1475, 668 left, 1 failed) (jobs: 8)                                                  Done: 54% (808/1475, 667 left, 1 failed) (jobs: 8)                                                  Done: 54% (809/1475, 666 left, 1 failed) (jobs: 8)                                                  [1mextc_stubs.c:[0m In function '[1mZflush_val[0m':
+[1mextc_stubs.c:95:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+   95 |                 default: f[1;35mailwith("Error in `Zflush_val` (extc_stubs.c): Unknown zflu[0msh value");
+      |                           [1;35m^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[1mextc_stubs.c:[0m In function '[1mzlib_deflate_init2[0m':
+[1mextc_stubs.c:225:34:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  225 |                         failwith([1;35m"Error in `zlib_deflate_init2` (extc_stubs.c): call to `def[0mlateInit2` failed: Z_STREAM_ERROR");
+      |                                  [1;35m^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[1mextc_stubs.c:229:34:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  229 |                         failwith([1;35m"Error in `zlib_deflate_init2` (extc_stubs.c): call to `def[0mlateInit2` failed: Z_VERSION_ERROR");
+      |                                  [1;35m^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[1mextc_stubs.c:232:34:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  232 |                         failwith([1;35m"Error in `zlib_deflate_init2` (extc_stubs.c): unknown retu[0mrn code from `deflateInit2`");
+      |                                  [1;35m^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[1mextc_stubs.c:[0m In function '[1mzlib_deflate[0m':
+[1mextc_stubs.c:266:20:[0m [1;35mwarning: [0m"flush" is deprecated: use "caml_flush" instead
+  266 |         int flush =[1;35m Zflush_val(flush_val);[0m
+      |                    [1;35m^~~~~~~~~~~~~~~~~~~~~~~[0m                              
+[1mextc_stubs.c:273:20:[0m [1;35mwarning: [0m"flush" is deprecated: use "caml_flush" instead
+  273 |         int deflate[1;35m_result = deflate(stream, flush);[0m
+      |                    [1;35m^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m                    
+[1mextc_stubs.c:278:27:[0m [1;35mwarning: [0m"alloc_small" is deprecated: use "caml_alloc_small" instead
+  278 |                 value zres[1;35mult = alloc_small(3, 0);[0m
+      |                           [1;35m^~~~~~~~~~~~~~~~~~~~~~~~[0m                                         
+[1mextc_stubs.c:294:34:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  294 |                         failwith([1;35m"Error in `zlib_deflate` (extc_stubs.c): call to `deflate` [0mfailed: Z_STREAM_ERROR");
+      |                                  [1;35m^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[1mextc_stubs.c:298:34:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  298 |                         failwith([1;35m"Error in `zlib_deflate` (extc_stubs.c): call to `deflate` [0mfailed: Z_BUF_ERROR");
+      |                                  [1;35m^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[1mextc_stubs.c:301:34:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  301 |                         failwith([1;35m"Error in `zlib_deflate` (extc_stubs.c): unknown return cod[0me from `deflate`");
+      |                                  [1;35m^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[1mextc_stubs.c:[0m In function '[1mzlib_deflate_end[0m':
+[1mextc_stubs.c:312:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  312 |                 failwith("[1;35mzlib_deflate_end");[0m
+      |                           [1;35m^~~~~~~~~~~~~~~~~~~[0m                                        
+[1mextc_stubs.c:[0m In function '[1mzlib_inflate_init[0m':
+[1mextc_stubs.c:319:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  319 |                 failwith("[1;35mzlib_inflate_init");[0m
+      |                           [1;35m^~~~~~~~~~~~~~~~~~~~[0m                                       
+[1mextc_stubs.c:[0m At top level:
+[1mextc_stubs.c:323:13:[0m [1;35mwarning: [0m"flush" is deprecated: use "caml_flush" instead
+  323 | CAMLprim val[1;35mue zlib_inflate( value zv, value src, value spos, val[0mue slen, value dst, value dpos, value dlen, value flush ) {
+      |             [1;35m^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[1mextc_stubs.c:[0m In function '[1mzlib_inflate[0m':
+[1mextc_stubs.c:332:20:[0m [1;35mwarning: [0m"flush" is deprecated: use "caml_flush" instead
+  332 |         if( (r = in[1;35mflate(z,Int_val(flush))) < 0 )[0m
+      |                    [1;35m^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m                       
+[1mextc_stubs.c:333:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  333 |                 failwith("[1;35mzlib_inflate");[0m
+      |                           [1;35m^~~~~~~~~~~~~~~[0m                                            
+[1mextc_stubs.c:338:20:[0m [1;35mwarning: [0m"alloc_small" is deprecated: use "caml_alloc_small" instead
+  338 |         res = alloc[1;35m_small(3, 0);[0m
+      |                    [1;35m^~~~~~~~~~~~~[0m                                                    
+[1mextc_stubs.c:[0m In function '[1mzlib_inflate_end[0m':
+[1mextc_stubs.c:351:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  351 |                 failwith("[1;35mzlib_inflate_end");[0m
+      |                           [1;35m^~~~~~~~~~~~~~~~~~~[0m                                        
+[1mextc_stubs.c:[0m In function '[1mexecutable_path[0m':
+[1mextc_stubs.c:400:34:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  400 |                         failwith([1;35m"executable_path");[0m
+      |                                  [1;35m^~~~~~~~~~~~~~~~~~~[0m                                        
+[1mextc_stubs.c:[0m In function '[1mget_full_path[0m':
+[1mextc_stubs.c:416:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  416 |                 failwith("[1;35mget_full_path");[0m
+      |                           [1;35m^~~~~~~~~~~~~~~~[0m                                           
+Done: 54% (809/1475, 666 left, 1 failed) (jobs: 8)                                                  Done: 54% (811/1475, 664 left, 1 failed) (jobs: 8)                                                  Done: 55% (812/1475, 663 left, 1 failed) (jobs: 8)                                                  Done: 55% (813/1475, 662 left, 1 failed) (jobs: 8)                                                  Done: 55% (815/1475, 660 left, 1 failed) (jobs: 8)                                                  Done: 55% (817/1475, 658 left, 1 failed) (jobs: 8)                                                  Done: 55% (819/1475, 656 left, 1 failed) (jobs: 8)                                                  [1mFile "libs/ilib/peReader.ml", line 28, characters 6-27[0m:
+28 | 	ch : Pervasives.in_channel;
+     	     [1;35m^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+[1mFile "libs/ilib/peReader.ml", line 45, characters 1-18[0m:
+45 | 	Pervasives.pos_in r.ch
+     	[1;35m^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+Done: 55% (819/1475, 656 left, 1 failed) (jobs: 8)                                                  Done: 55% (820/1475, 655 left, 1 failed) (jobs: 8)                                                  Done: 55% (821/1475, 654 left, 1 failed) (jobs: 8)                                                  Done: 55% (822/1475, 653 left, 1 failed) (jobs: 8)                                                  Done: 55% (823/1475, 652 left, 1 failed) (jobs: 8)                                                  [1mprocess_stubs.c:[0m In function '[1malloc_private[0m':
+[1mprocess_stubs.c:73:20:[0m [1;35mwarning: [0m"alloc" is deprecated: use "caml_alloc" instead
+   73 |         return allo[1;35mc((size + sizeof(value) - 1) / sizeof(value), Abstrac[0mt_tag);
+      |                    [1;35m^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[1mprocess_stubs.c:[0m In function '[1mprocess_run[0m':
+[1mprocess_stubs.c:369:25:[0m [1;35mwarning: [0massignment discards '[1mconst[0m' qualifier from pointer target type [[1;35m-Wdiscarded-qualifiers[0m]
+  369 |                 argv[2] [1;35m=[0m val_string(cmd);
+      |                         [1;35m^[0m
+[1mprocess_stubs.c:373:25:[0m [1;35mwarning: [0massignment discards '[1mconst[0m' qualifier from pointer target type [[1;35m-Wdiscarded-qualifiers[0m]
+  373 |                 argv[0] [1;35m=[0m val_string(cmd);
+      |                         [1;35m^[0m
+[1mprocess_stubs.c:376:35:[0m [1;35mwarning: [0massignment discards '[1mconst[0m' qualifier from pointer target type [[1;35m-Wdiscarded-qualifiers[0m]
+  376 |                         argv[i+1] [1;35m=[0m val_string(v);
+      |                                   [1;35m^[0m
+[1mprocess_stubs.c:382:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  382 |                 neko_error[1;35m();[0m
+      |                           [1;35m^~~[0m                                                        
+[1mprocess_stubs.c:392:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  392 |                 neko_error[1;35m();[0m
+      |                           [1;35m^~~[0m                                                        
+[1mprocess_stubs.c:[0m In function '[1mprocess_stdout_read[0m':
+[1mprocess_stubs.c:435:20:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  435 |         CHECK_ARGS([1;35m);[0m
+      |                    [1;35m^~[0m                                                         
+[1mprocess_stubs.c:446:47:[0m [1;35mwarning: [0mpassing argument 2 of '[1mread[0m' discards '[1mconst[0m' qualifier from pointer target type [[1;35m-Wdiscarded-qualifiers[0m]
+  446 |         nbytes = read(p->oread,val_string(str)+val_int(pos),val_int(len));
+In file included from [1m/nix/store/4lap45ifj50lp980id60fnbvs81yj9lr-glibc-2.37-8-dev/include/unistd.h:1214[0m,
+                 from [1mprocess_stubs.c:37[0m:
+[1m/nix/store/4lap45ifj50lp980id60fnbvs81yj9lr-glibc-2.37-8-dev/include/bits/unistd.h:36:23:[0m [1;36mnote: [0mexpected '[1mvoid *[0m' but argument is of type '[1mconst char *[0m'
+   36 | read (int __fd, [1;36mvoid *__buf[0m, size_t __nbytes)
+      |                 [1;36m~~~~~~^~~~~[0m
+[1mprocess_stubs.c:449:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  449 |                 neko_error[1;35m();[0m
+      |                           [1;35m^~~[0m                                                        
+[1mprocess_stubs.c:452:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  452 |                 neko_error[1;35m();[0m
+      |                           [1;35m^~~[0m                                                        
+[1mprocess_stubs.c:[0m In function '[1mprocess_stderr_read[0m':
+[1mprocess_stubs.c:466:20:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  466 |         CHECK_ARGS([1;35m);[0m
+      |                    [1;35m^~[0m                                                         
+[1mprocess_stubs.c:477:47:[0m [1;35mwarning: [0mpassing argument 2 of '[1mread[0m' discards '[1mconst[0m' qualifier from pointer target type [[1;35m-Wdiscarded-qualifiers[0m]
+  477 |         nbytes = read(p->eread,val_string(str)+val_int(pos),val_int(len));
+[1m/nix/store/4lap45ifj50lp980id60fnbvs81yj9lr-glibc-2.37-8-dev/include/bits/unistd.h:36:23:[0m [1;36mnote: [0mexpected '[1mvoid *[0m' but argument is of type '[1mconst char *[0m'
+   36 | read (int __fd, [1;36mvoid *__buf[0m, size_t __nbytes)
+      |                 [1;36m~~~~~~^~~~~[0m
+[1mprocess_stubs.c:480:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  480 |                 neko_error[1;35m();[0m
+      |                           [1;35m^~~[0m                                                        
+[1mprocess_stubs.c:483:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  483 |                 neko_error[1;35m();[0m
+      |                           [1;35m^~~[0m                                                        
+[1mprocess_stubs.c:[0m In function '[1mprocess_stdin_write[0m':
+[1mprocess_stubs.c:497:20:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  497 |         CHECK_ARGS([1;35m);[0m
+      |                    [1;35m^~[0m                                                         
+[1mprocess_stubs.c:511:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  511 |                 neko_error[1;35m();[0m
+      |                           [1;35m^~~[0m                                                        
+[1mprocess_stubs.c:[0m In function '[1mprocess_stdin_close[0m':
+[1mprocess_stubs.c:531:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  531 |                 neko_error[1;35m();[0m
+      |                           [1;35m^~~[0m                                                        
+[1mprocess_stubs.c:[0m In function '[1mprocess_exit[0m':
+[1mprocess_stubs.c:559:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  559 |                 neko_error[1;35m();[0m
+      |                           [1;35m^~~[0m                                                        
+[1mprocess_stubs.c:562:27:[0m [1;35mwarning: [0m"failwith" is deprecated: use "caml_failwith" instead
+  562 |                 neko_error[1;35m();[0m
+      |                           [1;35m^~~[0m                                                        
+Done: 55% (823/1475, 652 left, 1 failed) (jobs: 8)                                                  Done: 55% (824/1475, 651 left, 1 failed) (jobs: 8)                                                  Done: 56% (826/1475, 649 left, 1 failed) (jobs: 8)                                                  Done: 56% (828/1475, 647 left, 1 failed) (jobs: 8)                                                  Done: 56% (829/1475, 646 left, 1 failed) (jobs: 8)                                                  Done: 56% (831/1475, 644 left, 1 failed) (jobs: 8)                                                  [1mFile "libs/extlib-leftovers/uTF8.ml", line 180, characters 20-38[0m:
+180 | let compare s1 s2 = Pervasives.compare s1 s2
+                          [1;35m^^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+Done: 56% (831/1475, 644 left, 1 failed) (jobs: 8)                                                  Done: 56% (832/1475, 643 left, 1 failed) (jobs: 8)                                                  Done: 56% (833/1475, 642 left, 1 failed) (jobs: 8)                                                  [1mFile "libs/neko/ncompile.ml", line 676, characters 11-18[0m:
+676 | 			let _ = jmp ctx in
+      			        [1;35m^^^^^^^[0m
+[1;35mWarning[0m 5 [ignored-partial-application]: this function application is partial,
+maybe some arguments are missing.
+Done: 56% (833/1475, 642 left, 1 failed) (jobs: 8)                                                  Done: 56% (834/1475, 641 left, 1 failed) (jobs: 8)                                                  Done: 56% (836/1475, 639 left, 1 failed) (jobs: 8)                                                  Done: 56% (837/1475, 638 left, 1 failed) (jobs: 8)                                                  Done: 64% (957/1475, 518 left, 1 failed) (jobs: 8)                                                  [1mFile "libs/ilib/peReader.ml", line 28, characters 6-27[0m:
+28 | 	ch : Pervasives.in_channel;
+     	     [1;35m^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+[1mFile "libs/ilib/peReader.ml", line 45, characters 1-18[0m:
+45 | 	Pervasives.pos_in r.ch
+     	[1;35m^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+Done: 64% (957/1475, 518 left, 1 failed) (jobs: 8)                                                  [1mFile "libs/ziplib/zip.ml", line 65, characters 16-37[0m:
+65 |     if_channel: Pervasives.in_channel;
+                     [1;35m^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+[1mFile "libs/ziplib/zip.ml", line 75, characters 16-38[0m:
+75 |     of_channel: Pervasives.out_channel;
+                     [1;35m^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+[1mFile "libs/ziplib/zip.ml", line 220, characters 11-33[0m:
+220 |   let ic = Pervasives.open_in_bin filename in
+                 [1;35m^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+[1mFile "libs/ziplib/zip.ml", line 235, characters 2-21[0m:
+235 |   Pervasives.close_in ifile.if_channel
+        [1;35m^^^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+[1mFile "libs/ziplib/zip.ml", line 372, characters 17-40[0m:
+372 |     of_channel = Pervasives.open_out_bin filename;
+                       [1;35m^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+[1mFile "libs/ziplib/zip.ml", line 419, characters 2-22[0m:
+419 |   Pervasives.close_out oc
+        [1;35m^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+[1mFile "libs/ziplib/zip.ml", line 555, characters 4-23[0m:
+555 |     Pervasives.close_in ic
+          [1;35m^^^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+[1mFile "libs/ziplib/zip.ml", line 557, characters 4-23[0m:
+557 |     Pervasives.close_in ic; raise x
+          [1;35m^^^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+Done: 64% (957/1475, 518 left, 1 failed) (jobs: 8)                                                  In file included from [1mmbedtls_stubs.c:16[0m:
+[1mmbedtls_stubs.c:[0m In function '[1mml_mbedtls_ctr_drbg_random[0m':
+[1m/nix/store/g9m1ammkaii7l8r6ll2cdzp0b88q6h0m-ocaml-4.14.1/lib/ocaml/caml/mlvalues.h:290:24:[0m [1;35mwarning: [0mpassing argument 2 of '[1mmbedtls_ctr_drbg_random[0m' discards '[1mconst[0m' qualifier from pointer target type [[1;35m-Wdiscarded-qualifiers[0m]
+  290 | #define String_val(x) [1;35m((const char *) Bp_val(x))[0m
+      |                       [1;35m~^~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[1m/nix/store/g9m1ammkaii7l8r6ll2cdzp0b88q6h0m-ocaml-4.14.1/lib/ocaml/caml/memory.h:462:29:[0m [1;36mnote: [0min definition of macro '[1mCAMLreturnT[0m'
+  462 |   type caml__temp_result = ([1;36mresult[0m); \
+      |                             [1;36m^~~~~~[0m
+[1mmbedtls_stubs.c:87:9:[0m [1;36mnote: [0min expansion of macro '[1mCAMLreturn[0m'
+   87 |         [1;36mCAMLreturn[0m(Val_int(mbedtls_ctr_drbg_random(CtrDrbg_val(p_rng), String_val(output), Int_val(output_len))));
+      |         [1;36m^~~~~~~~~~[0m
+[1m/nix/store/g9m1ammkaii7l8r6ll2cdzp0b88q6h0m-ocaml-4.14.1/lib/ocaml/caml/mlvalues.h:79:20:[0m [1;36mnote: [0min expansion of macro '[1mVal_long[0m'
+   79 | #define Val_int(x) [1;36mVal_long[0m(x)
+      |                    [1;36m^~~~~~~~[0m
+[1mmbedtls_stubs.c:87:20:[0m [1;36mnote: [0min expansion of macro '[1mVal_int[0m'
+   87 |         CAMLreturn([1;36mVal_int[0m(mbedtls_ctr_drbg_random(CtrDrbg_val(p_rng), String_val(output), Int_val(output_len))));
+      |                    [1;36m^~~~~~~[0m
+[1mmbedtls_stubs.c:87:72:[0m [1;36mnote: [0min expansion of macro '[1mString_val[0m'
+   87 |         CAMLreturn(Val_int(mbedtls_ctr_drbg_random(CtrDrbg_val(p_rng), [1;36mString_val[0m(output), Int_val(output_len))));
+      |                                                                        [1;36m^~~~~~~~~~[0m
+In file included from [1mmbedtls_stubs.c:26[0m:
+[1m/nix/store/wa51vyvnzshmpjl0zj1sfs8sfy0pv059-mbedtls-2.28.4/include/mbedtls/ctr_drbg.h:532:44:[0m [1;36mnote: [0mexpected '[1munsigned char *[0m' but argument is of type '[1mconst char *[0m'
+  532 |                             [1;36munsigned char *output[0m, size_t output_len);
+      |                             [1;36m~~~~~~~~~~~~~~~^~~~~~[0m
+[1mmbedtls_stubs.c:[0m In function '[1mml_mbedtls_entropy_func[0m':
+[1m/nix/store/g9m1ammkaii7l8r6ll2cdzp0b88q6h0m-ocaml-4.14.1/lib/ocaml/caml/mlvalues.h:290:24:[0m [1;35mwarning: [0mpassing argument 2 of '[1mmbedtls_entropy_func[0m' discards '[1mconst[0m' qualifier from pointer target type [[1;35m-Wdiscarded-qualifiers[0m]
+  290 | #define String_val(x) [1;35m((const char *) Bp_val(x))[0m
+      |                       [1;35m~^~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[1m/nix/store/g9m1ammkaii7l8r6ll2cdzp0b88q6h0m-ocaml-4.14.1/lib/ocaml/caml/memory.h:462:29:[0m [1;36mnote: [0min definition of macro '[1mCAMLreturnT[0m'
+  462 |   type caml__temp_result = ([1;36mresult[0m); \
+      |                             [1;36m^~~~~~[0m
+[1mmbedtls_stubs.c:127:9:[0m [1;36mnote: [0min expansion of macro '[1mCAMLreturn[0m'
+  127 |         [1;36mCAMLreturn[0m(Val_int(mbedtls_entropy_func(PVoid_val(data), String_val(output), Int_val(len))));
+      |         [1;36m^~~~~~~~~~[0m
+[1m/nix/store/g9m1ammkaii7l8r6ll2cdzp0b88q6h0m-ocaml-4.14.1/lib/ocaml/caml/mlvalues.h:79:20:[0m [1;36mnote: [0min expansion of macro '[1mVal_long[0m'
+   79 | #define Val_int(x) [1;36mVal_long[0m(x)
+      |                    [1;36m^~~~~~~~[0m
+[1mmbedtls_stubs.c:127:20:[0m [1;36mnote: [0min expansion of macro '[1mVal_int[0m'
+  127 |         CAMLreturn([1;36mVal_int[0m(mbedtls_entropy_func(PVoid_val(data), String_val(output), Int_val(len))));
+      |                    [1;36m^~~~~~~[0m
+[1mmbedtls_stubs.c:127:66:[0m [1;36mnote: [0min expansion of macro '[1mString_val[0m'
+  127 |         CAMLreturn(Val_int(mbedtls_entropy_func(PVoid_val(data), [1;36mString_val[0m(output), Int_val(len))));
+      |                                                                  [1;36m^~~~~~~~~~[0m
+In file included from [1mmbedtls_stubs.c:25[0m:
+[1m/nix/store/wa51vyvnzshmpjl0zj1sfs8sfy0pv059-mbedtls-2.28.4/include/mbedtls/entropy.h:204:53:[0m [1;36mnote: [0mexpected '[1munsigned char *[0m' but argument is of type '[1mconst char *[0m'
+  204 | int mbedtls_entropy_func(void *data, [1;36munsigned char *output[0m, size_t len);
+      |                                      [1;36m~~~~~~~~~~~~~~~^~~~~~[0m
+In file included from [1mmbedtls_stubs.c:14[0m:
+[1mmbedtls_stubs.c:[0m In function '[1mcaml_string_of_asn1_buf[0m':
+[1m/nix/store/g9m1ammkaii7l8r6ll2cdzp0b88q6h0m-ocaml-4.14.1/lib/ocaml/caml/mlvalues.h:290:24:[0m [1;35mwarning: [0mpassing argument 1 of '[1mmemcpy[0m' discards '[1mconst[0m' qualifier from pointer target type [[1;35m-Wdiscarded-qualifiers[0m]
+  290 | #define String_val(x) [1;35m((const char *) Bp_val(x))[0m
+      |                       [1;35m~^~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[1mmbedtls_stubs.c:195:16:[0m [1;36mnote: [0min expansion of macro '[1mString_val[0m'
+  195 |         memcpy([1;36mString_val[0m(s), dat->p, dat->len);
+      |                [1;36m^~~~~~~~~~[0m
+In file included from [1m/nix/store/4lap45ifj50lp980id60fnbvs81yj9lr-glibc-2.37-8-dev/include/features.h:491[0m,
+                 from [1m/nix/store/4lap45ifj50lp980id60fnbvs81yj9lr-glibc-2.37-8-dev/include/ctype.h:25[0m,
+                 from [1mmbedtls_stubs.c:1[0m:
+[1m/nix/store/4lap45ifj50lp980id60fnbvs81yj9lr-glibc-2.37-8-dev/include/bits/string_fortified.h:26:1:[0m [1;36mnote: [0mexpected '[1mvoid * restrict[0m' but argument is of type '[1mconst char *[0m'
+   26 | [1;36m__NTH[0m (memcpy (void *__restrict __dest, const void *__restrict __src,
+      | [1;36m^~~~~[0m
+[1mmbedtls_stubs.c:[0m In function '[1mml_mbedtls_ssl_read[0m':
+[1mmbedtls_stubs.c:449:82:[0m [1;35mwarning: [0mpassing argument 2 of '[1mmbedtls_ssl_read[0m' discards '[1mconst[0m' qualifier from pointer target type [[1;35m-Wdiscarded-qualifiers[0m]
+  449 |         CAMLreturn(Val_int(mbedtls_ssl_read(SslContext_val(ssl), String_val(buf) + Int_val(pos), Int_val(len))));
+[1m/nix/store/g9m1ammkaii7l8r6ll2cdzp0b88q6h0m-ocaml-4.14.1/lib/ocaml/caml/memory.h:462:29:[0m [1;36mnote: [0min definition of macro '[1mCAMLreturnT[0m'
+  462 |   type caml__temp_result = ([1;36mresult[0m); \
+      |                             [1;36m^~~~~~[0m
+[1mmbedtls_stubs.c:449:9:[0m [1;36mnote: [0min expansion of macro '[1mCAMLreturn[0m'
+  449 |         [1;36mCAMLreturn[0m(Val_int(mbedtls_ssl_read(SslContext_val(ssl), String_val(buf) + Int_val(pos), Int_val(len))));
+      |         [1;36m^~~~~~~~~~[0m
+[1m/nix/store/g9m1ammkaii7l8r6ll2cdzp0b88q6h0m-ocaml-4.14.1/lib/ocaml/caml/mlvalues.h:79:20:[0m [1;36mnote: [0min expansion of macro '[1mVal_long[0m'
+   79 | #define Val_int(x) [1;36mVal_long[0m(x)
+      |                    [1;36m^~~~~~~~[0m
+[1mmbedtls_stubs.c:449:20:[0m [1;36mnote: [0min expansion of macro '[1mVal_int[0m'
+  449 |         CAMLreturn([1;36mVal_int[0m(mbedtls_ssl_read(SslContext_val(ssl), String_val(buf) + Int_val(pos), Int_val(len))));
+      |                    [1;36m^~~~~~~[0m
+In file included from [1m/nix/store/wa51vyvnzshmpjl0zj1sfs8sfy0pv059-mbedtls-2.28.4/include/mbedtls/debug.h:31[0m,
+                 from [1mmbedtls_stubs.c:21[0m:
+[1m/nix/store/wa51vyvnzshmpjl0zj1sfs8sfy0pv059-mbedtls-2.28.4/include/mbedtls/ssl.h:4121:63:[0m [1;36mnote: [0mexpected '[1munsigned char *[0m' but argument is of type '[1mconst char *[0m'
+ 4121 | int mbedtls_ssl_read(mbedtls_ssl_context *ssl, [1;36munsigned char *buf[0m, size_t len);
+      |                                                [1;36m~~~~~~~~~~~~~~~^~~[0m
+[1mmbedtls_stubs.c:[0m In function '[1mbio_write_cb[0m':
+[1m/nix/store/g9m1ammkaii7l8r6ll2cdzp0b88q6h0m-ocaml-4.14.1/lib/ocaml/caml/mlvalues.h:290:24:[0m [1;35mwarning: [0mpassing argument 1 of '[1mmemcpy[0m' discards '[1mconst[0m' qualifier from pointer target type [[1;35m-Wdiscarded-qualifiers[0m]
+  290 | #define String_val(x) [1;35m((const char *) Bp_val(x))[0m
+      |                       [1;35m~^~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[1mmbedtls_stubs.c:457:16:[0m [1;36mnote: [0min expansion of macro '[1mString_val[0m'
+  457 |         memcpy([1;36mString_val[0m(s), buf, len);
+      |                [1;36m^~~~~~~~~~[0m
+[1m/nix/store/4lap45ifj50lp980id60fnbvs81yj9lr-glibc-2.37-8-dev/include/bits/string_fortified.h:26:1:[0m [1;36mnote: [0mexpected '[1mvoid * restrict[0m' but argument is of type '[1mconst char *[0m'
+   26 | [1;36m__NTH[0m (memcpy (void *__restrict __dest, const void *__restrict __src,
+      | [1;36m^~~~~[0m
+Done: 64% (957/1475, 518 left, 1 failed) (jobs: 8)                                                  Done: 65% (964/1475, 511 left, 1 failed) (jobs: 8)                                                  Done: 65% (966/1475, 509 left, 1 failed) (jobs: 8)                                                  Done: 65% (967/1475, 508 left, 1 failed) (jobs: 7)                                                  Done: 65% (968/1475, 507 left, 1 failed) (jobs: 6)                                                  Done: 65% (969/1475, 506 left, 1 failed) (jobs: 8)                                                  [1mFile "libs/swflib/swfPic.ml", line 62, characters 7-23[0m:
+62 | 	match String.uppercase ext with
+     	      [1;35m^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: Stdlib.String.uppercase
+Use String.uppercase_ascii/StringLabels.uppercase_ascii instead.
+Done: 65% (969/1475, 506 left, 1 failed) (jobs: 8)                                                  Done: 65% (971/1475, 504 left, 1 failed) (jobs: 8)                                                  Done: 65% (972/1475, 503 left, 1 failed) (jobs: 8)                                                  Done: 65% (973/1475, 502 left, 1 failed) (jobs: 7)                                                  Done: 66% (975/1475, 500 left, 1 failed) (jobs: 6)                                                  Done: 66% (976/1475, 499 left, 1 failed) (jobs: 6)                                                  Done: 66% (977/1475, 498 left, 1 failed) (jobs: 7)                                                  [1mFile "libs/swflib/swfPic.ml", line 62, characters 7-23[0m:
+62 | 	match String.uppercase ext with
+     	      [1;35m^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: Stdlib.String.uppercase
+Use String.uppercase_ascii/StringLabels.uppercase_ascii instead.
+Done: 66% (977/1475, 498 left, 1 failed) (jobs: 7)                                                  Done: 66% (978/1475, 497 left, 1 failed) (jobs: 6)                                                  Done: 66% (979/1475, 496 left, 1 failed) (jobs: 6)                                                  Done: 66% (980/1475, 495 left, 1 failed) (jobs: 5)                                                  [1mFile "libs/neko/ncompile.ml", line 676, characters 11-18[0m:
+676 | 			let _ = jmp ctx in
+      			        [1;35m^^^^^^^[0m
+[1;35mWarning[0m 5 [ignored-partial-application]: this function application is partial,
+maybe some arguments are missing.
+Done: 66% (980/1475, 495 left, 1 failed) (jobs: 5)                                                  Done: 66% (981/1475, 494 left, 1 failed) (jobs: 5)                                                  Done: 66% (982/1475, 493 left, 1 failed) (jobs: 4)                                                  Done: 66% (983/1475, 492 left, 1 failed) (jobs: 3)                                                  [1mFile "libs/ilib/ilMetaReader.ml", line 2349, characters 8-24[0m:
+2349 | 		match String.lowercase s.str_name with
+       		      [1;35m^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: ExtString.String.lowercase
+Use String.lowercase_ascii instead.
+Done: 66% (983/1475, 492 left, 1 failed) (jobs: 3)                                                  Done: 66% (983/1475, 492 left, 1 failed) (jobs: 3)                                                  Done: 66% (984/1475, 491 left, 1 failed) (jobs: 3)                                                  Done: 66% (986/1475, 489 left, 1 failed) (jobs: 4)                                                  Done: 66% (987/1475, 488 left, 1 failed) (jobs: 3)                                                  [1mFile "libs/swflib/swfParser.ml", line 447, characters 14-31[0m:
+447 | 	seek_in ch ((Pervasives.pos_in ch) + n)
+      	             [1;35m^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+[1mFile "libs/swflib/swfParser.ml", line 608, characters 1-11[0m:
+608 | 	write_bits b 5 nbits;
+      	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 609, characters 1-11[0m:
+609 | 	write_bits b nbits r.left;
+      	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 610, characters 1-11[0m:
+610 | 	write_bits b nbits r.right;
+      	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 611, characters 1-11[0m:
+611 | 	write_bits b nbits r.top;
+      	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 612, characters 1-11[0m:
+612 | 	write_bits b nbits r.bottom;
+      	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 618, characters 10-20[0m:
+618 | 		| [] -> write_bits b n 0
+      		        [1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 619, characters 11-21[0m:
+619 | 		| [x] -> write_bits b n x
+      		         [1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 623, characters 10-20[0m:
+623 | 		| [] -> write_bits b 30 0; write_multi_bits b (n - 30) []
+      		        [1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 624, characters 14-24[0m:
+624 | 		| x :: l -> write_bits b 30 x; write_multi_bits b (n - 30) l
+      		            [1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 629, characters 1-11[0m:
+629 | 	write_bits b 5 nbits;
+      	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 640, characters 2-12[0m:
+640 | 		write_bits b 5 nbits;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 641, characters 2-12[0m:
+641 | 		write_bits b nbits m.mx;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 642, characters 2-12[0m:
+642 | 		write_bits b nbits m.my;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 646, characters 2-12[0m:
+646 | 		write_bits b 1 0
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 648, characters 2-12[0m:
+648 | 		write_bits b 1 1;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 653, characters 2-12[0m:
+653 | 		write_bits b 1 0
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 655, characters 2-12[0m:
+655 | 		write_bits b 1 1;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 665, characters 2-12[0m:
+665 | 		write_bits b 2 0;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 666, characters 2-12[0m:
+666 | 		write_bits b 4 1; (* some strange MM thing... *)
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 668, characters 2-12[0m:
+668 | 		write_bits b 2 2;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 669, characters 2-12[0m:
+669 | 		write_bits b 4 nbits;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 672, characters 2-12[0m:
+672 | 		write_bits b 2 1;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 673, characters 2-12[0m:
+673 | 		write_bits b 4 nbits;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 676, characters 2-12[0m:
+676 | 		write_bits b 2 3;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 677, characters 2-12[0m:
+677 | 		write_bits b 4 nbits;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1620, characters 1-11[0m:
+1620 | 	write_bits b 6 flags;
+       	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1622, characters 2-12[0m:
+1622 | 		write_bits b 5 n;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1623, characters 2-12[0m:
+1623 | 		write_bits b n dx;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1624, characters 2-12[0m:
+1624 | 		write_bits b n dy;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1637, characters 2-12[0m:
+1637 | 		write_bits b 4 !nfbits;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1638, characters 2-12[0m:
+1638 | 		write_bits b 4 !nlbits
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1644, characters 2-12[0m:
+1644 | 		write_bits b 2 2;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1645, characters 2-12[0m:
+1645 | 		write_bits b 4 (s.scer_nbits - 2);
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1646, characters 2-12[0m:
+1646 | 		write_bits b s.scer_nbits s.scer_cx;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1647, characters 2-12[0m:
+1647 | 		write_bits b s.scer_nbits s.scer_cy;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1648, characters 2-12[0m:
+1648 | 		write_bits b s.scer_nbits s.scer_ax;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1649, characters 2-12[0m:
+1649 | 		write_bits b s.scer_nbits s.scer_ay;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1651, characters 2-12[0m:
+1651 | 		write_bits b 2 3;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1652, characters 2-12[0m:
+1652 | 		write_bits b 4 (s.sser_nbits - 2);
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1657, characters 3-13[0m:
+1657 | 			write_bits b 1 0;
+       			[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1658, characters 3-13[0m:
+1658 | 			write_bits b 1 (if (fst s.sser_line) = None then 1 else 0);
+       			[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1659, characters 3-13[0m:
+1659 | 			write_bits b s.sser_nbits p;
+       			[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1661, characters 3-13[0m:
+1661 | 			write_bits b 1 1;
+       			[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1662, characters 3-13[0m:
+1662 | 			write_bits b s.sser_nbits dx;
+       			[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1663, characters 3-13[0m:
+1663 | 			write_bits b s.sser_nbits dy
+       			[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1670, characters 1-11[0m:
+1670 | 	write_bits b 4 r.srs_nfbits;
+       	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1671, characters 1-11[0m:
+1671 | 	write_bits b 4 r.srs_nlbits;
+       	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1683, characters 1-11[0m:
+1683 | 	write_bits b 4 r.srs_nfbits;
+       	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1684, characters 1-11[0m:
+1684 | 	write_bits b 4 r.srs_nlbits;
+       	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1688, characters 1-11[0m:
+1688 | 	write_bits b 6 0;
+       	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1724, characters 2-12[0m:
+1724 | 		write_bits bits t.txt_ngbits g.txg_index;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1725, characters 2-12[0m:
+1725 | 		write_bits bits t.txt_nabits g.txg_advanced;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+Done: 66% (987/1475, 488 left, 1 failed) (jobs: 3)                                                  Done: 66% (988/1475, 487 left, 1 failed) (jobs: 3)                                                  Done: 67% (989/1475, 486 left, 1 failed) (jobs: 4)                                                  Done: 67% (990/1475, 485 left, 1 failed) (jobs: 5)                                                  Done: 67% (991/1475, 484 left, 1 failed) (jobs: 7)                                                  Done: 67% (992/1475, 483 left, 1 failed) (jobs: 6)                                                  Done: 67% (993/1475, 482 left, 1 failed) (jobs: 5)                                                  [1mFile "libs/ttflib/tTFParser.ml", line 27, characters 8-29[0m:
+27 | 	file : Pervasives.in_channel;
+     	       [1;35m^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+Done: 67% (993/1475, 482 left, 1 failed) (jobs: 5)                                                  Done: 67% (994/1475, 481 left, 1 failed) (jobs: 4)                                                  [1mFile "libs/ttflib/tTFSwfWriter.ml", line 156, characters 1-14[0m:
+156 | 	IO.write_bits b 1 (bi true);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/ttflib/tTFSwfWriter.ml", line 157, characters 1-14[0m:
+157 | 	IO.write_bits b 1 (bi f2.font_shift_jis);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/ttflib/tTFSwfWriter.ml", line 158, characters 1-14[0m:
+158 | 	IO.write_bits b 1 (bi f2.font_is_small);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/ttflib/tTFSwfWriter.ml", line 159, characters 1-14[0m:
+159 | 	IO.write_bits b 1 (bi f2.font_is_ansi);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/ttflib/tTFSwfWriter.ml", line 160, characters 1-14[0m:
+160 | 	IO.write_bits b 1 (bi f2.font_wide_offsets);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/ttflib/tTFSwfWriter.ml", line 161, characters 1-14[0m:
+161 | 	IO.write_bits b 1 (bi f2.font_wide_codes);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/ttflib/tTFSwfWriter.ml", line 162, characters 1-14[0m:
+162 | 	IO.write_bits b 1 (bi f2.font_is_italic);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/ttflib/tTFSwfWriter.ml", line 163, characters 1-14[0m:
+163 | 	IO.write_bits b 1 (bi f2.font_is_bold);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+Done: 67% (994/1475, 481 left, 1 failed) (jobs: 4)                                                  Done: 67% (994/1475, 481 left, 1 failed) (jobs: 4)                                                  Done: 67% (995/1475, 480 left, 1 failed) (jobs: 8)                                                  Done: 67% (996/1475, 479 left, 1 failed) (jobs: 8)                                                  Done: 67% (998/1475, 477 left, 1 failed) (jobs: 8)                                                  Done: 67% (1000/1475, 475 left, 1 failed) (jobs: 8)                                                   Done: 67% (1001/1475, 474 left, 1 failed) (jobs: 8)                                                   [1mFile "libs/ilib/ilMetaReader.ml", line 2349, characters 8-24[0m:
+2349 | 		match String.lowercase s.str_name with
+       		      [1;35m^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: ExtString.String.lowercase
+Use String.lowercase_ascii instead.
+Done: 67% (1001/1475, 474 left, 1 failed) (jobs: 8)                                                   Done: 68% (1006/1475, 469 left, 1 failed) (jobs: 8)                                                   Done: 68% (1008/1475, 467 left, 1 failed) (jobs: 8)                                                   Done: 68% (1010/1475, 465 left, 1 failed) (jobs: 8)                                                   Done: 68% (1014/1475, 461 left, 1 failed) (jobs: 7)                                                   Done: 68% (1015/1475, 460 left, 1 failed) (jobs: 7)                                                   Done: 68% (1016/1475, 459 left, 1 failed) (jobs: 6)                                                   Done: 68% (1017/1475, 458 left, 1 failed) (jobs: 6)                                                   Done: 69% (1019/1475, 456 left, 1 failed) (jobs: 8)                                                   Done: 69% (1022/1475, 453 left, 1 failed) (jobs: 8)                                                   Done: 69% (1023/1475, 452 left, 1 failed) (jobs: 8)                                                   Done: 69% (1024/1475, 451 left, 1 failed) (jobs: 8)                                                   Done: 69% (1026/1475, 449 left, 1 failed) (jobs: 8)                                                   Done: 69% (1027/1475, 448 left, 1 failed) (jobs: 8)                                                   Done: 69% (1028/1475, 447 left, 1 failed) (jobs: 8)                                                   Done: 69% (1031/1475, 444 left, 1 failed) (jobs: 7)                                                   Done: 70% (1033/1475, 442 left, 1 failed) (jobs: 7)                                                   Done: 70% (1034/1475, 441 left, 1 failed) (jobs: 7)                                                   Done: 70% (1036/1475, 439 left, 1 failed) (jobs: 6)                                                   Done: 70% (1038/1475, 437 left, 1 failed) (jobs: 5)                                                   Done: 70% (1039/1475, 436 left, 1 failed) (jobs: 5)                                                   Done: 70% (1040/1475, 435 left, 1 failed) (jobs: 4)                                                   Done: 70% (1041/1475, 434 left, 1 failed) (jobs: 3)                                                   [1mFile "libs/swflib/swfParser.ml", line 447, characters 14-31[0m:
+447 | 	seek_in ch ((Pervasives.pos_in ch) + n)
+      	             [1;35m^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+[1mFile "libs/swflib/swfParser.ml", line 608, characters 1-11[0m:
+608 | 	write_bits b 5 nbits;
+      	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 609, characters 1-11[0m:
+609 | 	write_bits b nbits r.left;
+      	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 610, characters 1-11[0m:
+610 | 	write_bits b nbits r.right;
+      	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 611, characters 1-11[0m:
+611 | 	write_bits b nbits r.top;
+      	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 612, characters 1-11[0m:
+612 | 	write_bits b nbits r.bottom;
+      	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 618, characters 10-20[0m:
+618 | 		| [] -> write_bits b n 0
+      		        [1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 619, characters 11-21[0m:
+619 | 		| [x] -> write_bits b n x
+      		         [1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 623, characters 10-20[0m:
+623 | 		| [] -> write_bits b 30 0; write_multi_bits b (n - 30) []
+      		        [1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 624, characters 14-24[0m:
+624 | 		| x :: l -> write_bits b 30 x; write_multi_bits b (n - 30) l
+      		            [1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 629, characters 1-11[0m:
+629 | 	write_bits b 5 nbits;
+      	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 640, characters 2-12[0m:
+640 | 		write_bits b 5 nbits;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 641, characters 2-12[0m:
+641 | 		write_bits b nbits m.mx;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 642, characters 2-12[0m:
+642 | 		write_bits b nbits m.my;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 646, characters 2-12[0m:
+646 | 		write_bits b 1 0
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 648, characters 2-12[0m:
+648 | 		write_bits b 1 1;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 653, characters 2-12[0m:
+653 | 		write_bits b 1 0
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 655, characters 2-12[0m:
+655 | 		write_bits b 1 1;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 665, characters 2-12[0m:
+665 | 		write_bits b 2 0;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 666, characters 2-12[0m:
+666 | 		write_bits b 4 1; (* some strange MM thing... *)
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 668, characters 2-12[0m:
+668 | 		write_bits b 2 2;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 669, characters 2-12[0m:
+669 | 		write_bits b 4 nbits;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 672, characters 2-12[0m:
+672 | 		write_bits b 2 1;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 673, characters 2-12[0m:
+673 | 		write_bits b 4 nbits;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 676, characters 2-12[0m:
+676 | 		write_bits b 2 3;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 677, characters 2-12[0m:
+677 | 		write_bits b 4 nbits;
+      		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1620, characters 1-11[0m:
+1620 | 	write_bits b 6 flags;
+       	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1622, characters 2-12[0m:
+1622 | 		write_bits b 5 n;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1623, characters 2-12[0m:
+1623 | 		write_bits b n dx;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1624, characters 2-12[0m:
+1624 | 		write_bits b n dy;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1637, characters 2-12[0m:
+1637 | 		write_bits b 4 !nfbits;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1638, characters 2-12[0m:
+1638 | 		write_bits b 4 !nlbits
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1644, characters 2-12[0m:
+1644 | 		write_bits b 2 2;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1645, characters 2-12[0m:
+1645 | 		write_bits b 4 (s.scer_nbits - 2);
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1646, characters 2-12[0m:
+1646 | 		write_bits b s.scer_nbits s.scer_cx;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1647, characters 2-12[0m:
+1647 | 		write_bits b s.scer_nbits s.scer_cy;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1648, characters 2-12[0m:
+1648 | 		write_bits b s.scer_nbits s.scer_ax;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1649, characters 2-12[0m:
+1649 | 		write_bits b s.scer_nbits s.scer_ay;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1651, characters 2-12[0m:
+1651 | 		write_bits b 2 3;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1652, characters 2-12[0m:
+1652 | 		write_bits b 4 (s.sser_nbits - 2);
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1657, characters 3-13[0m:
+1657 | 			write_bits b 1 0;
+       			[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1658, characters 3-13[0m:
+1658 | 			write_bits b 1 (if (fst s.sser_line) = None then 1 else 0);
+       			[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1659, characters 3-13[0m:
+1659 | 			write_bits b s.sser_nbits p;
+       			[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1661, characters 3-13[0m:
+1661 | 			write_bits b 1 1;
+       			[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1662, characters 3-13[0m:
+1662 | 			write_bits b s.sser_nbits dx;
+       			[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1663, characters 3-13[0m:
+1663 | 			write_bits b s.sser_nbits dy
+       			[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1670, characters 1-11[0m:
+1670 | 	write_bits b 4 r.srs_nfbits;
+       	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1671, characters 1-11[0m:
+1671 | 	write_bits b 4 r.srs_nlbits;
+       	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1683, characters 1-11[0m:
+1683 | 	write_bits b 4 r.srs_nfbits;
+       	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1684, characters 1-11[0m:
+1684 | 	write_bits b 4 r.srs_nlbits;
+       	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1688, characters 1-11[0m:
+1688 | 	write_bits b 6 0;
+       	[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1724, characters 2-12[0m:
+1724 | 		write_bits bits t.txt_ngbits g.txg_index;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/swflib/swfParser.ml", line 1725, characters 2-12[0m:
+1725 | 		write_bits bits t.txt_nabits g.txg_advanced;
+       		[1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+Done: 70% (1041/1475, 434 left, 1 failed) (jobs: 3)                                                   Done: 70% (1042/1475, 433 left, 1 failed) (jobs: 4)                                                   Done: 70% (1044/1475, 431 left, 1 failed) (jobs: 4)                                                   Done: 70% (1045/1475, 430 left, 1 failed) (jobs: 4)                                                   Done: 70% (1046/1475, 429 left, 1 failed) (jobs: 7)                                                   Done: 70% (1047/1475, 428 left, 1 failed) (jobs: 8)                                                   Done: 71% (1049/1475, 426 left, 1 failed) (jobs: 8)                                                   Done: 71% (1050/1475, 425 left, 1 failed) (jobs: 8)                                                   Done: 71% (1051/1475, 424 left, 1 failed) (jobs: 7)                                                   [1mFile "libs/ttflib/tTFParser.ml", line 27, characters 8-29[0m:
+27 | 	file : Pervasives.in_channel;
+     	       [1;35m^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mAlert[0m deprecated: module Stdlib.Pervasives
+Use Stdlib instead.
+
+If you need to stay compatible with OCaml < 4.07, you can use the 
+stdlib-shims library: https://github.com/ocaml/stdlib-shims
+Done: 71% (1051/1475, 424 left, 1 failed) (jobs: 7)                                                   Done: 71% (1052/1475, 423 left, 1 failed) (jobs: 6)                                                   Done: 71% (1053/1475, 422 left, 1 failed) (jobs: 5)                                                   [1mFile "libs/ttflib/tTFSwfWriter.ml", line 156, characters 1-14[0m:
+156 | 	IO.write_bits b 1 (bi true);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/ttflib/tTFSwfWriter.ml", line 157, characters 1-14[0m:
+157 | 	IO.write_bits b 1 (bi f2.font_shift_jis);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/ttflib/tTFSwfWriter.ml", line 158, characters 1-14[0m:
+158 | 	IO.write_bits b 1 (bi f2.font_is_small);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/ttflib/tTFSwfWriter.ml", line 159, characters 1-14[0m:
+159 | 	IO.write_bits b 1 (bi f2.font_is_ansi);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/ttflib/tTFSwfWriter.ml", line 160, characters 1-14[0m:
+160 | 	IO.write_bits b 1 (bi f2.font_wide_offsets);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/ttflib/tTFSwfWriter.ml", line 161, characters 1-14[0m:
+161 | 	IO.write_bits b 1 (bi f2.font_wide_codes);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/ttflib/tTFSwfWriter.ml", line 162, characters 1-14[0m:
+162 | 	IO.write_bits b 1 (bi f2.font_is_italic);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+[1mFile "libs/ttflib/tTFSwfWriter.ml", line 163, characters 1-14[0m:
+163 | 	IO.write_bits b 1 (bi f2.font_is_bold);
+      	[1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label nbits was omitted in the application of this function.
+Done: 71% (1053/1475, 422 left, 1 failed) (jobs: 5)                                                   Done: 71% (1053/1475, 422 left, 1 failed) (jobs: 5)                                                   Done: 71% (1055/1475, 420 left, 1 failed) (jobs: 8)                                                   Done: 71% (1056/1475, 419 left, 1 failed) (jobs: 8)                                                   Done: 71% (1057/1475, 418 left, 1 failed) (jobs: 8)                                                   Done: 71% (1059/1475, 416 left, 1 failed) (jobs: 8)                                                   Done: 71% (1061/1475, 414 left, 1 failed) (jobs: 8)                                                   Done: 72% (1063/1475, 412 left, 1 failed) (jobs: 8)                                                   Done: 72% (1064/1475, 411 left, 1 failed) (jobs: 8)                                                   Done: 72% (1065/1475, 410 left, 1 failed) (jobs: 8)                                                   Done: 72% (1066/1475, 409 left, 1 failed) (jobs: 8)                                                   Done: 72% (1070/1475, 405 left, 1 failed) (jobs: 8)                                                   Done: 72% (1071/1475, 404 left, 1 failed) (jobs: 8)                                                   Done: 72% (1073/1475, 402 left, 1 failed) (jobs: 8)                                                   Done: 72% (1074/1475, 401 left, 1 failed) (jobs: 8)                                                   Done: 72% (1075/1475, 400 left, 1 failed) (jobs: 8)                                                   Done: 72% (1076/1475, 399 left, 1 failed) (jobs: 8)                                                   Done: 73% (1077/1475, 398 left, 1 failed) (jobs: 8)                                                   Done: 73% (1078/1475, 397 left, 1 failed) (jobs: 8)                                                   Done: 73% (1079/1475, 396 left, 1 failed) (jobs: 8)                                                   Done: 73% (1080/1475, 395 left, 1 failed) (jobs: 8)                                                   Done: 73% (1081/1475, 394 left, 1 failed) (jobs: 8)                                                   Done: 73% (1083/1475, 392 left, 1 failed) (jobs: 8)                                                   Done: 73% (1084/1475, 391 left, 1 failed) (jobs: 8)                                                   Done: 73% (1086/1475, 389 left, 1 failed) (jobs: 8)                                                   Done: 73% (1087/1475, 388 left, 1 failed) (jobs: 8)                                                   Done: 73% (1088/1475, 387 left, 1 failed) (jobs: 8)                                                   Done: 73% (1089/1475, 386 left, 1 failed) (jobs: 8)                                                   Done: 73% (1090/1475, 385 left, 1 failed) (jobs: 8)                                                   Done: 74% (1093/1475, 382 left, 1 failed) (jobs: 8)                                                   Done: 74% (1094/1475, 381 left, 1 failed) (jobs: 8)                                                   Done: 74% (1095/1475, 380 left, 1 failed) (jobs: 7)                                                   Done: 74% (1096/1475, 379 left, 1 failed) (jobs: 6)                                                   Done: 74% (1097/1475, 378 left, 1 failed) (jobs: 6)                                                   Done: 74% (1098/1475, 377 left, 1 failed) (jobs: 6)                                                   Done: 74% (1099/1475, 376 left, 1 failed) (jobs: 6)                                                   Done: 74% (1100/1475, 375 left, 1 failed) (jobs: 6)                                                   Done: 74% (1101/1475, 374 left, 1 failed) (jobs: 5)                                                   Done: 74% (1102/1475, 373 left, 1 failed) (jobs: 4)                                                   Done: 74% (1103/1475, 372 left, 1 failed) (jobs: 4)                                                   Done: 74% (1104/1475, 371 left, 1 failed) (jobs: 4)                                                   Done: 74% (1105/1475, 370 left, 1 failed) (jobs: 4)                                                   [1mFile "src/core/error.ml", line 321, characters 13-37[0m:
+321 | 		let _, v = ExtString.String.replace (String.sub r 5 (String.length r - 5)) "_" "." in
+      		           [1;35m^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels str, sub, by were omitted in the application of this function.
+Done: 74% (1105/1475, 370 left, 1 failed) (jobs: 4)                                                   Done: 74% (1105/1475, 370 left, 1 failed) (jobs: 4)                                                   Done: 74% (1106/1475, 369 left, 1 failed) (jobs: 5)                                                   Done: 75% (1108/1475, 367 left, 1 failed) (jobs: 4)                                                   Done: 75% (1109/1475, 366 left, 1 failed) (jobs: 4)                                                   Done: 75% (1110/1475, 365 left, 1 failed) (jobs: 3)                                                   Done: 75% (1111/1475, 364 left, 1 failed) (jobs: 6)                                                   Done: 75% (1113/1475, 362 left, 1 failed) (jobs: 6)                                                   Done: 75% (1114/1475, 361 left, 1 failed) (jobs: 5)                                                   Done: 75% (1115/1475, 360 left, 1 failed) (jobs: 5)                                                   Done: 75% (1116/1475, 359 left, 1 failed) (jobs: 5)                                                   Done: 75% (1118/1475, 357 left, 1 failed) (jobs: 8)                                                   Done: 75% (1119/1475, 356 left, 1 failed) (jobs: 8)                                                   Done: 75% (1120/1475, 355 left, 1 failed) (jobs: 8)                                                   Done: 76% (1121/1475, 354 left, 1 failed) (jobs: 8)                                                   Done: 76% (1122/1475, 353 left, 1 failed) (jobs: 8)                                                   Done: 76% (1123/1475, 352 left, 1 failed) (jobs: 8)                                                   Done: 76% (1126/1475, 349 left, 1 failed) (jobs: 7)                                                   Done: 76% (1127/1475, 348 left, 1 failed) (jobs: 7)                                                   Done: 76% (1128/1475, 347 left, 1 failed) (jobs: 6)                                                   Done: 76% (1129/1475, 346 left, 1 failed) (jobs: 5)                                                   Done: 76% (1130/1475, 345 left, 1 failed) (jobs: 5)                                                   Done: 76% (1131/1475, 344 left, 1 failed) (jobs: 4)                                                   Done: 76% (1132/1475, 343 left, 1 failed) (jobs: 4)                                                   Done: 76% (1134/1475, 341 left, 1 failed) (jobs: 4)                                                   Done: 76% (1135/1475, 340 left, 1 failed) (jobs: 5)                                                   Done: 77% (1136/1475, 339 left, 1 failed) (jobs: 4)                                                   Done: 77% (1137/1475, 338 left, 1 failed) (jobs: 6)                                                   Done: 77% (1138/1475, 337 left, 1 failed) (jobs: 5)                                                   Done: 77% (1139/1475, 336 left, 1 failed) (jobs: 5)                                                   Done: 77% (1140/1475, 335 left, 1 failed) (jobs: 5)                                                   Done: 77% (1141/1475, 334 left, 1 failed) (jobs: 4)                                                   Done: 77% (1142/1475, 333 left, 1 failed) (jobs: 4)                                                   Done: 77% (1143/1475, 332 left, 1 failed) (jobs: 8)                                                   Done: 77% (1144/1475, 331 left, 1 failed) (jobs: 8)                                                   Done: 77% (1145/1475, 330 left, 1 failed) (jobs: 8)                                                   Done: 77% (1146/1475, 329 left, 1 failed) (jobs: 8)                                                   Done: 77% (1147/1475, 328 left, 1 failed) (jobs: 8)                                                   Done: 77% (1148/1475, 327 left, 1 failed) (jobs: 8)                                                   Done: 77% (1149/1475, 326 left, 1 failed) (jobs: 8)                                                   Done: 77% (1150/1475, 325 left, 1 failed) (jobs: 8)                                                   Done: 78% (1151/1475, 324 left, 1 failed) (jobs: 8)                                                   Done: 78% (1152/1475, 323 left, 1 failed) (jobs: 8)                                                   Done: 78% (1154/1475, 321 left, 1 failed) (jobs: 8)                                                   Done: 78% (1156/1475, 319 left, 1 failed) (jobs: 8)                                                   [1mFile "src/core/error.ml", line 321, characters 13-37[0m:
+321 | 		let _, v = ExtString.String.replace (String.sub r 5 (String.length r - 5)) "_" "." in
+      		           [1;35m^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels str, sub, by were omitted in the application of this function.
+Done: 78% (1156/1475, 319 left, 1 failed) (jobs: 8)                                                   Done: 78% (1157/1475, 318 left, 1 failed) (jobs: 8)                                                   Done: 78% (1158/1475, 317 left, 1 failed) (jobs: 8)                                                   Done: 78% (1159/1475, 316 left, 1 failed) (jobs: 8)                                                   Done: 78% (1160/1475, 315 left, 1 failed) (jobs: 8)                                                   Done: 78% (1161/1475, 314 left, 1 failed) (jobs: 8)                                                   Done: 78% (1162/1475, 313 left, 1 failed) (jobs: 8)                                                   [1mFile "src/codegen/java.ml", line 969, characters 29-43[0m:
+969 | 						let did_replace,name = String.replace cname name_original name_replace in
+      						                       [1;35m^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels str, sub, by were omitted in the application of this function.
+Done: 78% (1162/1475, 313 left, 1 failed) (jobs: 8)                                                   Done: 78% (1162/1475, 313 left, 1 failed) (jobs: 8)                                                   Done: 78% (1163/1475, 312 left, 1 failed) (jobs: 8)                                                   Done: 78% (1164/1475, 311 left, 1 failed) (jobs: 8)                                                   Done: 78% (1165/1475, 310 left, 1 failed) (jobs: 8)                                                   Done: 79% (1166/1475, 309 left, 1 failed) (jobs: 8)                                                   Done: 79% (1167/1475, 308 left, 1 failed) (jobs: 8)                                                   Done: 79% (1168/1475, 307 left, 1 failed) (jobs: 8)                                                   Done: 79% (1169/1475, 306 left, 1 failed) (jobs: 8)                                                   Done: 79% (1170/1475, 305 left, 1 failed) (jobs: 8)                                                   Done: 79% (1171/1475, 304 left, 1 failed) (jobs: 8)                                                   Done: 79% (1172/1475, 303 left, 1 failed) (jobs: 8)                                                   Done: 79% (1173/1475, 302 left, 1 failed) (jobs: 8)                                                   Done: 79% (1174/1475, 301 left, 1 failed) (jobs: 8)                                                   Done: 79% (1175/1475, 300 left, 1 failed) (jobs: 8)                                                   Done: 79% (1176/1475, 299 left, 1 failed) (jobs: 7)                                                   Done: 79% (1177/1475, 298 left, 1 failed) (jobs: 7)                                                   Done: 79% (1178/1475, 297 left, 1 failed) (jobs: 7)                                                   Done: 79% (1179/1475, 296 left, 1 failed) (jobs: 8)                                                   Done: 80% (1180/1475, 295 left, 1 failed) (jobs: 7)                                                   Done: 80% (1181/1475, 294 left, 1 failed) (jobs: 7)                                                   Done: 80% (1182/1475, 293 left, 1 failed) (jobs: 6)                                                   Done: 80% (1183/1475, 292 left, 1 failed) (jobs: 6)                                                   Done: 80% (1184/1475, 291 left, 1 failed) (jobs: 5)                                                   Done: 80% (1185/1475, 290 left, 1 failed) (jobs: 5)                                                   Done: 80% (1186/1475, 289 left, 1 failed) (jobs: 5)                                                   Done: 80% (1187/1475, 288 left, 1 failed) (jobs: 6)                                                   Done: 80% (1188/1475, 287 left, 1 failed) (jobs: 8)                                                   Done: 80% (1189/1475, 286 left, 1 failed) (jobs: 8)                                                   Done: 80% (1191/1475, 284 left, 1 failed) (jobs: 8)                                                   Done: 80% (1192/1475, 283 left, 1 failed) (jobs: 8)                                                   Done: 80% (1193/1475, 282 left, 1 failed) (jobs: 8)                                                   Done: 80% (1194/1475, 281 left, 1 failed) (jobs: 8)                                                   Done: 81% (1195/1475, 280 left, 1 failed) (jobs: 8)                                                   Done: 81% (1196/1475, 279 left, 1 failed) (jobs: 8)                                                   Done: 81% (1197/1475, 278 left, 1 failed) (jobs: 8)                                                   Done: 81% (1198/1475, 277 left, 1 failed) (jobs: 8)                                                   Done: 81% (1199/1475, 276 left, 1 failed) (jobs: 8)                                                   Done: 81% (1200/1475, 275 left, 1 failed) (jobs: 8)                                                   Done: 81% (1202/1475, 273 left, 1 failed) (jobs: 8)                                                   Done: 81% (1203/1475, 272 left, 1 failed) (jobs: 8)                                                   Done: 81% (1204/1475, 271 left, 1 failed) (jobs: 8)                                                   Done: 81% (1205/1475, 270 left, 1 failed) (jobs: 8)                                                   Done: 81% (1206/1475, 269 left, 1 failed) (jobs: 8)                                                   Done: 81% (1207/1475, 268 left, 1 failed) (jobs: 8)                                                   Done: 81% (1208/1475, 267 left, 1 failed) (jobs: 8)                                                   Done: 81% (1209/1475, 266 left, 1 failed) (jobs: 8)                                                   Done: 82% (1210/1475, 265 left, 1 failed) (jobs: 8)                                                   Done: 82% (1211/1475, 264 left, 1 failed) (jobs: 8)                                                   Done: 82% (1213/1475, 262 left, 1 failed) (jobs: 6)                                                   Done: 82% (1214/1475, 261 left, 1 failed) (jobs: 5)                                                   Done: 82% (1215/1475, 260 left, 1 failed) (jobs: 4)                                                   Done: 82% (1216/1475, 259 left, 1 failed) (jobs: 6)                                                   Done: 82% (1217/1475, 258 left, 1 failed) (jobs: 6)                                                   Done: 82% (1218/1475, 257 left, 1 failed) (jobs: 5)                                                   Done: 82% (1219/1475, 256 left, 1 failed) (jobs: 6)                                                   Done: 82% (1220/1475, 255 left, 1 failed) (jobs: 6)                                                   Done: 82% (1221/1475, 254 left, 1 failed) (jobs: 7)                                                   Done: 82% (1222/1475, 253 left, 1 failed) (jobs: 6)                                                   Done: 82% (1223/1475, 252 left, 1 failed) (jobs: 6)                                                   [1mFile "src/generators/gencpp.ml", line 502, characters 22-46[0m:
+502 |          let _,code = ExtString.String.replace code magic_var source_directory in
+                            [1;35m^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels str, sub, by were omitted in the application of this function.
+Done: 82% (1223/1475, 252 left, 1 failed) (jobs: 6)                                                   Done: 82% (1223/1475, 252 left, 1 failed) (jobs: 6)                                                   Done: 82% (1224/1475, 251 left, 1 failed) (jobs: 5)                                                   Done: 83% (1225/1475, 250 left, 1 failed) (jobs: 7)                                                   Done: 83% (1226/1475, 249 left, 1 failed) (jobs: 7)                                                   Done: 83% (1227/1475, 248 left, 1 failed) (jobs: 7)                                                   Done: 83% (1228/1475, 247 left, 1 failed) (jobs: 6)                                                   Done: 83% (1229/1475, 246 left, 1 failed) (jobs: 7)                                                   Done: 83% (1230/1475, 245 left, 1 failed) (jobs: 7)                                                   Done: 83% (1231/1475, 244 left, 1 failed) (jobs: 7)                                                   Done: 83% (1232/1475, 243 left, 1 failed) (jobs: 6)                                                   Done: 83% (1233/1475, 242 left, 1 failed) (jobs: 6)                                                   Done: 83% (1234/1475, 241 left, 1 failed) (jobs: 6)                                                   Done: 83% (1235/1475, 240 left, 1 failed) (jobs: 5)                                                   Done: 83% (1236/1475, 239 left, 1 failed) (jobs: 8)                                                   Done: 83% (1237/1475, 238 left, 1 failed) (jobs: 8)                                                   Done: 83% (1238/1475, 237 left, 1 failed) (jobs: 8)                                                   Done: 84% (1239/1475, 236 left, 1 failed) (jobs: 8)                                                   Done: 84% (1240/1475, 235 left, 1 failed) (jobs: 8)                                                   Done: 84% (1241/1475, 234 left, 1 failed) (jobs: 8)                                                   Done: 84% (1242/1475, 233 left, 1 failed) (jobs: 8)                                                   Done: 84% (1243/1475, 232 left, 1 failed) (jobs: 8)                                                   Done: 84% (1244/1475, 231 left, 1 failed) (jobs: 8)                                                   Done: 84% (1245/1475, 230 left, 1 failed) (jobs: 8)                                                   Done: 84% (1246/1475, 229 left, 1 failed) (jobs: 8)                                                   Done: 84% (1247/1475, 228 left, 1 failed) (jobs: 8)                                                   Done: 84% (1248/1475, 227 left, 1 failed) (jobs: 8)                                                   Done: 84% (1249/1475, 226 left, 1 failed) (jobs: 8)                                                   Done: 84% (1250/1475, 225 left, 1 failed) (jobs: 8)                                                   Done: 84% (1252/1475, 223 left, 1 failed) (jobs: 8)                                                   Done: 84% (1253/1475, 222 left, 1 failed) (jobs: 8)                                                   Done: 85% (1255/1475, 220 left, 1 failed) (jobs: 8)                                                   Done: 85% (1256/1475, 219 left, 1 failed) (jobs: 8)                                                   Done: 85% (1257/1475, 218 left, 1 failed) (jobs: 8)                                                   Done: 85% (1258/1475, 217 left, 1 failed) (jobs: 8)                                                   Done: 85% (1259/1475, 216 left, 1 failed) (jobs: 8)                                                   Done: 85% (1260/1475, 215 left, 1 failed) (jobs: 8)                                                   Done: 85% (1261/1475, 214 left, 1 failed) (jobs: 8)                                                   Done: 85% (1262/1475, 213 left, 1 failed) (jobs: 8)                                                   Done: 85% (1263/1475, 212 left, 1 failed) (jobs: 8)                                                   Done: 85% (1264/1475, 211 left, 1 failed) (jobs: 8)                                                   Done: 85% (1265/1475, 210 left, 1 failed) (jobs: 8)                                                   Done: 85% (1266/1475, 209 left, 1 failed) (jobs: 8)                                                   Done: 85% (1267/1475, 208 left, 1 failed) (jobs: 8)                                                   Done: 85% (1268/1475, 207 left, 1 failed) (jobs: 8)                                                   Done: 86% (1269/1475, 206 left, 1 failed) (jobs: 8)                                                   Done: 86% (1270/1475, 205 left, 1 failed) (jobs: 8)                                                   Done: 86% (1271/1475, 204 left, 1 failed) (jobs: 8)                                                   Done: 86% (1272/1475, 203 left, 1 failed) (jobs: 8)                                                   Done: 86% (1273/1475, 202 left, 1 failed) (jobs: 8)                                                   Done: 86% (1274/1475, 201 left, 1 failed) (jobs: 8)                                                   Done: 86% (1275/1475, 200 left, 1 failed) (jobs: 8)                                                   Done: 86% (1276/1475, 199 left, 1 failed) (jobs: 8)                                                   [1mFile "src/codegen/java.ml", line 969, characters 29-43[0m:
+969 | 						let did_replace,name = String.replace cname name_original name_replace in
+      						                       [1;35m^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels str, sub, by were omitted in the application of this function.
+Done: 86% (1276/1475, 199 left, 1 failed) (jobs: 8)                                                   Done: 86% (1277/1475, 198 left, 1 failed) (jobs: 8)                                                   Done: 86% (1278/1475, 197 left, 1 failed) (jobs: 8)                                                   Done: 86% (1279/1475, 196 left, 1 failed) (jobs: 8)                                                   Done: 86% (1280/1475, 195 left, 1 failed) (jobs: 8)                                                   Done: 86% (1282/1475, 193 left, 1 failed) (jobs: 8)                                                   Done: 86% (1283/1475, 192 left, 1 failed) (jobs: 8)                                                   Done: 87% (1284/1475, 191 left, 1 failed) (jobs: 8)                                                   Done: 87% (1285/1475, 190 left, 1 failed) (jobs: 8)                                                   Done: 87% (1286/1475, 189 left, 1 failed) (jobs: 8)                                                   Done: 87% (1287/1475, 188 left, 1 failed) (jobs: 8)                                                   Done: 87% (1288/1475, 187 left, 1 failed) (jobs: 8)                                                   Done: 87% (1289/1475, 186 left, 1 failed) (jobs: 8)                                                   Done: 87% (1290/1475, 185 left, 1 failed) (jobs: 8)                                                   Done: 87% (1291/1475, 184 left, 1 failed) (jobs: 8)                                                   Done: 87% (1292/1475, 183 left, 1 failed) (jobs: 8)                                                   Done: 87% (1293/1475, 182 left, 1 failed) (jobs: 8)                                                   Done: 87% (1294/1475, 181 left, 1 failed) (jobs: 8)                                                   Done: 87% (1295/1475, 180 left, 1 failed) (jobs: 8)                                                   Done: 87% (1296/1475, 179 left, 1 failed) (jobs: 8)                                                   Done: 87% (1297/1475, 178 left, 1 failed) (jobs: 8)                                                   Done: 88% (1298/1475, 177 left, 1 failed) (jobs: 8)                                                   Done: 88% (1299/1475, 176 left, 1 failed) (jobs: 8)                                                   Done: 88% (1300/1475, 175 left, 1 failed) (jobs: 8)                                                   Done: 88% (1301/1475, 174 left, 1 failed) (jobs: 8)                                                   Done: 88% (1302/1475, 173 left, 1 failed) (jobs: 8)                                                   Done: 88% (1303/1475, 172 left, 1 failed) (jobs: 8)                                                   Done: 88% (1304/1475, 171 left, 1 failed) (jobs: 8)                                                   Done: 88% (1305/1475, 170 left, 1 failed) (jobs: 8)                                                   Done: 88% (1306/1475, 169 left, 1 failed) (jobs: 8)                                                   Done: 88% (1307/1475, 168 left, 1 failed) (jobs: 8)                                                   Done: 88% (1308/1475, 167 left, 1 failed) (jobs: 8)                                                   Done: 88% (1309/1475, 166 left, 1 failed) (jobs: 8)                                                   Done: 88% (1310/1475, 165 left, 1 failed) (jobs: 8)                                                   Done: 88% (1311/1475, 164 left, 1 failed) (jobs: 8)                                                   Done: 88% (1312/1475, 163 left, 1 failed) (jobs: 8)                                                   Done: 89% (1313/1475, 162 left, 1 failed) (jobs: 8)                                                   Done: 89% (1314/1475, 161 left, 1 failed) (jobs: 8)                                                   Done: 89% (1315/1475, 160 left, 1 failed) (jobs: 8)                                                   Done: 89% (1316/1475, 159 left, 1 failed) (jobs: 8)                                                   Done: 89% (1317/1475, 158 left, 1 failed) (jobs: 8)                                                   Done: 89% (1318/1475, 157 left, 1 failed) (jobs: 8)                                                   Done: 89% (1319/1475, 156 left, 1 failed) (jobs: 7)                                                   Done: 89% (1320/1475, 155 left, 1 failed) (jobs: 8)                                                   [1mFile "src/generators/genjvm.ml", line 266, characters 17-41[0m:
+266 | 				let _,name = ExtString.String.replace (snd path) "." "$" in
+      				             [1;35m^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels str, sub, by were omitted in the application of this function.
+[1mFile "src/generators/genjvm.ml", line 281, characters 17-41[0m:
+281 | 				let _,name = ExtString.String.replace (snd path) "." "$" in
+      				             [1;35m^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels str, sub, by were omitted in the application of this function.
+Done: 89% (1320/1475, 155 left, 1 failed) (jobs: 8)                                                   Done: 89% (1320/1475, 155 left, 1 failed) (jobs: 8)                                                   Done: 89% (1321/1475, 154 left, 1 failed) (jobs: 7)                                                   Done: 89% (1322/1475, 153 left, 1 failed) (jobs: 8)                                                   Done: 89% (1323/1475, 152 left, 1 failed) (jobs: 8)                                                   Done: 89% (1324/1475, 151 left, 1 failed) (jobs: 8)                                                   Done: 89% (1325/1475, 150 left, 1 failed) (jobs: 8)                                                   Done: 89% (1326/1475, 149 left, 1 failed) (jobs: 8)                                                   Done: 89% (1327/1475, 148 left, 1 failed) (jobs: 8)                                                   Done: 90% (1329/1475, 146 left, 1 failed) (jobs: 8)                                                   Done: 90% (1330/1475, 145 left, 1 failed) (jobs: 8)                                                   Done: 90% (1331/1475, 144 left, 1 failed) (jobs: 8)                                                   Done: 90% (1333/1475, 142 left, 1 failed) (jobs: 8)                                                   Done: 90% (1334/1475, 141 left, 1 failed) (jobs: 8)                                                   Done: 90% (1335/1475, 140 left, 1 failed) (jobs: 8)                                                   Done: 90% (1336/1475, 139 left, 1 failed) (jobs: 8)                                                   Done: 90% (1337/1475, 138 left, 1 failed) (jobs: 8)                                                   Done: 90% (1338/1475, 137 left, 1 failed) (jobs: 8)                                                   [1mFile "src/macro/eval/evalLuv.ml", line 785, characters 17-27[0m:
+785 | 		encode_buffer (Buffer.sub buffer offset length)
+      		               [1;35m^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels offset, length were omitted in the application of this function.
+[1mFile "src/macro/eval/evalLuv.ml", line 790, characters 2-13[0m:
+790 | 		Buffer.blit buffer destination;
+      		[1;35m^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels source, destination were omitted in the application of this function.
+[1mFile "src/macro/eval/evalLuv.ml", line 815, characters 2-22[0m:
+815 | 		Buffer.blit_to_bytes buffer destination offset;
+      		[1;35m^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label destination_offset was omitted in the application of this function.
+[1mFile "src/macro/eval/evalLuv.ml", line 822, characters 2-24[0m:
+822 | 		Buffer.blit_from_bytes buffer source offset;
+      		[1;35m^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label source_offset was omitted in the application of this function.
+[1mFile "src/macro/eval/evalLuv.ml", line 829, characters 2-25[0m:
+829 | 		Buffer.blit_from_string buffer source offset;
+      		[1;35m^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: label source_offset was omitted in the application of this function.
+[1mFile "src/macro/eval/evalLuv.ml", line 1162, characters 22-35[0m:
+1162 | 		encode_unit_result (Stream.accept server client)
+       		                    [1;35m^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels server, client were omitted in the application of this function.
+[1mFile "src/macro/eval/evalLuv.ml", line 2392, characters 38-43[0m:
+2392 | 				"uid",vint (Unsigned.ULong.to_int p.uid);
+       				                                  [1;31m^^^^^[0m
+[1;31mError[0m: This expression has type int but an expression was expected of type
+         Unsigned.ULong.t
+Done: 90% (1338/1475, 137 left, 1 failed) (jobs: 8)                                                   Done: 90% (1338/1475, 137 left, 2 failed) (jobs: 8)                                                   Done: 90% (1339/1475, 136 left, 2 failed) (jobs: 7)                                                   Done: 90% (1340/1475, 135 left, 2 failed) (jobs: 7)                                                   Done: 90% (1341/1475, 134 left, 2 failed) (jobs: 8)                                                   Done: 90% (1342/1475, 133 left, 2 failed) (jobs: 8)                                                   Done: 91% (1343/1475, 132 left, 2 failed) (jobs: 8)                                                   Done: 91% (1344/1475, 131 left, 2 failed) (jobs: 7)                                                   Done: 91% (1345/1475, 130 left, 2 failed) (jobs: 7)                                                   Done: 91% (1346/1475, 129 left, 2 failed) (jobs: 8)                                                   Done: 91% (1347/1475, 128 left, 2 failed) (jobs: 8)                                                   Done: 91% (1348/1475, 127 left, 2 failed) (jobs: 7)                                                   Done: 91% (1349/1475, 126 left, 2 failed) (jobs: 6)                                                   Done: 91% (1350/1475, 125 left, 2 failed) (jobs: 5)                                                   Done: 91% (1351/1475, 124 left, 2 failed) (jobs: 6)                                                   Done: 91% (1352/1475, 123 left, 2 failed) (jobs: 5)                                                   Done: 91% (1353/1475, 122 left, 2 failed) (jobs: 4)                                                   Done: 91% (1354/1475, 121 left, 2 failed) (jobs: 5)                                                   Done: 91% (1355/1475, 120 left, 2 failed) (jobs: 4)                                                   Done: 91% (1356/1475, 119 left, 2 failed) (jobs: 3)                                                   Done: 92% (1357/1475, 118 left, 2 failed) (jobs: 5)                                                   Done: 92% (1358/1475, 117 left, 2 failed) (jobs: 5)                                                   Done: 92% (1359/1475, 116 left, 2 failed) (jobs: 6)                                                   Done: 92% (1360/1475, 115 left, 2 failed) (jobs: 5)                                                   Done: 92% (1361/1475, 114 left, 2 failed) (jobs: 5)                                                   Done: 92% (1362/1475, 113 left, 2 failed) (jobs: 5)                                                   Done: 92% (1363/1475, 112 left, 2 failed) (jobs: 5)                                                   Done: 92% (1364/1475, 111 left, 2 failed) (jobs: 6)                                                   Done: 92% (1365/1475, 110 left, 2 failed) (jobs: 5)                                                   Done: 92% (1366/1475, 109 left, 2 failed) (jobs: 5)                                                   Done: 92% (1367/1475, 108 left, 2 failed) (jobs: 5)                                                   Done: 92% (1368/1475, 107 left, 2 failed) (jobs: 5)                                                   Done: 92% (1369/1475, 106 left, 2 failed) (jobs: 4)                                                   Done: 92% (1370/1475, 105 left, 2 failed) (jobs: 5)                                                   Done: 92% (1371/1475, 104 left, 2 failed) (jobs: 8)                                                   Done: 93% (1372/1475, 103 left, 2 failed) (jobs: 8)                                                   Done: 93% (1373/1475, 102 left, 2 failed) (jobs: 8)                                                   Done: 93% (1374/1475, 101 left, 2 failed) (jobs: 7)                                                   Done: 93% (1375/1475, 100 left, 2 failed) (jobs: 6)                                                   Done: 93% (1376/1475, 99 left, 2 failed) (jobs: 8)                                                  Done: 93% (1377/1475, 98 left, 2 failed) (jobs: 8)                                                  Done: 93% (1378/1475, 97 left, 2 failed) (jobs: 7)                                                  [1mFile "src/generators/gencpp.ml", line 502, characters 22-46[0m:
+502 |          let _,code = ExtString.String.replace code magic_var source_directory in
+                            [1;35m^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels str, sub, by were omitted in the application of this function.
+Done: 93% (1378/1475, 97 left, 2 failed) (jobs: 7)                                                  Done: 93% (1378/1475, 97 left, 2 failed) (jobs: 7)                                                  Done: 93% (1379/1475, 96 left, 2 failed) (jobs: 6)                                                  Done: 93% (1380/1475, 95 left, 2 failed) (jobs: 6)                                                  Done: 93% (1381/1475, 94 left, 2 failed) (jobs: 8)                                                  Done: 93% (1382/1475, 93 left, 2 failed) (jobs: 8)                                                  Done: 93% (1383/1475, 92 left, 2 failed) (jobs: 8)                                                  Done: 93% (1384/1475, 91 left, 2 failed) (jobs: 8)                                                  Done: 93% (1385/1475, 90 left, 2 failed) (jobs: 8)                                                  Done: 93% (1386/1475, 89 left, 2 failed) (jobs: 8)                                                  Done: 94% (1387/1475, 88 left, 2 failed) (jobs: 8)                                                  Done: 94% (1389/1475, 86 left, 2 failed) (jobs: 8)                                                  Done: 94% (1390/1475, 85 left, 2 failed) (jobs: 8)                                                  Done: 94% (1391/1475, 84 left, 2 failed) (jobs: 8)                                                  Done: 94% (1392/1475, 83 left, 2 failed) (jobs: 8)                                                  Done: 94% (1393/1475, 82 left, 2 failed) (jobs: 8)                                                  Done: 94% (1394/1475, 81 left, 2 failed) (jobs: 8)                                                  Done: 94% (1395/1475, 80 left, 2 failed) (jobs: 8)                                                  Done: 94% (1396/1475, 79 left, 2 failed) (jobs: 8)                                                  Done: 94% (1398/1475, 77 left, 2 failed) (jobs: 8)                                                  Done: 94% (1399/1475, 76 left, 2 failed) (jobs: 8)                                                  Done: 94% (1400/1475, 75 left, 2 failed) (jobs: 8)                                                  Done: 94% (1401/1475, 74 left, 2 failed) (jobs: 8)                                                  Done: 95% (1402/1475, 73 left, 2 failed) (jobs: 8)                                                  Done: 95% (1403/1475, 72 left, 2 failed) (jobs: 8)                                                  Done: 95% (1404/1475, 71 left, 2 failed) (jobs: 7)                                                  Done: 95% (1405/1475, 70 left, 2 failed) (jobs: 8)                                                  Done: 95% (1406/1475, 69 left, 2 failed) (jobs: 7)                                                  Done: 95% (1407/1475, 68 left, 2 failed) (jobs: 7)                                                  Done: 95% (1408/1475, 67 left, 2 failed) (jobs: 7)                                                  Done: 95% (1409/1475, 66 left, 2 failed) (jobs: 6)                                                  Done: 95% (1410/1475, 65 left, 2 failed) (jobs: 5)                                                  Done: 95% (1411/1475, 64 left, 2 failed) (jobs: 5)                                                  Done: 95% (1412/1475, 63 left, 2 failed) (jobs: 5)                                                  Done: 95% (1413/1475, 62 left, 2 failed) (jobs: 6)                                                  Done: 95% (1414/1475, 61 left, 2 failed) (jobs: 5)                                                  Done: 95% (1415/1475, 60 left, 2 failed) (jobs: 4)                                                  Done: 96% (1416/1475, 59 left, 2 failed) (jobs: 5)                                                  Done: 96% (1417/1475, 58 left, 2 failed) (jobs: 5)                                                  Done: 96% (1418/1475, 57 left, 2 failed) (jobs: 4)                                                  Done: 96% (1419/1475, 56 left, 2 failed) (jobs: 5)                                                  Done: 96% (1420/1475, 55 left, 2 failed) (jobs: 8)                                                  Done: 96% (1421/1475, 54 left, 2 failed) (jobs: 7)                                                  Done: 96% (1422/1475, 53 left, 2 failed) (jobs: 6)                                                  Done: 96% (1423/1475, 52 left, 2 failed) (jobs: 5)                                                  Done: 96% (1424/1475, 51 left, 2 failed) (jobs: 4)                                                  Done: 96% (1425/1475, 50 left, 2 failed) (jobs: 5)                                                  Done: 96% (1426/1475, 49 left, 2 failed) (jobs: 6)                                                  Done: 96% (1427/1475, 48 left, 2 failed) (jobs: 6)                                                  Done: 96% (1428/1475, 47 left, 2 failed) (jobs: 5)                                                  Done: 96% (1429/1475, 46 left, 2 failed) (jobs: 5)                                                  Done: 96% (1430/1475, 45 left, 2 failed) (jobs: 5)                                                  Done: 97% (1431/1475, 44 left, 2 failed) (jobs: 5)                                                  Done: 97% (1432/1475, 43 left, 2 failed) (jobs: 4)                                                  [1mFile "src/generators/genjvm.ml", line 266, characters 17-41[0m:
+266 | 				let _,name = ExtString.String.replace (snd path) "." "$" in
+      				             [1;35m^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels str, sub, by were omitted in the application of this function.
+[1mFile "src/generators/genjvm.ml", line 281, characters 17-41[0m:
+281 | 				let _,name = ExtString.String.replace (snd path) "." "$" in
+      				             [1;35m^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[1;35mWarning[0m 6 [labels-omitted]: labels str, sub, by were omitted in the application of this function.
+Done: 97% (1432/1475, 43 left, 2 failed) (jobs: 4)                                                  Done: 97% (1433/1475, 42 left, 2 failed) (jobs: 3)                                                  Done: 97% (1434/1475, 41 left, 2 failed) (jobs: 3)                                                  Done: 97% (1435/1475, 40 left, 2 failed) (jobs: 2)                                                  Done: 97% (1436/1475, 39 left, 2 failed) (jobs: 1)                                                  make: *** [Makefile:81: haxe] Error 1
