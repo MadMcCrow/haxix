@@ -25,7 +25,7 @@ with builtins; let
 
   heaps_latest = stdenv.mkDerivation {
     name = "heaps";
-    src = pkgs.fetchFromGithub {
+    src = pkgs.fetchFromGitHub {
       owner = "HeapsIO";
       repo = "heaps";
       rev = "c83ba0299da99f93e2d64bfdaf3acfca66698f9c";
@@ -45,7 +45,7 @@ with builtins; let
 
   format_latest = stdenv.mkDerivation {
     name = "format";
-    src = pkgs.fetchFromGithub {
+    src = pkgs.fetchFromGitHub {
       owner = "HaxeFoundation";
       repo = "format";
       rev = "39787764801f9e02c5b5ed771490e767a5488e65";
