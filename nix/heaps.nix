@@ -16,7 +16,7 @@ let
   
   withCommas = lib.replaceStrings [ "." ] [ "," ];
 
-    installLibHaxe = { libname, version, files ? "*" }: ''
+  installLibHaxe = { libname, version, files ? "*" }: ''
     mkdir -p "$out/lib/haxe/${withCommas libname}/${withCommas version}"
     echo -n "${version}" > $out/lib/haxe/${withCommas libname}/.current
     cp -dpR ${files} "$out/lib/haxe/${withCommas libname}/${withCommas version}/"
@@ -39,13 +39,32 @@ let
     };
   };
 
+  format_latest = stdenv.mkDerivation {
+    name = "format";
+    src = pkgs.fetchFromGithub {
+      owner = "HaxeFoundation";
+      repo = "format";
+      rev = "39787764801f9e02c5b5ed771490e767a5488e65";
+      sha256 = "sha256-i8ZpU0/j9v505QagjBAMva202rkY5+QVex2paw2gRWk=";
+    };
+    installPhase = installLibHaxe {libname = "format"; version = "alpha";};
+    meta = {
+      homepage = "https://haxe.org";
+      license = lib.licenses.mit;
+      platforms = lib.platforms.all;
+      description = "Various files formats support for Haxe ";
+    };
+
+  };
+
   # the whole heaps.io engine
   heaps = [
     haxe
     hl
     heaps_latest
-    pkgs.haxePackages.hlsdl
-    pkgs.haxePackages.format
+    format_latest
+    # pkgs.haxePackages.hlsdl
+    # pkgs.haxePackages.format
     pkgs.haxePackages.hlopenal
   ];
 
