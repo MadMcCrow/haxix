@@ -1,88 +1,133 @@
 # haxe.nix
 # a collection of functions and derivation to have custom haxe support
-pkgs :
+# you can update the version in "alpha" with the sha and rev from flake.lock
+{ pkgs, inputs }:
 let
-  # shortcuts
-  inherit (pkgs) stdenv;
-  inherit (pkgs) lib;
-
-  withCommas = lib.replaceStrings [ "." ] [ "," ];
+  withCommas = pkgs.lib.replaceStrings [ "." ] [ "," ];
 
   # install lib command
   installLibHaxe = { libname, version, files ? "*" }: ''
     mkdir -p "$out/lib/haxe/${withCommas libname}/${withCommas version}"
     echo -n "${version}" > $out/lib/haxe/${withCommas libname}/.current
-    cp -dpR ${files} "$out/lib/haxe/${withCommas libname}/${withCommas version}/"
+    cp -dpR ${files} "$out/lib/haxe/${withCommas libname}/${
+      withCommas version
+    }/"
   '';
 
+  my_haxe = { version, src, ocaml-ng }:
+    pkgs.haxe.overrideAttrs (finalAttrs: previousAttrs: rec {
+      inherit version src;
+      buildInputs = let
+        ocamlDependencies = with ocaml-ng; [
+          ocaml
+          findlib
+          sedlex
+          xml-light
+          ptmap
+          camlp5
+          sha
+          dune_3
+          ipaddr
+          camlp-streams
+          (luv.overrideAttrs (final: prev: {
+            version = "0.5.12";
+            src = pkgs.fetchurl {
+              url =
+                "https://github.com/aantron/luv/releases/download/0.5.12/luv-0.5.12.tar.gz";
+              sha256 = "sha256-dp9qCIYqSdROIAQ+Jw73F3vMe7hnkDe8BgZWImNMVsA=";
+            };
+
+          }))
+          extlib
+          stdlib-shims
+        ];
+      in (with pkgs; [ zlib pcre2 neko mbedtls_2 ]) ++ ocamlDependencies
+      ++ (pkgs.lib.optional (pkgs.stdenv.isDarwin)
+        pkgs.darwin.apple_sdk.frameworks.Security);
+    });
+
   # Custom HL with libraries for haxelib added
-  my_hashlink = {version, sha256,...}@args : pkgs.hashlink.overrideAttrs (finalAttrs: previousAttrs: {
-    inherit version;
-    postInstall = (previousAttrs.postInstall or "") + ''
-      ${installLibHaxe { libname = "${finalAttrs.pname}"; files ="other/haxelib/*"; inherit version; }}
-    '';
+  my_hashlink = { version, src }:
+    pkgs.hashlink.overrideAttrs (finalAttrs: previousAttrs: {
+      inherit version src;
+      postInstall = (previousAttrs.postInstall or "") + ''
+        ${installLibHaxe {
+          libname = "${finalAttrs.pname}";
+          files = "other/haxelib/*";
+          inherit version;
+        }}
+        ${installLibHaxe {
+          libname = "hlsdl";
+          files = "libs/sdl/*";
+          inherit version;
+        }}
+      '';
+    });
 
-    src = pkgs.fetchFromGitHub {
-    owner = "HaxeFoundation";
-    repo = "hashlink";
-    rev = version;
-    inherit sha256;
-  };
-  });
+  my_format = { version, src }:
+    pkgs.haxePackages.format.overrideAttrs
+    (finalAttrs: previousAttrs: { inherit version src; });
 
-  # Custom haxe version :
-  # haxe 4.3.2 : sha256-wSSX9d/WBzylQ+XYhjM/qpdAXtMNDoQUIWRPL/2AnMo= -> not compiling
-  # haxe 4.3.0 : sha256-uLvtrreMK5OaLk2aLGcdqX9yaRU8qAI6SWQl7yGpLz0= -> not compiling
-  # haxe 4.2.5 : sha256-Y0gx6uOQX4OZgg8nK4GJxRR1rKh0S2JUjZQFVQ4cfTs= -> works
-  my_haxe = {version, sha256, ocaml-ng, ... } @args : pkgs.haxe.overrideAttrs (finalAttrs: previousAttrs: rec {
-    inherit version;
+in {
+
+  # HAXE : fixed version
+  haxe_alpha = my_haxe {
+    version = "alpha";
     src = pkgs.fetchFromGitHub {
-      rev = version;
-      inherit sha256;
+      sha256 = "sha256-6HqzabA7HxdSn2utjCbnPaWQlBrddJnDWfHQPFUZUYw=";
+      rev = "f47841dcf0b4ade93478381a6b0ac0524251bee8";
       owner = "HaxeFoundation";
       repo = "haxe";
       fetchSubmodules = true;
     };
-    buildInputs = let 
-    # newer ocaml
-      ocamlDependencies = with ocaml-ng; [
-        ocaml
-        findlib
-        sedlex
-        xml-light
-        ptmap
-        camlp5
-        sha
-        dune_3
-        luv
-        extlib
-        stdlib-shims
-      ];
-    in
-    (with pkgs; [ zlib pcre neko mbedtls_2 ]) ++ ocamlDependencies ++
-    (lib.optional (stdenv.isDarwin) pkgs.darwin.apple_sdk.frameworks.Security) ;
-  });
-
-
-in
-{
-  # haxe with version newer than the one in nixpkgs
-  haxe_latest = my_haxe {  
-    version = "4.2.5";
-    sha256 = "sha256-Y0gx6uOQX4OZgg8nK4GJxRR1rKh0S2JUjZQFVQ4cfTs=";
-    ocaml-ng = pkgs.ocaml-ng.ocamlPackages_4_14;
+    ocaml-ng = pkgs.ocaml-ng.ocamlPackages_4_08;
   };
 
-  # this is not realy latest, but still
+  # HAXE : flake latest version
+  haxe_latest = my_haxe {
+    version = "development";
+    src = inputs.haxe; # dependancy from flake
+    ocaml-ng = pkgs.ocaml-ng.ocamlPackages_4_08;
+  };
+
+  # HASHLINK : alpha fixed version
+  hashlink_alpha = my_hashlink {
+    version = "alpha";
+    src = pkgs.fetchFromGitHub {
+      sha256 = "sha256-QtFN1nHw+G4OaZRQRCLx5JJxnojHQMWwxWilSkYRxmU=";
+      rev = "5185f82e7950331a4b96ac13361a71f1081202e2";
+      owner = "HaxeFoundation";
+      repo = "hashlink";
+    };
+  };
+
+  # HASHLINK : flake latest version
   hashlink_latest = my_hashlink {
-    version = "1.13";
-    sha256 = "lpHW0JWxbLtOBns3By56ZBn47CZsDzwOFBuW9MlERrE=";
+    src = inputs.hashlink;
+    version = "latest";
+  };
+
+  # FORMAT : alpha fixed version
+  format_alpha = my_format {
+    version = "alpha";
+    src = pkgs.fetchFromGitHub {
+      owner = "HaxeFoundation";
+      repo = "format";
+      rev = "39787764801f9e02c5b5ed771490e767a5488e65";
+      sha256 = "sha256-i8ZpU0/j9v505QagjBAMva202rkY5+QVex2paw2gRWk=";
+    };
+  };
+
+  # FORMAT : alpha fixed version
+  format_latest = my_format {
+    src = inputs.haxe_format;
+    version = "latest";
   };
 
   # helper to build libraries
   # this is a copy of what nixpkgs does, because it is not exposed to uss
   buildHaxeLib = { libname, version, sha256 ? "", meta, ... }@attrs:
-    stdenv.mkDerivation (attrs // {
+    pkgs.stdenv.mkDerivation (attrs // {
       name = attrs.name or "${libname}-${version}";
 
       buildInputs = (attrs.buildInputs or [ ])
@@ -109,8 +154,8 @@ in
 
       meta = {
         homepage = "http://lib.haxe.org/p/${libname}";
-        license = lib.licenses.bsd2;
-        platforms = lib.platforms.all;
+        license = pkgs.lib.licenses.bsd2;
+        platforms = pkgs.lib.platforms.all;
         description = throw "please write meta.description";
       } // attrs.meta;
     });

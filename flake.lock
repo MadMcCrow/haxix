@@ -1,12 +1,80 @@
 {
   "nodes": {
+    "hashlink": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698698248,
+        "narHash": "sha256-jhkuXc/fVuIcC9j7zIQWUJunqqjx9MNXYu23pHW0zjs=",
+        "owner": "HaxeFoundation",
+        "repo": "hashlink",
+        "rev": "102f09be3f02824beda093680f855ba06a1c871c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "HaxeFoundation",
+        "ref": "refs/tags/latest",
+        "repo": "hashlink",
+        "type": "github"
+      }
+    },
+    "haxe": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698655275,
+        "narHash": "sha256-f6ylpujjs2SV3OeLVwIbff2nsce11rvAcRB9YrCQEk8=",
+        "ref": "development",
+        "rev": "5467ab8303d02011d4d9faf97a9e632bea9223be",
+        "revCount": 20892,
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/HaxeFoundation/haxe.git"
+      },
+      "original": {
+        "ref": "development",
+        "submodules": true,
+        "type": "git",
+        "url": "https://github.com/HaxeFoundation/haxe.git"
+      }
+    },
+    "haxe_format": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1694508446,
+        "narHash": "sha256-i8ZpU0/j9v505QagjBAMva202rkY5+QVex2paw2gRWk=",
+        "owner": "HaxeFoundation",
+        "repo": "format",
+        "rev": "39787764801f9e02c5b5ed771490e767a5488e65",
+        "type": "github"
+      },
+      "original": {
+        "owner": "HaxeFoundation",
+        "repo": "format",
+        "type": "github"
+      }
+    },
+    "heaps": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698422534,
+        "narHash": "sha256-8G3EK1Y0ukBSoFVAP2TiaNP5i0+O/mIos6WNkaRr3es=",
+        "owner": "HeapsIO",
+        "repo": "heaps",
+        "rev": "da419d43f5979e2fdff1b3f73b50a71b57be3dee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "HeapsIO",
+        "repo": "heaps",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1695318763,
-        "narHash": "sha256-FHVPDRP2AfvsxAdc+AsgFJevMz5VBmnZglFUMlxBkcY=",
+        "lastModified": 1698553279,
+        "narHash": "sha256-T/9P8yBSLcqo/v+FTOBK+0rjzjPMctVymZydbvR/Fak=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e12483116b3b51a185a33a272bf351e357ba9a99",
+        "rev": "90e85bc7c1a6fc0760a94ace129d3a1c61c3d035",
         "type": "github"
       },
       "original": {
@@ -18,6 +86,10 @@
     },
     "root": {
       "inputs": {
+        "hashlink": "hashlink",
+        "haxe": "haxe",
+        "haxe_format": "haxe_format",
+        "heaps": "heaps",
         "nixpkgs": "nixpkgs"
       }
     }
