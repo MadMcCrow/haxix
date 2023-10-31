@@ -119,7 +119,7 @@ in {
 
       meta = {
         homepage = "http://lib.haxe.org/p/${libname}";
-        license = pkgs.lib.licenses.bsd2;
+        license = pkgs.lib.licenses.free;
         platforms = pkgs.lib.platforms.all;
         description = throw "please write meta.description";
       } // attrs.meta;
