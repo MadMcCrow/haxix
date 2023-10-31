@@ -70,19 +70,6 @@ let
 
 in {
 
-  # HAXE : fixed version
-  haxe_alpha = my_haxe {
-    version = "alpha";
-    src = pkgs.fetchFromGitHub {
-      sha256 = "sha256-6HqzabA7HxdSn2utjCbnPaWQlBrddJnDWfHQPFUZUYw=";
-      rev = "f47841dcf0b4ade93478381a6b0ac0524251bee8";
-      owner = "HaxeFoundation";
-      repo = "haxe";
-      fetchSubmodules = true;
-    };
-    ocaml-ng = pkgs.ocaml-ng.ocamlPackages_4_08;
-  };
-
   # HAXE : flake latest version
   haxe_latest = my_haxe {
     version = "development";
@@ -90,32 +77,10 @@ in {
     ocaml-ng = pkgs.ocaml-ng.ocamlPackages_4_08;
   };
 
-  # HASHLINK : alpha fixed version
-  hashlink_alpha = my_hashlink {
-    version = "alpha";
-    src = pkgs.fetchFromGitHub {
-      sha256 = "sha256-QtFN1nHw+G4OaZRQRCLx5JJxnojHQMWwxWilSkYRxmU=";
-      rev = "5185f82e7950331a4b96ac13361a71f1081202e2";
-      owner = "HaxeFoundation";
-      repo = "hashlink";
-    };
-  };
-
   # HASHLINK : flake latest version
   hashlink_latest = my_hashlink {
     src = inputs.hashlink;
     version = "latest";
-  };
-
-  # FORMAT : alpha fixed version
-  format_alpha = my_format {
-    version = "alpha";
-    src = pkgs.fetchFromGitHub {
-      owner = "HaxeFoundation";
-      repo = "format";
-      rev = "39787764801f9e02c5b5ed771490e767a5488e65";
-      sha256 = "sha256-i8ZpU0/j9v505QagjBAMva202rkY5+QVex2paw2gRWk=";
-    };
   };
 
   # FORMAT : alpha fixed version
