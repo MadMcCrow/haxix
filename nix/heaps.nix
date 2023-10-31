@@ -38,7 +38,9 @@ in {
     , useInterpreter ? true, debug ? false, release ? false }:
     let
       # the compile command
-      # TODO : move to a separate command
+      # TODO : 
+      # - move to a separate command
+      # - allow for custom options for users
       compileHxml = pkgs.writeText "compile.hxml" ''
         -cp src
         -lib heaps

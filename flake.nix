@@ -44,30 +44,28 @@
       # sub modules
       haxe = pkgs: (import nix/haxe.nix { inherit inputs pkgs; });
       heaps = pkgs: (import nix/heaps.nix { inherit inputs pkgs; });
-     
 
       # the game itself
-      helloworld = pkgs:
+      demo = pkgs:
         (heaps pkgs).buildGame {
           name = "helloworld";
-          src = self;
+          src = ./demo;
           version = "0.0.1-alpha";
           debug = false;
           release = false;
         };
 
-      heapsShell = pkgs: (heaps pkgs).mkShell (helloworld pkgs);
     in {
       # expose our heaps and haxe functions
       lib = mkAllSystems { inherit heaps haxe; };
 
       # add our demo
       packages = mkAllSystems rec {
-        inherit helloworld;
-        default = helloworld;
+        inherit demo;
+        default = demo;
       };
 
       # shell for the demo
-      devShells = mkAllSystems { default = heapsShell; };
+      devShells = mkAllSystems { default = pkgs: (heaps pkgs).mkShell (demo pkgs); };
     };
 }

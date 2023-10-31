@@ -1,8 +1,8 @@
-# haxix
+# Haxix
 
 a flake to build and run games made with [heaps.io](https://heaps.io/)
 
-# usage
+# Usage
 
 Add this to your flake
 
@@ -19,10 +19,10 @@ Add this to your flake
         packages."x86_64-linux" = {
             default = haxix.lib."x86_64-linux".heaps.buildGame {
                 name = "my-game";
-                src = self;
+                src = self; # or the folder containing the src folder
                 version = "0.0.1-alpha";
-                debug = false;
-                release = false;
+                debug = false;   # set to true to have debug symbols
+                release = false; # set to true for compiled to C
             };
         };
     };
@@ -30,11 +30,17 @@ Add this to your flake
 
 ```
 
-# TODO:
+# TODO
 
- - [ ] create self contained binary to export everything as one binary
- - [ ] better documentation
  - [ ] support packaging resources
+ - [ ] support other haxe game engines
+ - [ ] cache build output
+ - [ ] add flake checks
+ - [ ] add flake templates
+
+# Contribute
+
+Any contribution welcome. 
 
 # Licence
 Licensed under [MIT](Licence.md)
