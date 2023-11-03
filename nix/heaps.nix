@@ -3,6 +3,7 @@
 { pkgs, inputs, ... }@args:
 let
   haxelib = import ./haxe.nix args;
+  hxml = import ./hxml args;
 
   heaps_latest = haxelib.buildHaxeLib {
     version = "latest";
@@ -24,6 +25,9 @@ let
   buildPath = "build";
   buildLibs = (with pkgs; [ glibc SDL SDL2 openal ]) ++ heaps;
   nativeBuildInputs = heaps ++ buildLibs;
+
+ 
+
 in {
   # the nix-shell for a heaps game
   mkShell = heapsGame:
@@ -34,23 +38,17 @@ in {
     };
 
   # The heaps game recipe
-  buildGame = { name, version, src, main ? "Main", deps ? [ ], libs ? [ ]
+  buildGame = { name, version, src, main ? "Main", deps ? [ ], libs ? [ ], resources ? []
     , useInterpreter ? true, debug ? false, release ? false }:
     let
-      # the compile command
-      # TODO : 
-      # - move to a separate command
-      # - allow for custom options for users
-      compileHxml = pkgs.writeText "compile.hxml" ''
-        -cp src
-        -lib heaps
-        -lib hlsdl
-        -lib hlopenal
-        ${builtins.concatStringsSep "\n" (map (x: "-lib ${x}") libs)}
-        -hl ${if release then "${buildPath}/${name}.c" else "${name}.hl"}
-        -main ${main}
-        ${if debug then "-debug" else "-dce full"}
-      '';
+
+      # generate compile.hxml for heaps
+      compileHxml = mkCompileHxml {
+        inherit main resources;
+        libs = [ "heaps" "hlsdl" "hlopenal"] ++ libs;
+        outpath = "${if release then "${buildPath}/${name}.c" else "${name}.hl"}";
+        extra = "${if debug then "-debug" else "-dce full"}";
+      };
 
       hlInstall = ''
         mkdir -p $out/bin $out/lib

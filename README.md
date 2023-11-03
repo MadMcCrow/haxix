@@ -34,6 +34,7 @@ Add this to your flake
 
  - [ ] support packaging resources
  - [ ] support other haxe game engines
+ - [ ] add option for custom compile.hxml
  - [ ] cache build output
  - [ ] add flake checks
  - [ ] add flake templates

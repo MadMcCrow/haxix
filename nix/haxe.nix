@@ -124,4 +124,19 @@ in {
         description = throw "please write meta.description";
       } // attrs.meta;
     });
+
+  mkCompileHxml = {sourceDir ? "src", libs, resources ? [], outpath, main, extra ? "" } :
+  let
+  concatPrefix = p : l: pkgs.lib.strings.concatLines map (x: "${p} ${x}") l;
+  in
+   pkgs.writeText "compile.hxml" ''
+        -cp src
+        ${concatPrefix "-lib" libs}
+         ${concatPrefix "-resource" (map(x: "${x.path}@${x.name}") resources)}
+        -hl ${outpath}
+        -main ${main}
+        ${extra}
+      '';
+}
+     
 }
