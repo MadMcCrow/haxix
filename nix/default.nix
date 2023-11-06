@@ -2,23 +2,33 @@
 # expose every function/derivations here
 # also detect linux/MacOS and give the correct version
 { inputs, system }:
+with builtins;
 let
-  # platform :
-  isDarwin = inputs.nixpkgs.lib.strings.hasSuffix "darwin" system;
+  # support for MacOS M1
+  inherit (inputs.nixpkgs.lib) platforms;
+  isDarwin = elem system platforms.darwin;
+  isLinux = elem system platforms.linux;
+
+  # switch between systems
+  systemSwitch = linux: darwin:
+    if isDarwin then
+      darwin
+    else if isLinux then
+      linux
+    else
+      throw "unsupported system";
 
   # nixpkgs
-  pkgs = import (if isDarwin then inputs.nixpkgs-darwin else inputs.nixpkgs) {
-    inherit system;
-  };
+  systemx86 = systemSwitch "x86_64-linux" "x86_64-darwin";
+  nixpkgs = systemSwitch inputs.nixpkgs inputs.nixpkgs-darwin;
+  pkgs = import nixpkgs { inherit system; };
+  x86pkgs = import nixpkgs { system = systemx86; };
 
   # haxe language and compiler
-  haxe = if isDarwin then
-    (import darwin/haxe.nix { inherit (inputs) haxe nixpkgs-darwin; })
-  else
-    (import ./haxe.nix {
-      inherit pkgs;
-      inherit (inputs) haxe;
-    });
+  haxe = import ./haxe.nix {
+    inherit (inputs) haxe;
+    pkgs = systemSwitch pkgs x86pkgs;
+  };
 
   # a way to install haxelibs
   haxelib = import ./haxelib.nix { inherit pkgs; };
@@ -30,15 +40,11 @@ let
   };
 
   # hashlink interpreter
-  hashlink = if isDarwin then
-    (import darwin/hashlink.nix { 
-      inherit haxelib;
-      inherit (inputs) hashlink nixpkgs-darwin;})
-  else
-    (import ./hashlink.nix {
-      inherit pkgs haxelib;
-      inherit (inputs) hashlink;
-    });
+  hashlink = import (systemSwitch ./hashlink.nix ./darwin/hashlink.nix ){
+    pkgs = systemSwitch pkgs x86pkgs;
+    inherit haxelib;
+    inherit (inputs) hashlink;
+  };
 
   # Heaps game engine
   heaps = import ./heaps.nix {

@@ -13,7 +13,7 @@
   outputs = { self, haxix, nixpkgs, ... }@inputs:
     let
       # supported systems
-      systems = [ "x86_64-linux" "aarch64-linux" ];
+      systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
 
       # default system-agnostic flake implementation :
       flake = system:
