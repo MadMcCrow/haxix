@@ -77,7 +77,7 @@
       });
 
       # add our demo
-      packages = forAllSystems (system: {
+      packages = forAllSystems (system: rec {
         haxe = (haxix system).haxe.haxe_latest;
         hashlink = (haxix system).hashlink.hashlink_latest;
         default = demo system;

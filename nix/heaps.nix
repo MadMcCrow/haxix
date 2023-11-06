@@ -9,13 +9,15 @@ let
     src = heaps;
     meta = pkgs.haxePackages.heaps.meta;
   };
+
   # the whole heaps.io engine
   heaps_engine = [
     haxe_latest
     format_latest
     heaps_latest
-    pkgs.haxePackages.hlopenal
-    pkgs.haxePackages.hlsdl
+    hashlink_latest.hl
+    hashlink_latest.hlsdl
+    hashlink_latest.hlopenal
   ];
 
   # compilation dependancies
@@ -44,7 +46,7 @@ in {
   mkShell = heapsGame:
     pkgs.mkShell {
       inherit nativeBuildInputs;
-      packages = nativeBuildInputs;
+      buildInputs = nativeBuildInputs;
       inputsFrom = [ heapsGame ];
     };
 
@@ -66,13 +68,13 @@ in {
       hlInstall = ''
         mkdir -p $out/bin $out/lib
         cp ${name}.hl $out/lib/${name}.hl
-        echo "${hashlink_latest}/bin/hl $out/lib/${name}.hl" > $out/bin/${name};
+        echo "${hashlink_latest.hl}/bin/hl $out/lib/${name}.hl" > $out/bin/${name};
         chmod +x $out/bin/${name};
       '';
 
       cc = ''
         $CC -O3 -o ${name} -fpie -flto -fuse-linker-plugin -std=c17 \
-        -I${buildPath} ${hashlink_latest}/lib/*.hdll ${buildPath}/${name}.c \
+        -I${buildPath} ${hashlink_latest.hl}/lib/*.hdll ${buildPath}/${name}.c \
         -lm -lhl -lSDL2 -lopenal -lGL
       '';
 
@@ -82,7 +84,7 @@ in {
       '';
     in pkgs.stdenv.mkDerivation {
       inherit name version src;
-      buildInputs = deps ++ (pkgs.lib.lists.optional release hashlink_latest);
+      buildInputs = deps ++ (pkgs.lib.lists.optionals release hashlink_latest.pkgs);
       nativeBuildInputs = heaps_engine ++ deps ++ nativeBuildInputs;
       unpackPhase = ''
         cp -r $src/src ./

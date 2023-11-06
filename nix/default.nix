@@ -31,10 +31,12 @@ let
 
   # hashlink interpreter
   hashlink = if isDarwin then
-    (import darwin/hashlink.nix { inherit (inputs) hashlink nixpkgs-darwin; })
+    (import darwin/hashlink.nix { 
+      inherit haxelib;
+      inherit (inputs) hashlink nixpkgs-darwin;})
   else
     (import ./hashlink.nix {
-      inherit pkgs;
+      inherit pkgs haxelib;
       inherit (inputs) hashlink;
     });
 

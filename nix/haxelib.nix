@@ -14,7 +14,7 @@ let
 in {
   inherit installHaxeLib;
 
-  mkHaxelib = { libname, version, sha256 ? "", meta, ... }@attrs:
+  mkHaxelib = { libname, version, sha256 ? "", ... } @attrs:
     pkgs.stdenv.mkDerivation (attrs // {
       name = attrs.name or "${libname}-${version}";
 
@@ -35,7 +35,9 @@ in {
           else
             cd $src
           fi
-          ${installHaxeLib { inherit libname version; }}
+          ${installHaxeLib {
+             inherit libname version;
+             files = attrs.files or "*"; }}
         )
         runHook postInstall
       '';
@@ -45,6 +47,6 @@ in {
         license = pkgs.lib.licenses.free;
         platforms = pkgs.lib.platforms.all;
         description = throw "please write meta.description";
-      } // attrs.meta;
+      } // (attrs.meta or {});
     });
 }

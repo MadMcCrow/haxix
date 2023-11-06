@@ -1,40 +1,42 @@
 # hashlink.nix
 # Hashlink interpreter for haxe
-{ pkgs, hashlink }:
+# TODO : split hashlink and it's libraries
+# for this we need to use different outputs in generic
+{ pkgs, hashlink, haxelib }:
 let
-  # install lib command
-  withCommas = pkgs.lib.replaceStrings [ "." ] [ "," ];
-  installLibHaxe = { libname, version, files ? "*" }: ''
-    mkdir -p "$out/lib/haxe/${withCommas libname}/${withCommas version}"
-    echo -n "${version}" > $out/lib/haxe/${withCommas libname}/.current
-    cp -dpR ${files} "$out/lib/haxe/${withCommas libname}/${
-      withCommas version
-    }/"
-  '';
+
+  hllibs = ["openal" "sdl" ]; 
 
   # Custom HL with libraries for haxelib added
-  # Support for Darwin added
-  generic = { version, src }:
-    pkgs.hashlink.overrideAttrs (finalAttrs: previousAttrs: {
+  generic = { version, src }: let
+    hl = pkgs.hashlink.overrideAttrs (finalAttrs: previousAttrs: {
       inherit version src;
+      buildInputs = previousAttrs.buildInputs ++ [pkgs.libpng];
       postInstall = (previousAttrs.postInstall or "") + ''
-        ${installLibHaxe {
+        ${haxelib.installHaxeLib {
           libname = "${finalAttrs.pname}";
           files = "other/haxelib/*";
           inherit version;
         }}
-        ${installLibHaxe {
-          libname = "hlsdl";
-          files = "libs/sdl/*";
-          inherit version;
-        }}
       '';
     });
+    libraries = builtins.listToAttrs (builtins.map (x: pkgs.lib.attrsets.nameValuePair "hl${x}" (haxelib.mkHaxelib {
+    inherit version;
+    libname = "hl${x}";
+    src = "${src}/libs/${x}";
+    meta = hl.meta;
+  })) hllibs );
+    in {
+      inherit hl;
+      pkgs = [hl] ++ builtins.attrValues libraries;
+    } // libraries;
+
 
 in {
+
   # HASHLINK : flake latest version
-  hashlink_latest = generic {
-    src = hashlink;
+  hashlink_latest =  generic {
     version = "latest";
+    src = hashlink;
   };
 }
