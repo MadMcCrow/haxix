@@ -59,7 +59,7 @@
         };
 
     in {
-         
+
       # template for godot projects :
       templates = {
         default = {
@@ -85,6 +85,6 @@
 
       # shell for the demo
       devShells = forAllSystems
-        (system: { default = (haxix system).heaps.mkShell demo; });
+        (system: { default = (haxix system).heaps.mkShell (demo system); });
     };
 }

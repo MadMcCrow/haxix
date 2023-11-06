@@ -2,10 +2,15 @@
 {
   description = "A Flake with Haxix";
   inputs = {
+    # your friendly local nixpkgs
+    nixpkgs = {
+      type = "indirect";
+      id = "nixpkgs";
+    };
     # haxix contains all you need for Haxe development
     haxix.url = "github:MadMcCrow/haxix";
   };
-  outputs = { self, haxix, ... }@inputs:
+  outputs = { self, haxix, nixpkgs, ... }@inputs:
     let
       # supported systems
       systems = [ "x86_64-linux" "aarch64-linux" ];
@@ -32,6 +37,5 @@
         };
 
       # gen for all systems :
-    in foldl' (x: y: godot-flake.inputs.nixpkgs.lib.recursiveUpdate x y) { }
-    (map flake systems);
+    in foldl' (x: y: nixpkgs.lib.recursiveUpdate x y) { } (map flake systems);
 }

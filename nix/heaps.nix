@@ -10,8 +10,13 @@ let
     meta = pkgs.haxePackages.heaps.meta;
   };
   # the whole heaps.io engine
-  heaps_engine =
-    [ haxe_latest format_latest heaps_latest pkgs.haxePackages.hlopenal ];
+  heaps_engine = [
+    haxe_latest
+    format_latest
+    heaps_latest
+    pkgs.haxePackages.hlopenal
+    pkgs.haxePackages.hlsdl
+  ];
 
   # compilation dependancies
   buildPath = "build";
