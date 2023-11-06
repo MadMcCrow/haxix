@@ -1,47 +1,23 @@
 # Haxix
 
-a flake to build and run games made with [heaps.io](https://heaps.io/)
+A flake to build and run games made with [heaps.io](https://heaps.io/) and possibly other haxe game engines in the future.
 
-# Usage
+## Usage
 
-Add this to your flake
+See the flake [template](template/flake.nix) for a example on how to use haxix in your own projects.
 
-```nix
-{
-    inputs = {
-        haxix.url = "github:MadMcCrow/haxix";
-        # not mandatory but should work just fine :
-        # haxix.inputs.nixpkgs.follows = "nixpkgs";
-        ...
-    };
+## TODO
 
-    outputs = {self, nixpkgs, haxix, ...} : {
-        packages."x86_64-linux" = {
-            default = haxix.lib."x86_64-linux".heaps.buildGame {
-                name = "my-game";
-                src = self; # or the folder containing the src folder
-                version = "0.0.1-alpha";
-                debug = false;   # set to true to have debug symbols
-                release = false; # set to true for compiled to C
-            };
-        };
-    };
-}
+See [TODO.md](docs/TODO.md). these are the most likely things to be added to the project.
 
-```
+## Contribute
 
-# TODO
+Any [contribution](docs/CONTRIBUTING.md) welcome. You can contribute on features, documentation, or bug fixes.
 
- - [ ] support packaging resources
- - [ ] support other haxe game engines
- - [ ] add option for custom compile.hxml
- - [ ] cache build output
- - [ ] add flake checks
- - [ ] add flake templates
+## Licence
 
-# Contribute
-
-Any contribution welcome. 
-
-# Licence
 Licensed under [MIT](Licence.md)
+
+## Authors
+
+See [AUTHORS](docs/AUTHORS.md) for the complete list of people who helped make haxix.

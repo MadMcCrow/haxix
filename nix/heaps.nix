@@ -1,32 +1,38 @@
 # heaps.nix
 # Build heaps games with nix
-{ pkgs, inputs, ... }@args:
+{ pkgs, heaps, haxe_latest, format_latest, haxelib, hashlink_latest }:
 let
-  haxelib = import ./haxe.nix args;
-  hxml = import ./hxml args;
-
-  heaps_latest = haxelib.buildHaxeLib {
+  # TODO : make generic version
+  heaps_latest = haxelib.mkHaxelib {
     version = "latest";
     libname = "heaps";
-    src = inputs.heaps;
+    src = heaps;
     meta = pkgs.haxePackages.heaps.meta;
   };
-
   # the whole heaps.io engine
-  heaps = [
-    haxelib.haxe_latest
-    haxelib.hashlink_latest
-    haxelib.format_latest
-    heaps_latest
-    pkgs.haxePackages.hlopenal
-  ];
+  heaps_engine =
+    [ haxe_latest format_latest heaps_latest pkgs.haxePackages.hlopenal ];
 
   # compilation dependancies
   buildPath = "build";
-  buildLibs = (with pkgs; [ glibc SDL SDL2 openal ]) ++ heaps;
-  nativeBuildInputs = heaps ++ buildLibs;
+  buildLibs = heaps_engine;
+  nativeBuildInputs = heaps_engine ++ buildLibs;
 
- 
+  # helper to make the compile command
+  # TODO: expose and make generic
+  mkCompileHxml =
+    { sourceDir ? "src", libs, resources ? [ ], outpath, main, extra ? "" }:
+    let
+      concatPrefix = p: l:
+        pkgs.lib.strings.concatLines (map (x: "${p} ${x}") l);
+    in pkgs.writeText "compile.hxml" ''
+      -cp src
+      ${concatPrefix "-lib" libs}
+       ${concatPrefix "-resource" (map (x: "${x.path}@${x.name}") resources)}
+      -hl ${outpath}
+      -main ${main}
+      ${extra}
+    '';
 
 in {
   # the nix-shell for a heaps game
@@ -38,28 +44,30 @@ in {
     };
 
   # The heaps game recipe
-  buildGame = { name, version, src, main ? "Main", deps ? [ ], libs ? [ ], resources ? []
-    , useInterpreter ? true, debug ? false, release ? false }:
+  # TODO : allow more custom options
+  mkGame = { name, version, src, main ? "Main", deps ? [ ], libs ? [ ]
+    , resources ? [ ], debug ? false, release ? false }:
     let
 
       # generate compile.hxml for heaps
       compileHxml = mkCompileHxml {
         inherit main resources;
-        libs = [ "heaps" "hlsdl" "hlopenal"] ++ libs;
-        outpath = "${if release then "${buildPath}/${name}.c" else "${name}.hl"}";
+        libs = [ "heaps" "hlsdl" "hlopenal" ] ++ libs;
+        outpath =
+          "${if release then "${buildPath}/${name}.c" else "${name}.hl"}";
         extra = "${if debug then "-debug" else "-dce full"}";
       };
 
       hlInstall = ''
         mkdir -p $out/bin $out/lib
         cp ${name}.hl $out/lib/${name}.hl
-        echo "${haxelib.hashlink_latest}/bin/hl $out/lib/${name}.hl" > $out/bin/${name};
+        echo "${hashlink_latest}/bin/hl $out/lib/${name}.hl" > $out/bin/${name};
         chmod +x $out/bin/${name};
       '';
 
       cc = ''
         $CC -O3 -o ${name} -fpie -flto -fuse-linker-plugin -std=c17 \
-        -I${buildPath} ${haxelib.hashlink_latest}/lib/*.hdll ${buildPath}/${name}.c \
+        -I${buildPath} ${hashlink_latest}/lib/*.hdll ${buildPath}/${name}.c \
         -lm -lhl -lSDL2 -lopenal -lGL
       '';
 
@@ -69,16 +77,15 @@ in {
       '';
     in pkgs.stdenv.mkDerivation {
       inherit name version src;
-      buildInputs = deps ++ [ haxelib.hashlink_latest ];
-      nativeBuildInputs = heaps ++ deps
-        ++ nativeBuildInputs; # here BI is the one at the top of the file
+      buildInputs = deps ++ (pkgs.lib.lists.optional release hashlink_latest);
+      nativeBuildInputs = heaps_engine ++ deps ++ nativeBuildInputs;
       unpackPhase = ''
         cp -r $src/src ./
         ln -s ${compileHxml} ./compile.hxml
       '';
 
       buildPhase = builtins.concatStringsSep "\n" [
-        "${haxelib.haxe_latest}/bin/haxe compile.hxml"
+        "${haxe_latest}/bin/haxe compile.hxml"
         (pkgs.lib.strings.optionalString release cc)
       ];
 

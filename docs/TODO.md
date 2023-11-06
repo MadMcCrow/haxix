@@ -1,0 +1,17 @@
+# TODO :
+- [ ] MacOS support (M1)
+    - [X] Hashlink
+    - [ ] Haxe (OCaml is broken on M1)
+    - [ ] Build to native C
+- [ ] Common Haxelib from sources
+    - [X] Format
+    - [ ] SDL
+    - ...
+- [ ] Other Haxe game engines
+    - [ ] Godot-Haxe
+    - [ ] OpenFL
+    - ...
+- [ ] Update through Github Action
+- [ ] Clean nix structure
+- [ ] Ocaml LUV 
+    - [ ] clean with inputs
