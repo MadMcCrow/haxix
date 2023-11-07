@@ -84,8 +84,7 @@ in {
       '';
     in pkgs.stdenv.mkDerivation {
       inherit name version src;
-      buildInputs = deps
-        ++ (pkgs.lib.lists.optionals release hashlink_latest.pkgs);
+      buildInputs = deps ++ heaps_engine;
       nativeBuildInputs = heaps_engine ++ deps ++ nativeBuildInputs;
       unpackPhase = ''
         cp -r $src/src ./

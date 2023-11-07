@@ -5,7 +5,7 @@
 { pkgs, hashlink, haxelib }:
 let
 
-  hllibs = [ "openal" "sdl" "fmt" ];
+  hllibs = [ "openal" "sdl" ];
 
   # Custom HL with libraries for haxelib added
   generic = { version, src }:

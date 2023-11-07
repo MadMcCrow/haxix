@@ -33,7 +33,7 @@ let
       buildInputs = (with pkgs; [ zlib pcre2 neko mbedtls_2 ])
         ++ (ocamlDependencies ocaml-ng)
         ++ (pkgs.lib.optional (pkgs.stdenv.isDarwin)
-        pkgs.darwin.apple_sdk.frameworks.Security);
+          pkgs.darwin.apple_sdk.frameworks.Security);
     });
 in {
   # HAXE : flake latest version

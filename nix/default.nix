@@ -40,7 +40,7 @@ let
   };
 
   # hashlink interpreter
-  hashlink = import (systemSwitch ./hashlink.nix ./darwin/hashlink.nix ){
+  hashlink = import (systemSwitch ./hashlink.nix ./darwin/hashlink.nix) {
     pkgs = systemSwitch pkgs x86pkgs;
     inherit haxelib;
     inherit (inputs) hashlink;
