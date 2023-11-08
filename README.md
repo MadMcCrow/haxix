@@ -21,3 +21,7 @@ Licensed under [MIT](Licence.md)
 ## Authors
 
 See [AUTHORS](docs/AUTHORS.md) for the complete list of people who helped make haxix.
+
+## Status
+
+![check](https://github.com/MadMcCrow/haxix/actions/workflows/check.yml/badge.svg?branch=main)
