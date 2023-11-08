@@ -61,10 +61,10 @@
 
       # template for heaps projects :
       templates.default = {
-          path = ./template;
-          description = "A simple haxe game project";
-          welcomeText = "";
-        };
+        path = ./template;
+        description = "A simple haxe game project";
+        welcomeText = "";
+      };
 
       # expose functions :
       lib = forAllSystems (system: {
@@ -82,9 +82,7 @@
 
       # checks
       # TODO : improve to only build minimal checks
-      checks = forAllSystems (system: {
-        demo = demo system;
-      });
+      checks = forAllSystems (system: { demo = demo system; });
 
       # shell for the demo
       devShells = forAllSystems

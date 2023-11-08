@@ -9,7 +9,7 @@ let
   # darwin support
   darwinOverrides = if pkgs.stdenv.isDarwin
    then (import ./darwin/hashlink.nix pkgs) else (f: p: {});
-    
+
   # Custom HL with libraries for haxelib added
   generic = { version, src }:
   let
