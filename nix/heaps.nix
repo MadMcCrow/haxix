@@ -1,89 +1,108 @@
 # heaps.nix
-# Build heaps games with nix
-{ pkgs, inputs, ... }@args:
+# Build heaps games with nix 
+{ pkgs, heaps, haxe_latest, format_latest, haxelib, hashlink_latest }:
 let
-  haxelib = import ./haxe.nix args;
-
-  heaps_latest = haxelib.buildHaxeLib {
+  # TODO : make generic version
+  heaps_latest = haxelib.mkHaxelib {
     version = "latest";
     libname = "heaps";
-    src = inputs.heaps;
+    src = heaps;
     meta = pkgs.haxePackages.heaps.meta;
   };
 
   # the whole heaps.io engine
-  heaps = [
-    haxelib.haxe_latest
-    haxelib.hashlink_latest
-    haxelib.format_latest
+  heaps_engine = [
+    haxe_latest
+    format_latest
     heaps_latest
-    pkgs.haxePackages.hlopenal
+    hashlink_latest
   ];
 
   # compilation dependancies
   buildPath = "build";
-  buildLibs = (with pkgs; [ glibc SDL SDL2 openal ]) ++ heaps;
-  nativeBuildInputs = heaps ++ buildLibs;
+  buildLibs = with pkgs; 
+  [ SDL2 openal];
+
+  # helper to make the compile command
+  # TODO: expose and make generic
+  mkCompileHxml =
+    { sourceDir ? "src", libs, resources ? [ ], outpath, main, extra ? "" }:
+    let
+      concatPrefix = p: l:
+        pkgs.lib.strings.concatLines (map (x: "${p} ${x}") l);
+    in pkgs.writeText "compile.hxml" ''
+      -cp src
+      ${concatPrefix "-lib" libs}
+       ${concatPrefix "-resource" (map (x: "${x.path}@${x.name}") resources)}
+      -hl ${outpath}
+      -main ${main}
+      ${extra}
+    '';
+
 in {
   # the nix-shell for a heaps game
   mkShell = heapsGame:
-    pkgs.mkShell {
-      inherit nativeBuildInputs;
-      packages = nativeBuildInputs;
+    pkgs.mkShell rec {
+      nativeBuildInputs = buildLibs;
+      buildInputs = heapsGame.buildInputs;
       inputsFrom = [ heapsGame ];
     };
 
   # The heaps game recipe
-  buildGame = { name, version, src, main ? "Main", deps ? [ ], libs ? [ ]
-    , useInterpreter ? true, debug ? false, release ? false }:
-    let
-      # the compile command
-      # TODO : 
-      # - move to a separate command
-      # - allow for custom options for users
-      compileHxml = pkgs.writeText "compile.hxml" ''
-        -cp src
-        -lib heaps
-        -lib hlsdl
-        -lib hlopenal
-        ${builtins.concatStringsSep "\n" (map (x: "-lib ${x}") libs)}
-        -hl ${if release then "${buildPath}/${name}.c" else "${name}.hl"}
-        -main ${main}
-        ${if debug then "-debug" else "-dce full"}
-      '';
+  # TODO : allow more custom options
+  mkGame = { name
+  , version
+  , src
+  , main ? "Main"
+  , haxelibs ? [ ] # haxe libraries
+  , resources ? [ ] # haxe compiled-in resources
+  , debug ? false # have debug symbols
+  , native ? false # compile to C (does not work with MacOS)
+  } @args
+  :
+    let 
+      # generate compile.hxml for heaps
+      compileHxml = mkCompileHxml {
+        inherit main resources;
+        libs = [ "heaps" "hlsdl" "hlopenal" ] ++ haxelibs;
+        outpath =
+          "${if native then "${buildPath}/${name}.c" else "${name}.hl"}";
+        extra = "${if debug then "-debug" else "-dce full"}";
+      };
 
+      # install with hl binary and game lib
       hlInstall = ''
         mkdir -p $out/bin $out/lib
         cp ${name}.hl $out/lib/${name}.hl
-        echo "${haxelib.hashlink_latest}/bin/hl $out/lib/${name}.hl" > $out/bin/${name};
+        echo "${hashlink_latest}/bin/hl $out/lib/${name}.hl" > $out/bin/${name};
         chmod +x $out/bin/${name};
       '';
 
+      # there's no way to get hl hdll in arm64 for MacOS 
       cc = ''
         $CC -O3 -o ${name} -fpie -flto -fuse-linker-plugin -std=c17 \
-        -I${buildPath} ${haxelib.hashlink_latest}/lib/*.hdll ${buildPath}/${name}.c \
+        -I${buildPath} ${hashlink_latest}/lib/*.hdll ${buildPath}/${name}.c \
         -lm -lhl -lSDL2 -lopenal -lGL
       '';
-
       cInstall = ''
         mkdir -p $out/bin
         cp ${name} $out/bin/
       '';
+
     in pkgs.stdenv.mkDerivation {
       inherit name version src;
-      buildInputs = deps ++ [ haxelib.hashlink_latest ];
-      nativeBuildInputs = heaps ++ deps
-        ++ nativeBuildInputs; # here BI is the one at the top of the file
+      buildInputs = (args.buildInputs or []) ++ heaps_engine;
+      nativeBuildInputs = (args.buildInputs or []) ++ heaps_engine ++ buildLibs;
       unpackPhase = ''
         cp -r $src/src ./
         ln -s ${compileHxml} ./compile.hxml
       '';
 
       buildPhase = builtins.concatStringsSep "\n" [
-        "${haxelib.haxe_latest}/bin/haxe compile.hxml"
-        (pkgs.lib.strings.optionalString release cc)
+        "${haxe_latest}/bin/haxe compile.hxml"
+        (pkgs.lib.strings.optionalString native cc)
       ];
 
-      installPhase = if release then cInstall else hlInstall;
+      installPhase = if native then cInstall else hlInstall;
     };
 }

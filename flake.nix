@@ -4,6 +4,10 @@
   inputs = {
     # latest nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+    # MacOS support
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
+
     # haxe : the language
     haxe = {
       type = "git";
@@ -29,43 +33,61 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, ... }@inputs:
     let
       # multiplatform support
       # only tested on x86_64 linux
-      systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
-      forAllSystems = function:
-        nixpkgs.lib.genAttrs systems
-        (system: function (import nixpkgs { inherit system; }));
+      systems = [
+        "x86_64-linux"
+        # "aarch64-linux" <- not supported yet
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
+      forAllSystems = f: inputs.nixpkgs.lib.genAttrs systems f;
 
-      mkAllSystems = set:
-        forAllSystems (pkgs: builtins.mapAttrs (name: value: value pkgs) set);
+      # import functions:
+      haxix = system: (import ./nix { inherit inputs system; });
 
-      # sub modules
-      haxe = pkgs: (import nix/haxe.nix { inherit inputs pkgs; });
-      heaps = pkgs: (import nix/heaps.nix { inherit inputs pkgs; });
-
-      # the game itself
-      demo = pkgs:
-        (heaps pkgs).buildGame {
+      # an example of a game
+      demo = system:
+        (haxix system).heaps.mkGame {
           name = "helloworld";
           src = ./demo;
           version = "0.0.1-alpha";
-          debug = false;
-          release = false;
+          native = false;
         };
 
     in {
-      # expose our heaps and haxe functions
-      lib = mkAllSystems { inherit heaps haxe; };
 
-      # add our demo
-      packages = mkAllSystems rec {
-        inherit demo;
-        default = demo;
-      };
+      # template for heaps projects :
+      templates.default = {
+          path = ./template;
+          description = "A simple haxe game project";
+          welcomeText = "";
+        };
+
+      # expose functions :
+      lib = forAllSystems (system: {
+        mkHaxelib = (haxix system).haxelib.mkHaxelib;
+        mkHeapsGame = (haxix system).heaps.mkGame;
+        mkHeapsShell = (haxix system).heaps.mkShell;
+      });
+
+      # All important packages and the demo
+      packages = forAllSystems (system: {
+        haxe = (haxix system).haxe.haxe_latest;
+        hashlink = (haxix system).hashlink.hashlink_latest;
+        demo = demo system;
+      });
+
+      # checks
+      # TODO : improve to only build minimal checks
+      checks = forAllSystems (system: {
+        demo = demo system;
+      });
 
       # shell for the demo
-      devShells = mkAllSystems { default = pkgs: (heaps pkgs).mkShell (demo pkgs); };
+      devShells = forAllSystems
+        (system: { default = (haxix system).heaps.mkShell (demo system); });
     };
 }
