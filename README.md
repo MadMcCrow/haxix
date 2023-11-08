@@ -6,6 +6,11 @@ A flake to build and run games made with [heaps.io](https://heaps.io/) and possi
 
 See the flake [template](template/flake.nix) for a example on how to use haxix in your own projects.
 
+you can instantiate it in any folder with :
+```
+nix flake init -t github:MadMcCrow/haxix#
+```
+
 ## TODO
 
 See [TODO.md](docs/TODO.md). these are the most likely things to be added to the project.

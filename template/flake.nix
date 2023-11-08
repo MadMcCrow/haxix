@@ -35,5 +35,5 @@
         };
 
       # gen for all systems :
-    in foldl' (x: y: nixpkgs.lib.recursiveUpdate x y) { } (map flake systems);
+    in builtins.foldl' (x: y: nixpkgs.lib.recursiveUpdate x y) { } (map flake systems);
 }
