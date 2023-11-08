@@ -1,17 +1,14 @@
+# DONE :
+
+- build and run Heaps games on linux
+- build wih latest Haxe, Heaps, etc.
+- MacOS (darwin) support
+    - M1 support (no native heaps game, because HL cannot be built in arm64)
+- package haxelibs
+
 # TODO :
-- [ ] MacOS support (M1)
-    - [X] Hashlink
-    - [ ] Haxe (OCaml is broken on M1)
-    - [ ] Build to native C
-- [ ] Common Haxelib from sources
-    - [X] Format
-    - [ ] SDL
-    - ...
 - [ ] Other Haxe game engines
     - [ ] Godot-Haxe
     - [ ] OpenFL
-    - ...
-- [ ] Update through Github Action
-- [ ] Clean nix structure
-- [ ] Ocaml LUV 
-    - [ ] clean with inputs
+- [ ] Auto-Update through Github Action
+- [ ] Clean, remove `_latest` from package names

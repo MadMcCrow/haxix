@@ -25,8 +25,6 @@
             src = self;
             name = "my-project";
             version = "0.0.1-alpha";
-            debug = false;
-            release = false;
           };
         in {
           # implement your flake here ;)

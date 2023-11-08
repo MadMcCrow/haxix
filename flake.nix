@@ -43,31 +43,28 @@
         "aarch64-darwin"
         "x86_64-darwin"
       ];
-
-      haxix = system: (import ./nix { inherit inputs system; });
-
       forAllSystems = f: inputs.nixpkgs.lib.genAttrs systems f;
 
-      # the game itself
+      # import functions:
+      haxix = system: (import ./nix { inherit inputs system; });
+
+      # an example of a game
       demo = system:
         (haxix system).heaps.mkGame {
           name = "helloworld";
           src = ./demo;
           version = "0.0.1-alpha";
-          debug = false;
-          release = false;
+          native = false;
         };
 
     in {
 
-      # template for godot projects :
-      templates = {
-        default = {
+      # template for heaps projects :
+      templates.default = {
           path = ./template;
           description = "A simple haxe game project";
           welcomeText = "";
         };
-      };
 
       # expose functions :
       lib = forAllSystems (system: {
@@ -76,11 +73,17 @@
         mkHeapsShell = (haxix system).heaps.mkShell;
       });
 
-      # add our demo
-      packages = forAllSystems (system: rec {
+      # All important packages and the demo
+      packages = forAllSystems (system: {
         haxe = (haxix system).haxe.haxe_latest;
         hashlink = (haxix system).hashlink.hashlink_latest;
-        default = demo system;
+        demo = demo system;
+      });
+
+      # checks
+      # TODO : improve to only build minimal checks
+      checks = forAllSystems (system: {
+        demo = demo system;
       });
 
       # shell for the demo

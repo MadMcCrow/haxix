@@ -4,13 +4,16 @@
 # for this we need to use different outputs in generic
 { pkgs, hashlink, haxelib }:
 let
+  inherit (pkgs) lib;
 
-  hllibs = [ "openal" "sdl" ];
-
+  # darwin support
+  darwinOverrides = if pkgs.stdenv.isDarwin
+   then (import ./darwin/hashlink.nix pkgs) else (f: p: {});
+    
   # Custom HL with libraries for haxelib added
   generic = { version, src }:
-    let
-      hl = pkgs.hashlink.overrideAttrs (finalAttrs: previousAttrs: {
+  let
+    hl = (pkgs.hashlink.overrideAttrs (finalAttrs: previousAttrs: {
         inherit version src;
         buildInputs = previousAttrs.buildInputs ++ [ pkgs.libpng ];
         postInstall = (previousAttrs.postInstall or "") + ''
@@ -20,21 +23,24 @@ let
             inherit version;
           }}
         '';
-      });
-      libraries = builtins.listToAttrs (builtins.map (x:
-        pkgs.lib.attrsets.nameValuePair "hl${x}" (haxelib.mkHaxelib {
+      })).overrideAttrs darwinOverrides;
+      # hlsdl, etc ...
+      hl-lib = name : description : haxelib.mkHaxelib {
           inherit version;
-          libname = "hl${x}";
-          src = "${src}/libs/${x}";
-          meta = hl.meta;
-        })) hllibs);
-    in {
-      inherit hl;
-      pkgs = [ hl ] ++ builtins.attrValues libraries;
-    } // libraries;
+          libname = "hl${name}";
+          src = "${src}/libs/${name}";
+          meta = hl.meta // {inherit description;};
+        };
+    in pkgs.buildEnv {
+      name = "hashlink";
+      paths = [
+        hl
+        (hl-lib "sdl" "sdl2 support for hl")
+        (hl-lib "openal" "hl openal library")
+      ];
+    };
 
 in {
-
   # HASHLINK : flake latest version
   hashlink_latest = generic {
     version = "latest";
