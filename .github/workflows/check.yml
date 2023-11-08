@@ -1,0 +1,21 @@
+name: Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        name: checkout repository
+      - uses: DeterminateSystems/nix-installer-action@main
+        name: install nix
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+        name: use nix cache
+      - uses: DeterminateSystems/flake-checker-action@v4
+        name: check flake lock
+      - run: nix flake check
+        name: run compilation checks
