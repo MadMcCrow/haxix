@@ -4,5 +4,7 @@
 [Beshoy Kamel](https://github.com/bwkam) - Latest Haxe, and hashlink implementation
 
 # Special Thanks to :
-- the nix community and its unofficial discord;
-- the haxe community;
+- the nix community and its [unofficial discord](https://discord.gg/NJZ83pdM)
+- the haxe community and it's [discord](https://discord.gg/UqzaWntA) :
+    - Zeta
+    - logololol
