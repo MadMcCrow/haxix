@@ -21,6 +21,11 @@
       url = "github:HaxeFoundation/hashlink?ref=refs/tags/latest";
       flake = false;
     };
+    # Dox : the documentation tool
+    dox = {
+      url ="github:HaxeFoundation/dox";
+      flake = false;
+    };
     # format : the format support library
     haxe_format = {
       url = "github:HaxeFoundation/format";
@@ -62,21 +67,27 @@
       # template for heaps projects :
       templates.default = {
         path = ./template;
-        description = "A simple haxe game project";
+        description = "A simple haxe/heaps game project";
         welcomeText = "";
       };
 
       # expose functions :
       lib = forAllSystems (system: {
         mkHaxelib = (haxix system).haxelib.mkHaxelib;
+        mkHaxedoc = (haxix system).dox.mkHaxedoc;
         mkHeapsGame = (haxix system).heaps.mkGame;
         mkHeapsShell = (haxix system).heaps.mkShell;
       });
 
       # All important packages and the demo
       packages = forAllSystems (system: {
+        # haxelang :
         haxe = (haxix system).haxe.haxe_latest;
         hashlink = (haxix system).hashlink.hashlink_latest;
+        # libs :
+        format = (haxix system).format.format_latest;
+        dox = (haxix system).dox.dox_latest;
+        # helloworld :
         demo = demo system;
       });
 
@@ -86,6 +97,9 @@
 
       # shell for the demo
       devShells = forAllSystems
-        (system: { default = (haxix system).heaps.mkShell (demo system); });
+        (system: {
+          default = (haxix system).shell;
+          demo = (haxix system).heaps.mkShell (demo system);
+        });
     };
 }

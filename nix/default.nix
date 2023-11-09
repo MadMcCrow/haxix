@@ -49,4 +49,21 @@ let
     inherit (hashlink) hashlink_latest;
   };
 
-in { inherit haxe hashlink heaps format; }
+  # Dox documentation tool
+  dox = import ./dox.nix {
+    inherit pkgs haxelib;
+    inherit (inputs) dox;
+    inherit (haxe) haxe_latest;
+  };
+
+  shell = pkgs.mkShell {
+    buildInputs = [
+      haxe.haxe_latest
+      hashlink.hashlink_latest
+      format.format_latest
+      heaps.heaps_latest
+      dox.dox_latest
+    ];
+  };
+
+in { inherit haxe hashlink heaps format dox shell; }

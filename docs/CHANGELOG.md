@@ -4,3 +4,5 @@
     - M1 support (no native heaps game, because HL cannot be built in arm64)
 - package haxelibs
 - Check flake with github action for PRs
+- mkHeapsGame support buildInputs
+- Added a simple default haxe shell

@@ -40,6 +40,8 @@ let
     '';
 
 in {
+  inherit heaps_latest;
+
   # the nix-shell for a heaps game
   mkShell = heapsGame:
     pkgs.mkShell rec {

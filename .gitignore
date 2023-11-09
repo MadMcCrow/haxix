@@ -4,3 +4,5 @@ result*
 *.hl
 # hashlink/c out build folder
 out*
+# MacOS
+.DS_Store
