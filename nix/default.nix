@@ -66,4 +66,4 @@ let
     ];
   };
 
-in { inherit haxe hashlink heaps format dox shell; }
+in { inherit haxe hashlink haxelib heaps format dox shell; }
