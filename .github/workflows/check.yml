@@ -3,6 +3,11 @@ name: Check
 on:
   push:
     branches: [main]
+    paths:
+      - '**.nix'
+      - 'flake.lock'
+      - 'flake.nix'
+      - 'nix/**'
   pull_request:
 
 jobs:
