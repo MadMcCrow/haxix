@@ -26,14 +26,23 @@ let
   # helper to make the compile command
   # TODO: expose and make generic
   mkCompileHxml =
-    { sourceDir ? "src", libs, resources ? [ ], outpath, main, extra ? "" }:
+  { sourceDir ? "src"
+  , libs
+  , resources ? [ ]
+  , outpath
+  , main
+  , extra ? "" }:
+    with builtins;
     let
-      concatPrefix = p: l:
-        pkgs.lib.strings.concatLines (map (x: "${p} ${x}") l);
+      concatPrefix = p: l: 
+        concatStringsSep "\n" (map (x: "${p} ${x}") l);
+      mkRes = res : if isString then "${res}"
+        else if isAttrs res then "${res.path}@${res.name}"
+        else throw "resource must be either strings or {name,path}";
     in pkgs.writeText "compile.hxml" ''
       -cp src
       ${concatPrefix "-lib" libs}
-       ${concatPrefix "-resource" (map (x: "${x.path}@${x.name}") resources)}
+      ${concatPrefix "-resource" (map mkRes resources)}
       -hl ${outpath}
       -main ${main}
       ${extra}
