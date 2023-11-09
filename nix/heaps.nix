@@ -27,7 +27,7 @@ let
   # TODO: expose and make generic
   mkCompileHxml =
   { sourceDir ? "src"
-  , libs
+  , libs ? []
   , resources ? [ ]
   , outpath
   , main
@@ -36,11 +36,11 @@ let
     let
       concatPrefix = p: l: 
         concatStringsSep "\n" (map (x: "${p} ${x}") l);
-      mkRes = res : if isString then "${res}"
+      mkRes = res : if isString res then "${res}"
         else if isAttrs res then "${res.path}@${res.name}"
         else throw "resource must be either strings or {name,path}";
     in pkgs.writeText "compile.hxml" ''
-      -cp src
+      -cp ${sourceDir}
       ${concatPrefix "-lib" libs}
       ${concatPrefix "-resource" (map mkRes resources)}
       -hl ${outpath}
@@ -107,7 +107,7 @@ in {
     nativeBuildInputs = nativeBuildInputs ++ heaps_engine ++ buildLibs;
     # copy source and the hxml
     unpackPhase = ''
-      cp -r $src/src ./
+      cp -r $src/* ./
       ln -s ${compileHxml} ./compile.hxml
     '';
     # build with haxe compiler
