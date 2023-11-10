@@ -38,7 +38,7 @@ let
 in {
   # HAXE : flake latest version
   haxe_latest = generic {
-    version = "development";
+    version = "development"; # 5.0.0-alpha.1
     src = haxe;
     ocaml-ng = pkgs.ocaml-ng.ocamlPackages_4_08;
   };

@@ -8,8 +8,9 @@ let
     libname = "dox";
     src = dox;
     meta = {
+      homepage = "https://github.com/HaxeFoundation/dox";
       description = "A Haxe tool to generate Haxe documentation";
-      licenses = [pkgs.lib.licenses.mit];
+      license = pkgs.lib.licenses.mit;
     };
   };
 

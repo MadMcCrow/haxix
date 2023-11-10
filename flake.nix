@@ -23,7 +23,7 @@
     };
     # Dox : the documentation tool
     dox = {
-      url ="github:HaxeFoundation/dox";
+      url = "github:HaxeFoundation/dox";
       flake = false;
     };
     # format : the format support library
@@ -34,6 +34,11 @@
     # heaps : the game engine
     heaps = {
       url = "github:HeapsIO/heaps";
+      flake = false;
+    };
+    # formatter
+    formatter = {
+      url = "github:HaxeCheckstyle/haxe-formatter";
       flake = false;
     };
   };
@@ -61,9 +66,7 @@
           version = "0.0.1-alpha";
           native = false;
         };
-
     in {
-
       # template for heaps projects :
       templates.default = {
         path = ./template;
@@ -96,10 +99,9 @@
       checks = forAllSystems (system: { demo = demo system; });
 
       # shell for the demo
-      devShells = forAllSystems
-        (system: {
-          default = (haxix system).shell;
-          demo = (haxix system).heaps.mkShell (demo system);
-        });
+      devShells = forAllSystems (system: {
+        default = (haxix system).shell;
+        demo = (haxix system).heaps.mkShell (demo system);
+      });
     };
 }
