@@ -71,6 +71,7 @@ in {
   , native ? false # compile to C (does not work with MacOS)
   , nativeBuildInputs ? []
   , buildInputs ? []
+  , meta ? {}
   } @args
   :
   let 
@@ -108,7 +109,7 @@ in {
     # copy source and the hxml
     unpackPhase = ''
       cp -r $src/* ./
-      ln -s ${compileHxml} ./compile.hxml
+      cp ${compileHxml} ./compile.hxml
     '';
     # build with haxe compiler
     buildPhase = builtins.concatStringsSep "\n" [
@@ -117,5 +118,10 @@ in {
     ];
     # install with hl or with the c binary
     installPhase = if native then cInstall else hlInstall;
+    meta = {
+      inherit name;
+        license = pkgs.lib.licenses.free;
+        platforms = pkgs.lib.platforms.all;
+    } // meta;
   };
 }
