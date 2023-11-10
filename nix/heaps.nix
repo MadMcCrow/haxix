@@ -24,7 +24,6 @@ in {
   inherit heaps_latest;
 
   # The heaps game recipe
-  # TODO : Disable C compilation on MacOS
   mkGame = {
   compileHxml ? "compile.hxml"
   , ...
@@ -32,6 +31,8 @@ in {
   :
   let 
   name = args.pname or args.name;
+  # disable HL/C on MacOS M1
+  DoHLC = if pkgs.stdenv.isDarwin then "false" else "true";
   in
   pkgs.stdenv.mkDerivation (args //{
     # build inputs
@@ -51,7 +52,7 @@ in {
       OUTC=$(cat ${compileHxml} | grep '^-hl *[[:graph:]]*.c' || true)
       OUTC=$(echo $OUTC | sed 's/-hl[[:space:]]*//g')
       # build HL/C
-      if [ -f "$OUTC" ]; then
+      if [ -f "$OUTC" ] && ${DoHLC}; then
         echo "building HL/C with $CC"
         $CC -O3 -o ${name} -fpie -flto -fuse-linker-plugin -std=c17 \
         -I$(realpath $(dirname $OUTC)) ${hashlink_latest}/lib/*.hdll $OUTC \
@@ -69,7 +70,7 @@ in {
       chmod +x $out/bin/${name};
       fi
       # native C
-      if [ -f "$OUTC" ]; then
+      if [ -f "$OUTC" ] && ${DoHLC}; then
       mkdir -p $out/bin
       cp ${name} $out/bin/${name}.bin
       fi
