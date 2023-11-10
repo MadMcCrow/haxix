@@ -24,7 +24,7 @@ in {
   inherit heaps_latest;
 
   # The heaps game recipe
-  # TODO : allow more custom options
+  # TODO : Disable C compilation on MacOS
   mkGame = {
   compileHxml ? "compile.hxml"
   , ...
@@ -71,7 +71,7 @@ in {
       # native C
       if [ -f "$OUTC" ]; then
       mkdir -p $out/bin
-      cp ${name} $out/bin/
+      cp ${name} $out/bin/${name}.bin
       fi
     '';
     meta = {
