@@ -101,7 +101,6 @@
       # shell for the demo
       devShells = forAllSystems (system: {
         default = (haxix system).shell;
-        demo = (haxix system).heaps.mkShell (demo system);
       });
     };
 }
