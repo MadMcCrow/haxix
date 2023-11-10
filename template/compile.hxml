@@ -10,9 +10,9 @@
 # for every output :
 --each
 # to hl bytecode
--hl build/demo.hl
+-hl build/game.hl
 -main Main
 # to hl/c
 --next
--hl build/demo.c
+-hl build/game.c
 -main Main

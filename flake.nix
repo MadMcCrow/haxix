@@ -99,8 +99,6 @@
       checks = forAllSystems (system: { demo = demo system; });
 
       # shell for the demo
-      devShells = forAllSystems (system: {
-        default = (haxix system).shell;
-      });
+      devShells = forAllSystems (system: { default = (haxix system).shell; });
     };
 }
