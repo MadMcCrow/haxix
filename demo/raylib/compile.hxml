@@ -1,0 +1,4 @@
+-cp src
+-lib raylib-hx
+-main Main
+-cpp bin

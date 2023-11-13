@@ -31,6 +31,12 @@
       url = "github:HaxeFoundation/format";
       flake = false;
     };
+    # hxcpp : runtime support for the C++ backend 
+    # of the Haxe compiler.
+    hxcpp = {
+      url = "github:HaxeFoundation/hxcpp?ref=refs/tags/v4.3.15";
+      flake = false;
+    };
     # heaps : the game engine
     heaps = {
       url = "github:HeapsIO/heaps";
@@ -39,6 +45,16 @@
     # formatter
     formatter = {
       url = "github:HaxeCheckstyle/haxe-formatter";
+      flake = false;
+    };
+    # raylib
+    raylib = {
+      url = "github:raysan5/raylib?ref=refs/tags/4.5.0";
+      flake = false;
+    };
+    # raylib haxe bindings
+    raylib-hx = {
+      url = "github:foreignsasquatch/raylib-hx";
       flake = false;
     };
   };
@@ -59,10 +75,18 @@
       haxix = system: (import ./nix { inherit inputs system; });
 
       # an example of a game
-      demo = system:
+      heaps-demo = system:
         (haxix system).heaps.mkGame {
-          name = "helloworld";
-          src = ./demo;
+          name = "heaps-helloworld";
+          src = ./demo/heaps;
+          version = "0.0.1-alpha";
+          native = false;
+        };
+
+        raylib-demo = system:
+        (haxix system).raylib.mkGame {
+          name = "heaps-helloworld";
+          src = ./demo/heaps;
           version = "0.0.1-alpha";
           native = false;
         };
@@ -91,14 +115,14 @@
         format = (haxix system).format.format_latest;
         dox = (haxix system).dox.dox_latest;
         # helloworld :
-        demo = demo system;
+        demo = heaps-demo system;
       });
 
       # checks
       # TODO : improve to only build minimal checks
-      checks = forAllSystems (system: { demo = demo system; });
+      checks = forAllSystems (system: { demo = heaps-demo system; });
 
-      # shell for the demo
+      # shell for making haxe stuff
       devShells = forAllSystems (system: { default = (haxix system).shell; });
     };
 }

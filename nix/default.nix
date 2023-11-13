@@ -35,11 +35,17 @@ let
     inherit (inputs) haxe_format;
   };
 
+  # hxcpp compiler support
+  hxcpp = import ./hxcpp.nix {
+    inherit pkgs;
+    inherit (haxe) haxe_latest;
+    inherit (inputs) hxcpp;
+  };
+
   # hashlink interpreter
   # does not build in aaarch64-darwin
   hashlink = import ./hashlink.nix {
-    inherit pkgs;
-    inherit haxelib;
+    inherit pkgs haxelib;
     inherit (inputs) hashlink;
   };
 
@@ -67,16 +73,25 @@ let
     inherit (haxe) haxe_latest;
   };
 
+  # Raylib
+  raylib = import ./raylib.nix {
+    inherit pkgs haxelib;
+    inherit (inputs) raylib-hx raylib;
+    inherit (hxcpp) hxcpp_latest;
+  };
+
   shell = pkgs.mkShell {
     buildInputs = [
       haxe.haxe_latest
       hashlink.hashlink_latest
       format.format_latest
+      hxcpp.hxcpp_latest
       heaps.heaps_latest
       formatter.formatter_latest
       formatter.haxefmt
       dox.dox_latest
+      raylib.raylibHaxe_latest
     ];
   };
 
-in { inherit haxe hashlink haxelib heaps format formatter dox shell; }
+in { inherit haxe hashlink haxelib hxcpp heaps format formatter dox raylib shell; }

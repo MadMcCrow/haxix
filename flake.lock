@@ -35,11 +35,11 @@
     "hashlink": {
       "flake": false,
       "locked": {
-        "lastModified": 1699179367,
-        "narHash": "sha256-f2WnvPc7vif6mmg5LRq4xHxxRUieCl1Wl0QRlDYtVww=",
+        "lastModified": 1699632751,
+        "narHash": "sha256-eby2SrbycqQy5IVn+hBncpClmpFN333EK+2dlBqys8U=",
         "owner": "HaxeFoundation",
         "repo": "hashlink",
-        "rev": "2f8a7031dd40ecfb53f928d66273668d5640ed6d",
+        "rev": "a502906ce5d701987f3b83a709ebd35251077114",
         "type": "github"
       },
       "original": {
@@ -52,11 +52,11 @@
     "haxe": {
       "flake": false,
       "locked": {
-        "lastModified": 1699516714,
-        "narHash": "sha256-YU+/vPGbAqKOZEpvbyg4x5WJYRMzi6RrAcgiOJRWDlo=",
+        "lastModified": 1699861259,
+        "narHash": "sha256-xTGTmY6zyJp8L9JXCV9xAF6sj2AF7BzVFUGDIStvYlQ=",
         "ref": "development",
-        "rev": "e6442b23b9526c6197db3152a26f2bb091c79731",
-        "revCount": 20907,
+        "rev": "c6a8b2051cf6e4caf14948b52708d02c988eb2ce",
+        "revCount": 20909,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/HaxeFoundation/haxe.git"
@@ -87,11 +87,11 @@
     "heaps": {
       "flake": false,
       "locked": {
-        "lastModified": 1699450191,
-        "narHash": "sha256-j+xCo0zU9x/W9Z3TyAjafUxJ30QuREjiuWiQpb/BVG8=",
+        "lastModified": 1699622468,
+        "narHash": "sha256-EjJhK24twboZBF9C6Tm7y5UevNERx8B40DdJ6Nk+c38=",
         "owner": "HeapsIO",
         "repo": "heaps",
-        "rev": "e499664d74bc940f99ab23fec005044d275b775e",
+        "rev": "9aa57f378240b50de0bd1a73df0a695086c3cd83",
         "type": "github"
       },
       "original": {
@@ -100,13 +100,30 @@
         "type": "github"
       }
     },
+    "hxcpp": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698505597,
+        "narHash": "sha256-wxuos18IqM26cFs0dWp8vLcvg1SwTB7VmZT0g6UZ9mc=",
+        "owner": "HaxeFoundation",
+        "repo": "hxcpp",
+        "rev": "b8ee1792525c61c42b0f2815a94ff0d87faebd32",
+        "type": "github"
+      },
+      "original": {
+        "owner": "HaxeFoundation",
+        "ref": "refs/tags/v4.3.15",
+        "repo": "hxcpp",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1699343069,
-        "narHash": "sha256-s7BBhyLA6MI6FuJgs4F/SgpntHBzz40/qV0xLPW6A1Q=",
+        "lastModified": 1699725108,
+        "narHash": "sha256-NTiPW4jRC+9puakU4Vi8WpFEirhp92kTOSThuZke+FA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ec750fd01963ab6b20ee1f0cb488754e8036d89d",
+        "rev": "911ad1e67f458b6bcf0278fa85e33bb9924fed7e",
         "type": "github"
       },
       "original": {
@@ -118,17 +135,50 @@
     },
     "nixpkgs-darwin": {
       "locked": {
-        "lastModified": 1699403077,
-        "narHash": "sha256-48OxQRx3tVaQhGmrFDxtzr8uzmhJjll8mImWhLiDBxM=",
+        "lastModified": 1699785518,
+        "narHash": "sha256-QywAQ3A4dMHt1NTbHIFMXZ+bknza+JJpjxbDi5ud2+Y=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "14d17e6b1f9fbee8ffa624277e241fb7b04440db",
+        "rev": "971ac8319468c5cfa05653f6b95d7174614720f9",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
         "ref": "nixpkgs-23.05-darwin",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "raylib": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1679157424,
+        "narHash": "sha256-Uqqzq5shDp0AgSBT5waHBNUkEu0LRj70SNOlR5R2yAM=",
+        "owner": "raysan5",
+        "repo": "raylib",
+        "rev": "fec96137e8d10ee6c88914fbe5e5429c13ee1dac",
+        "type": "github"
+      },
+      "original": {
+        "owner": "raysan5",
+        "ref": "refs/tags/4.5.0",
+        "repo": "raylib",
+        "type": "github"
+      }
+    },
+    "raylib-hx": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698577074,
+        "narHash": "sha256-WTr5opyfsyNjQP6iL+h+PeJo8bxVVJ+LHL3rP0YGfTY=",
+        "owner": "foreignsasquatch",
+        "repo": "raylib-hx",
+        "rev": "98671f954528ef19f6da1808c3809ca351b5d834",
+        "type": "github"
+      },
+      "original": {
+        "owner": "foreignsasquatch",
+        "repo": "raylib-hx",
         "type": "github"
       }
     },
@@ -140,8 +190,11 @@
         "haxe": "haxe",
         "haxe_format": "haxe_format",
         "heaps": "heaps",
+        "hxcpp": "hxcpp",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-darwin": "nixpkgs-darwin"
+        "nixpkgs-darwin": "nixpkgs-darwin",
+        "raylib": "raylib",
+        "raylib-hx": "raylib-hx"
       }
     }
   },
