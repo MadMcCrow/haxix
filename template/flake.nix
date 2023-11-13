@@ -17,8 +17,7 @@
 
       # default system-agnostic flake implementation :
       flake = system:
-        let
-
+        leta
           haxix-lib = haxix.lib."${system}";
           # heaps game example :
           my-project = haxix-lib.mkHeapsGame {
