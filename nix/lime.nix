@@ -37,7 +37,7 @@ in {
     pkgs.stdenv.mkDerivation {
       name = "${name}-${version}";
       inherit src;
-      nativeBuildInputs = [lime_8_1_1 haxe_latest pkgs.neko format_latest];
+      # nativeBuildInputs = [lime_8_1_1 haxe_latest pkgs.neko format_latest];
       buildInputs = [lime_8_1_1 haxe_latest pkgs.neko format_latest];
       unpackPhase = ''
         cp -r $src/src ./
@@ -45,9 +45,15 @@ in {
         ln -s ${mkProjectXml {inherit name version;}} ./project.xml
         ls
       '';
+      dontMakeSourcesWritable = true;
+
+      postUnpack = ''
+        chmod +x ${haxe_latest}/bin/haxelib
+      '';
       buildPhase = ''
         ls
-        neko ${lime_8_1_1}/lib/haxe/lime/8,1,1/run.n build ${target}
+        # neko ${lime_8_1_1}/lib/haxe/lime/8,1,1/run.n > hi.txt
+        ${haxe_latest}/bin/haxelib run lime build ${target}
       '';
       installPhase = ''
         mkdir -p $out/bin
