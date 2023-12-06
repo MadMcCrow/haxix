@@ -73,7 +73,7 @@ with builtins; let
       format.format_latest
       heaps.heaps_latest
       dox.dox_latest
-      lime.lime_latest
+      lime.lime_8_1_1
     ];
   };
-in {inherit haxe hashlink heaps format dox shell;}
+in {inherit haxe hashlink heaps format dox shell lime;}

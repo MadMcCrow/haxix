@@ -54,11 +54,12 @@
 
     # an example of a game
     demo = system:
-      (haxix system).heaps.mkGame {
+      (haxix system).lime.mkGame {
         name = "helloworld";
         src = ./demo;
         version = "0.0.1-alpha";
-        native = false;
+        target = "html5";
+        # native = false;
       };
   in {
     # template for heaps projects :
@@ -73,6 +74,7 @@
       mkHaxelib = (haxix system).haxelib.mkHaxelib;
       mkHaxedoc = (haxix system).dox.mkHaxedoc;
       mkHeapsGame = (haxix system).heaps.mkGame;
+      mkLimeGame = (haxix system).lime.mkGame;
       mkHeapsShell = (haxix system).heaps.mkShell;
     });
 
@@ -97,7 +99,8 @@
       forAllSystems
       (system: {
         default = (haxix system).shell;
-        demo = (haxix system).heaps.mkShell (demo system);
+        # demo = (haxix system).heaps.mkShell (demo system);
+        demo = (haxix system).lime.mkGame (demo system);
       });
   };
 }
