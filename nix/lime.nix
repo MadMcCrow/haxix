@@ -39,9 +39,12 @@ in {
       buildInputs = [lime_8_1_1 haxe_latest pkgs.neko];
       unpackPhase = ''
         cp -r $src/src ./
+        cp -r $src/Assets ./
         ln -s ${mkProjectXml {inherit name version;}} ./project.xml
+        ls
       '';
       buildPhase = ''
+        ls
         ${haxe_latest}/bin/haxelib run lime build ${target}
       '';
       installPhase = ''

@@ -74,6 +74,7 @@ with builtins; let
       heaps.heaps_latest
       dox.dox_latest
       lime.lime_8_1_1
+      pkgs.neko
     ];
   };
 in {inherit haxe hashlink heaps format dox shell lime;}
