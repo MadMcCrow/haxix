@@ -63,6 +63,7 @@ with builtins; let
   # lime
   lime = import ./lime.nix {
     inherit pkgs haxelib;
+    inherit (format) format_latest;
     inherit (haxe) haxe_latest;
   };
 

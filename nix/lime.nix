@@ -3,6 +3,7 @@
   pkgs,
   haxelib,
   haxe_latest,
+  format_latest,
 }: let
   lime_8_1_1 = haxelib.mkHaxelib {
     libname = "lime";
@@ -36,7 +37,8 @@ in {
     pkgs.stdenv.mkDerivation {
       name = "${name}-${version}";
       inherit src;
-      buildInputs = [lime_8_1_1 haxe_latest pkgs.neko];
+      nativeBuildInputs = [lime_8_1_1 haxe_latest pkgs.neko format_latest];
+      buildInputs = [lime_8_1_1 haxe_latest pkgs.neko format_latest];
       unpackPhase = ''
         cp -r $src/src ./
         cp -r $src/Assets ./
@@ -45,7 +47,7 @@ in {
       '';
       buildPhase = ''
         ls
-        ${haxe_latest}/bin/haxelib run lime build ${target}
+        neko ${lime_8_1_1}/lib/haxe/lime/8,1,1/run.n build ${target}
       '';
       installPhase = ''
         mkdir -p $out/bin

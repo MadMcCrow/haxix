@@ -58,7 +58,7 @@
         name = "helloworld";
         src = ./demo;
         version = "0.0.1-alpha";
-        target = "hl";
+        target = "html5";
         # native = false;
       };
   in {
