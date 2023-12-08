@@ -53,14 +53,30 @@
     haxix = system: (import ./nix {inherit inputs system;});
 
     # an example of a game
-    demo = system:
-      (haxix system).lime.mkGame {
-        name = "helloworld";
-        src = ./demo;
-        version = "0.0.1-alpha";
-        target = "html5";
-        # native = false;
-      };
+    demo = system: engine:
+      if engine == "heaps"
+      then
+        (haxix system).heaps.mkGame {
+          name = "helloworld";
+          src = "./demo/${engine}";
+          version = "0.0.1-alpha";
+          native = false;
+        }
+      else if engine == "lime"
+      then
+        (haxix system).lime.mkGame {
+          name = "helloworld";
+          src = "./demo/${engine}";
+          version = "0.0.1-alpha";
+          target = "html5";
+        }
+      else
+        (haxix system).heaps.mkGame {
+          name = "helloworld";
+          src = ./demo/heaps;
+          version = "0.0.1-alpha";
+          native = false;
+        };
   in {
     # template for heaps projects :
     templates.default = {
@@ -76,6 +92,7 @@
       mkHeapsGame = (haxix system).heaps.mkGame;
       mkLimeGame = (haxix system).lime.mkGame;
       mkHeapsShell = (haxix system).heaps.mkShell;
+      mkLimeShell = (haxix system).lime.mkShell;
     });
 
     # All important packages and the demo
@@ -86,8 +103,9 @@
       # libs :
       format = (haxix system).format.format_latest;
       dox = (haxix system).dox.dox_latest;
-      # helloworld :
-      demo = demo system;
+      # demos :
+      heaps_demo = demo system "heaps";
+      lime_demo = demo system "lime";
     });
 
     # checks
@@ -99,8 +117,8 @@
       forAllSystems
       (system: {
         default = (haxix system).shell;
-        # demo = (haxix system).heaps.mkShell (demo system);
-        demo = (haxix system).lime.mkGame (demo system);
+        lime_demo = (haxix system).lime.mkShell (demo system "lime");
+        heaps_demo = (haxix system).lime.mkShell (demo system "heaps");
       });
   };
 }
