@@ -1,19 +1,23 @@
 # default.nix
 # expose every function/derivations here
 # also detect linux/MacOS and give the correct version
-{ inputs, system }:
-with builtins;
-let
+{
+  inputs,
+  system,
+}:
+with builtins; let
   inherit (inputs.nixpkgs.lib) platforms;
 
   systemSwitch = linux: darwin:
-    if elem system platforms.darwin then darwin
-    else if elem system platforms.linux then linux
+    if elem system platforms.darwin
+    then darwin
+    else if elem system platforms.linux
+    then linux
     else throw "unsupported system";
 
   # nixpkgs : support MacOS
   nixpkgs = systemSwitch inputs.nixpkgs inputs.nixpkgs-darwin;
-  pkgs = import nixpkgs { system = systemSwitch "x86_64-linux" "x86_64-darwin"; };
+  pkgs = import nixpkgs {system = systemSwitch "x86_64-linux" "x86_64-darwin";};
 
   # haxe language and compiler
   # does not build in aaarch64-darwin
@@ -23,7 +27,7 @@ let
   };
 
   # a way to install haxelibs
-  haxelib = import ./haxelib.nix { inherit pkgs; };
+  haxelib = import ./haxelib.nix {inherit pkgs;};
 
   # format library
   format = import ./format.nix {
@@ -56,6 +60,13 @@ let
     inherit (haxe) haxe_latest;
   };
 
+  # lime
+  lime = import ./lime.nix {
+    inherit pkgs haxelib;
+    inherit (format) format_latest;
+    inherit (haxe) haxe_latest;
+  };
+
   shell = pkgs.mkShell {
     buildInputs = [
       haxe.haxe_latest
@@ -63,7 +74,8 @@ let
       format.format_latest
       heaps.heaps_latest
       dox.dox_latest
+      lime.lime_8_1_1
+      pkgs.neko
     ];
   };
-
-in { inherit haxe hashlink heaps format dox shell; }
+in {inherit haxe hashlink heaps format dox shell lime;}
