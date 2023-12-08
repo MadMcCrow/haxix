@@ -122,7 +122,10 @@
 
     # checks
     # TODO : improve to only build minimal checks
-    checks = forAllSystems (system: {demo = demo system;});
+    checks = forAllSystems (system: {
+      heaps_demo = demo system "heaps";
+      lime_demo = demo system "lime";
+    });
 
     # shell for the demo
     devShells =
