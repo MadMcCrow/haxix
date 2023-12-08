@@ -58,7 +58,7 @@
       then
         (haxix system).heaps.mkGame {
           name = "helloworld";
-          src = "./demo/${engine}";
+          src = ./. + "/demo/${engine}";
           version = "0.0.1-alpha";
           native = false;
         }
@@ -66,7 +66,7 @@
       then
         (haxix system).lime.mkGame {
           name = "helloworld";
-          src = "./demo/${engine}";
+          src = ./. + "/demo/${engine}";
           version = "0.0.1-alpha";
           target = "html5";
         }
@@ -82,6 +82,18 @@
     templates.default = {
       path = ./template;
       description = "A simple haxe/heaps game project";
+      welcomeText = "";
+    };
+
+    templates.heaps = {
+      path = ./template/heaps;
+      description = "A simple haxe/heaps game project";
+      welcomeText = "";
+    };
+
+    templates.lime = {
+      path = ./template/lime;
+      description = "A simple haxe/lime app";
       welcomeText = "";
     };
 
