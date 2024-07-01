@@ -17,7 +17,7 @@
 
       # default system-agnostic flake implementation :
       flake = system:
-        leta
+        let
           haxix-lib = haxix.lib."${system}";
           # heaps game example :
           my-project = haxix-lib.mkHeapsGame {
@@ -34,5 +34,6 @@
         };
 
       # gen for all systems :
-    in builtins.foldl' (x: y: nixpkgs.lib.recursiveUpdate x y) { } (map flake systems);
+    in builtins.foldl' (x: y: nixpkgs.lib.recursiveUpdate x y) { }
+    (map flake systems);
 }

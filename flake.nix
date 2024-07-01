@@ -47,11 +47,6 @@
       url = "github:HaxeCheckstyle/haxe-formatter";
       flake = false;
     };
-    # raylib
-    raylib = {
-      url = "github:raysan5/raylib?ref=refs/tags/4.5.0";
-      flake = false;
-    };
     # raylib haxe bindings
     raylib-hx = {
       url = "github:foreignsasquatch/raylib-hx";
@@ -59,70 +54,37 @@
     };
   };
 
-  outputs = { self, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
       # multiplatform support
-      # only tested on x86_64 linux
       systems = [
         "x86_64-linux"
         # "aarch64-linux" <- not supported yet
         "aarch64-darwin"
         "x86_64-darwin"
       ];
-      forAllSystems = f: inputs.nixpkgs.lib.genAttrs systems f;
-
-      # import functions:
-      haxix = system: (import ./nix { inherit inputs system; });
-
-      # an example of a game
-      heaps-demo = system:
-        (haxix system).heaps.mkGame {
-          name = "heaps-helloworld";
-          src = ./demo/heaps;
-          version = "0.0.1-alpha";
-          native = false;
-        };
-
-        raylib-demo = system:
-        (haxix system).raylib.mkGame {
-          name = "heaps-helloworld";
-          src = ./demo/heaps;
-          version = "0.0.1-alpha";
-          native = false;
-        };
+     # the actual flake for every system
+     flake = system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+          haxix = pkgs.callPackage ./nix {inherit inputs; };
+        in rec {
+          lib."${system}" = haxix.lib;
+          packages."${system}" = haxix.packages;
+          devShells."${system}".default = pkgs.mkShell {
+            inputsFrom = builtins.attrValues packages."${system}";
+          };
+          # TODO : use demo as checks !
+          checks."${system}" = { };
+        }; 
     in {
       # template for heaps projects :
       templates.default = {
         path = ./template;
-        description = "A simple haxe/heaps game project";
+        description = "A simple haxe game project";
         welcomeText = "";
-      };
-
-      # expose functions :
-      lib = forAllSystems (system: {
-        mkHaxelib = (haxix system).haxelib.mkHaxelib;
-        mkHaxedoc = (haxix system).dox.mkHaxedoc;
-        mkHeapsGame = (haxix system).heaps.mkGame;
-        mkHeapsShell = (haxix system).heaps.mkShell;
-      });
-
-      # All important packages and the demo
-      packages = forAllSystems (system: {
-        # haxelang :
-        haxe = (haxix system).haxe.haxe_latest;
-        hashlink = (haxix system).hashlink.hashlink_latest;
-        # libs :
-        format = (haxix system).format.format_latest;
-        dox = (haxix system).dox.dox_latest;
-        # helloworld :
-        demo = heaps-demo system;
-      });
-
-      # checks
-      # TODO : improve to only build minimal checks
-      checks = forAllSystems (system: { demo = heaps-demo system; });
-
-      # shell for making haxe stuff
-      devShells = forAllSystems (system: { default = (haxix system).shell; });
-    };
+      }; } //
+    # gen for all systems :
+    (builtins.foldl' (x: y: nixpkgs.lib.recursiveUpdate x y) { }
+    (map flake systems));
 }

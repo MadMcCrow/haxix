@@ -3,11 +3,11 @@
     "dox": {
       "flake": false,
       "locked": {
-        "lastModified": 1677476658,
-        "narHash": "sha256-wgSo79ik67Mv0OGm1oHX/k5i2Wkh0e3BmecjBEWgejI=",
+        "lastModified": 1705391174,
+        "narHash": "sha256-rwAXbGYs2TEEOMGv/lRHxSqTjfcsHkM36PFdpMOe4sQ=",
         "owner": "HaxeFoundation",
         "repo": "dox",
-        "rev": "1f18affc3093d22e9d4f0affbb9d17c6e9c176b9",
+        "rev": "161c4c2c745fec05212a6f0cd681ce5fecd33c95",
         "type": "github"
       },
       "original": {
@@ -19,11 +19,11 @@
     "formatter": {
       "flake": false,
       "locked": {
-        "lastModified": 1693940992,
-        "narHash": "sha256-5Bz/07weTd0gsX7uyvtfZKJmBb1V0vGJyFpO8c5uxlM=",
+        "lastModified": 1717362042,
+        "narHash": "sha256-UQNi4TsKho0E2cpJSyrBiQAThNtdiTZQ2QQl9ShCYiM=",
         "owner": "HaxeCheckstyle",
         "repo": "haxe-formatter",
-        "rev": "40e38839fe4b3d5c601e019fff247f4efc89baf1",
+        "rev": "77d559c3b440a155fa6ba7301394d67080210da5",
         "type": "github"
       },
       "original": {
@@ -35,11 +35,11 @@
     "hashlink": {
       "flake": false,
       "locked": {
-        "lastModified": 1699632751,
-        "narHash": "sha256-eby2SrbycqQy5IVn+hBncpClmpFN333EK+2dlBqys8U=",
+        "lastModified": 1719473243,
+        "narHash": "sha256-bSYU705jYhtQYuRWuGduW8FqTzIORfk7QeSDoJDd5VE=",
         "owner": "HaxeFoundation",
         "repo": "hashlink",
-        "rev": "a502906ce5d701987f3b83a709ebd35251077114",
+        "rev": "a2c84a3bceaa192a13b9caf7c850e74e84e3057b",
         "type": "github"
       },
       "original": {
@@ -52,11 +52,11 @@
     "haxe": {
       "flake": false,
       "locked": {
-        "lastModified": 1699861259,
-        "narHash": "sha256-xTGTmY6zyJp8L9JXCV9xAF6sj2AF7BzVFUGDIStvYlQ=",
+        "lastModified": 1719736347,
+        "narHash": "sha256-6yzXUL7NTFO68hC2MK9quk+Wk1Rd0Aw146nyxFLg0+Y=",
         "ref": "development",
-        "rev": "c6a8b2051cf6e4caf14948b52708d02c988eb2ce",
-        "revCount": 20909,
+        "rev": "7b92f74fc60f0f90403cd9414837605c90857027",
+        "revCount": 21254,
         "submodules": true,
         "type": "git",
         "url": "https://github.com/HaxeFoundation/haxe.git"
@@ -71,11 +71,11 @@
     "haxe_format": {
       "flake": false,
       "locked": {
-        "lastModified": 1694508446,
-        "narHash": "sha256-i8ZpU0/j9v505QagjBAMva202rkY5+QVex2paw2gRWk=",
+        "lastModified": 1714745707,
+        "narHash": "sha256-gwiZBm3aqiUOhrfudLDFQzGo/j7IGWid1TLX9bvzfic=",
         "owner": "HaxeFoundation",
         "repo": "format",
-        "rev": "39787764801f9e02c5b5ed771490e767a5488e65",
+        "rev": "a19833b2c0d238875b2c720043ffff0a2af55eb1",
         "type": "github"
       },
       "original": {
@@ -87,11 +87,11 @@
     "heaps": {
       "flake": false,
       "locked": {
-        "lastModified": 1699622468,
-        "narHash": "sha256-EjJhK24twboZBF9C6Tm7y5UevNERx8B40DdJ6Nk+c38=",
+        "lastModified": 1719824899,
+        "narHash": "sha256-fGnbker/eUncpLmbKYEin9cpDAx9cZ9lrjV5MhX4Lus=",
         "owner": "HeapsIO",
         "repo": "heaps",
-        "rev": "9aa57f378240b50de0bd1a73df0a695086c3cd83",
+        "rev": "b03fb7c55b70086d055e4e19b8ac23a936c6dba9",
         "type": "github"
       },
       "original": {
@@ -119,11 +119,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1699725108,
-        "narHash": "sha256-NTiPW4jRC+9puakU4Vi8WpFEirhp92kTOSThuZke+FA=",
+        "lastModified": 1719760900,
+        "narHash": "sha256-NkvFphHXKtQQ8F0XrqGlqkOhjHbE3671F8oLxwtTHhk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "911ad1e67f458b6bcf0278fa85e33bb9924fed7e",
+        "rev": "12a9c0004bc987afb1ff511ebb97b67497a68e22",
         "type": "github"
       },
       "original": {
@@ -135,11 +135,11 @@
     },
     "nixpkgs-darwin": {
       "locked": {
-        "lastModified": 1699785518,
-        "narHash": "sha256-QywAQ3A4dMHt1NTbHIFMXZ+bknza+JJpjxbDi5ud2+Y=",
+        "lastModified": 1705033721,
+        "narHash": "sha256-K5eJHmL1/kev6WuqyqqbS1cdNnSidIZ3jeqJ7GbrYnQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "971ac8319468c5cfa05653f6b95d7174614720f9",
+        "rev": "a1982c92d8980a0114372973cbdfe0a307f1bdea",
         "type": "github"
       },
       "original": {
@@ -149,31 +149,14 @@
         "type": "github"
       }
     },
-    "raylib": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1679157424,
-        "narHash": "sha256-Uqqzq5shDp0AgSBT5waHBNUkEu0LRj70SNOlR5R2yAM=",
-        "owner": "raysan5",
-        "repo": "raylib",
-        "rev": "fec96137e8d10ee6c88914fbe5e5429c13ee1dac",
-        "type": "github"
-      },
-      "original": {
-        "owner": "raysan5",
-        "ref": "refs/tags/4.5.0",
-        "repo": "raylib",
-        "type": "github"
-      }
-    },
     "raylib-hx": {
       "flake": false,
       "locked": {
-        "lastModified": 1698577074,
-        "narHash": "sha256-WTr5opyfsyNjQP6iL+h+PeJo8bxVVJ+LHL3rP0YGfTY=",
+        "lastModified": 1719123080,
+        "narHash": "sha256-Vx4ASVULfyg0JM6897L9lpUqlYXB2jlRKfHdTs/1DXE=",
         "owner": "foreignsasquatch",
         "repo": "raylib-hx",
-        "rev": "98671f954528ef19f6da1808c3809ca351b5d834",
+        "rev": "5e365324c678d215332370e732f084d02ee797e9",
         "type": "github"
       },
       "original": {
@@ -193,7 +176,6 @@
         "hxcpp": "hxcpp",
         "nixpkgs": "nixpkgs",
         "nixpkgs-darwin": "nixpkgs-darwin",
-        "raylib": "raylib",
         "raylib-hx": "raylib-hx"
       }
     }

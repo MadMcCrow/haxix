@@ -1,3 +1,5 @@
+# use system raylib
+--define shared_libs
 -cp src
 -lib raylib-hx
 -main Main
