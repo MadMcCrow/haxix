@@ -1,12 +1,12 @@
 # darwin/hashlink.nix
 # Hashlink interpreter for haxe, on MacOS.
 # only intel Mac supported, uses rosetta to run on M1
-pkgs:
+{ version, lib, callPackage, haxe, hashlink, darwin, ... }@args:
 let
   # we need objective-C
-  objc = with pkgs.darwin; [ apple_sdk_11_0.objc4 libobjc ];
+  objc = with darwin; [ apple_sdk_11_0.objc4 libobjc ];
   # we support platform
-  meta = pkgs.hashlink.meta // { platforms = pkgs.lib.platforms.darwin; };
+  meta = hashlink.meta // { platforms = lib.platforms.darwin; };
   # make Flags to detect objective C
   ObjCmakeFlags = let
     concatObjc = dir:
@@ -14,8 +14,7 @@ let
   in [ "CPATH=${concatObjc "include"}" "LIBRARY_PATH=${concatObjc "lib"}" ];
 
   # implementation :
-in (previousAttrs: {
-  inherit meta;
+in (callPackage ./generic.nix args).overrideAttrs (previousAttrs: {
   buildInputs = (previousAttrs.buildInputs or [ ]) ++ objc;
   makeFlags = (previousAttrs.makeFlags or [ ]) ++ ObjCmakeFlags;
   postFixup = (previousAttrs.postFixup or "") + ''

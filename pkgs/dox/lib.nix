@@ -1,10 +1,9 @@
 # mkHaxeDoc
 # haxedoc : the resulting documentation of a haxe derivation :
 # TODO: support for custom Compile.hxml  
-{pkgs, stdenvNoCC, haxe, dox} : 
-# function parameters :
-{ haxeDrv, srcDir ? "src", main ? "Main", haxeLibs ? [ ] }:
-stdenvNoCC.mkDerivation {
+{ pkgs, stdenvNoCC, haxe, dox, ... }: {
+  buildHaxedoc = { haxeDrv, srcDir ? "src", main ? "Main", haxeLibs ? [ ] }:
+    stdenvNoCC.mkDerivation {
       # TODO : check/fix versionned names
       name = "${haxeDrv.name}-doc";
       src = haxeDrv.src;
@@ -26,3 +25,4 @@ stdenvNoCC.mkDerivation {
         description = "Documentation of ${haxeDrv.name}";
       };
     };
+}

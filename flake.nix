@@ -47,6 +47,11 @@
       url = "github:HaxeCheckstyle/haxe-formatter";
       flake = false;
     };
+    # raylib source code
+    raylib = {
+      url = "github:Raysan5/raylib?ref=refs/tags/5.0";
+      flake = false;
+    };
     # raylib haxe bindings
     raylib-hx = {
       url = "github:foreignsasquatch/raylib-hx";
@@ -63,28 +68,26 @@
         "aarch64-darwin"
         "x86_64-darwin"
       ];
-     # the actual flake for every system
-     flake = system:
+      # the actual flake for every system
+      flake = system:
         let
           pkgs = import nixpkgs { inherit system; };
-          haxix = pkgs.callPackage ./nix {inherit inputs; };
-        in rec {
-          lib."${system}" = haxix.lib;
-          packages."${system}" = haxix.packages;
-          devShells."${system}".default = pkgs.mkShell {
-            inputsFrom = builtins.attrValues packages."${system}";
-          };
-          # TODO : use demo as checks !
-          checks."${system}" = { };
-        }; 
+          packages = pkgs.callPackage ./pkgs { inherit inputs; };
+          demos = pkgs.callPackage ./demo ({ inherit inputs; } // packages);
+        in {
+          legacyPackages."${system}" = packages // { t = pkgs.writeScriptBin "hello" "echo hello"; };
+          # checks."${system}" = demos;
+          # TODO : checks and dev shell
+        };
     in {
       # template for heaps projects :
       templates.default = {
         path = ./template;
         description = "A simple haxe game project";
         welcomeText = "";
-      }; } //
+      };
+    } //
     # gen for all systems :
     (builtins.foldl' (x: y: nixpkgs.lib.recursiveUpdate x y) { }
-    (map flake systems));
+      (map flake systems));
 }

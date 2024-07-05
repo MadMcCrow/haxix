@@ -1,16 +1,15 @@
 # raylib.nix
 # raylib bindings for haxe
-{ pkgs, inputs, hxcpp }:
+{ stdenvNoCC, fetchzip, inputs, hxcpp, }:
 let
 
-  stdenv = pkgs.stdenvNoCC;
   withCommas = pkgs.lib.replaceStrings [ "." ] [ "," ];
 
   raylib_generic = { version, file, hash }:
-    stdenv.mkDerivation {
+    stdenvNoCC.mkDerivation {
       inherit version;
       # source is pre-build
-      src = pkgs.fetchzip {
+      src = fetchzip {
         inherit hash;
         url =
           "https://github.com/raysan5/raylib/releases/download/${version}/${file}";
@@ -30,7 +29,7 @@ let
     };
 
   raylibhx_generic = { version, src, raylib }:
-    stdenv.mkDerivation {
+    stdenvNoCC.mkDerivation {
       inherit src;
       name = "raylib-hx-${version}";
       buildInputs = [ raylib ]; # maybe add haxe

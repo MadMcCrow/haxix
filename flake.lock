@@ -149,6 +149,23 @@
         "type": "github"
       }
     },
+    "raylib": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1700044250,
+        "narHash": "sha256-gEstNs3huQ1uikVXOW4uoYnIDr5l8O9jgZRTX1mkRww=",
+        "owner": "Raysan5",
+        "repo": "raylib",
+        "rev": "ae50bfa2cc569c0f8d5bc4315d39db64005b1b08",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Raysan5",
+        "ref": "refs/tags/5.0",
+        "repo": "raylib",
+        "type": "github"
+      }
+    },
     "raylib-hx": {
       "flake": false,
       "locked": {
@@ -176,6 +193,7 @@
         "hxcpp": "hxcpp",
         "nixpkgs": "nixpkgs",
         "nixpkgs-darwin": "nixpkgs-darwin",
+        "raylib": "raylib",
         "raylib-hx": "raylib-hx"
       }
     }

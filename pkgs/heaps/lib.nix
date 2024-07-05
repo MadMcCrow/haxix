@@ -1,23 +1,7 @@
-# heaps.nix
-# Build heaps games with nix 
-# TODO : remove function mkGame from module (move to separate "lib" module)
-{ pkgs, inputs, haxe, format, haxelib, hashlink }:
-let
-  heaps = haxelib.mkHaxelib {
-    version = "1.11.0";
-    libname = "heaps";
-    src = inputs.heaps;
-    meta = pkgs.haxePackages.heaps.meta;
-  };
-
-  # the whole heaps.io engine
-  dependancies = [ haxe format heaps hashlink pkgs.SDL2 pkgs.openal ];
-
-in {
-  inherit heaps;
-
-  # The heaps game recipe
-  mkGame = { compileHxml ? "compile.hxml", ... }@args:
+# heaps/lib.nix
+# command to simplify building heaps games on nix
+{ haxe, hashlink, ... }: {
+  buildHeapsGame = { compileHxml ? "compile.hxml", ... }@args:
     let
       name = args.pname or args.name;
       # disable HL/C on MacOS M1
