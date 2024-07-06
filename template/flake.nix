@@ -18,9 +18,9 @@
       # default system-agnostic flake implementation :
       flake = system:
         let
-          haxix-lib = haxix.lib."${system}";
+          haxePkgs = haxix.legacyPackages."${system}";
           # heaps game example :
-          my-project = haxix-lib.mkHeapsGame {
+          my-project = haxePkgs.heaps.buildHeapsGame {
             src = self;
             name = "my-project";
             version = "0.0.1-alpha";

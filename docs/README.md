@@ -1,6 +1,6 @@
 # Haxix
 
-A flake to build and run games made with [heaps.io](https://heaps.io/) and possibly other haxe game engines in the future.
+A flake to build and run games made with [heaps.io](https://heaps.io/) and possibly other haxe game engines (raylib, armory, ...) in the future.
 
 ## Usage
 

@@ -70,10 +70,10 @@
           packages = pkgs.callPackage ./pkgs { inherit inputs; };
           demos = pkgs.callPackage ./demo ({ inherit inputs; } // packages);
         in {
-          legacyPackages."${system}" = packages // demos;
+          legacyPackages."${system}" = packages;
           devShell."${system}" = pkgs.callPackage ./pkgs/shell.nix packages;
-          # checks."${system}" = demos;
-          # TODO : checks and dev shell
+          # TODO :
+          #checks."${system}" = demos;
         };
     in {
       # template for heaps projects :
