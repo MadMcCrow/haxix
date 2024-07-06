@@ -2,7 +2,7 @@
   # an example of a game
   heaps-demo = heaps.buildHeapsGame {
     name = "heaps-helloworld";
-    src = ./demo/heaps;
+    src = ./heaps;
     version = "0.0.1-alpha";
     native = false;
   };

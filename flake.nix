@@ -75,7 +75,7 @@
           packages = pkgs.callPackage ./pkgs { inherit inputs; };
           demos = pkgs.callPackage ./demo ({ inherit inputs; } // packages);
         in {
-          legacyPackages."${system}" = packages // { t = pkgs.writeScriptBin "hello" "echo hello"; };
+          legacyPackages."${system}" = packages // demos;
           # checks."${system}" = demos;
           # TODO : checks and dev shell
         };

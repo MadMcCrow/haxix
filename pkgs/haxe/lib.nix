@@ -10,7 +10,7 @@ let
     cp -dpR ${files} "$out/lib/haxe/${withCommas pname}/${withCommas version}/"
   '';
 in {
-  # used in hashlink :
+  # used in hashlink-latest :
   inherit installHaxelib;
 
   # from nixpkgs
@@ -18,7 +18,7 @@ in {
     stdenv.mkDerivation (attrs // {
       name = attrs.name or "${pname}-${version}";
       inherit version;
-      buildInputs = (attrs.buildInputs or [ ])
+      buildInputs = (attrs.buildInputs or [ ]) ++ [ haxe ]
         ++ ([ haxe neko ]); # for setup-hook.sh to work
       src = attrs.src or (fetchzip rec {
         name = "${pname}-${version}";

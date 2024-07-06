@@ -9,10 +9,10 @@
     name = "haxefmt";
     runtimeInputs = [ haxe formatter ];
     text = ''
-    if [ "$#" -gt 0 ]
-    then haxelib run formatter -s "$\{@:1}"
-    else echo "provide at least an argument"
-    fi
+      if [ "$#" -gt 0 ]
+      then haxelib run formatter -s "$\{@:1}"
+      else echo "provide at least an argument"
+      fi
     '';
   };
 }
