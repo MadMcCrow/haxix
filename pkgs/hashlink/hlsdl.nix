@@ -1,8 +1,11 @@
 # HLSDL library for hl
-{ haxe, hl }:
+{ haxe, hashlink, ... }:
 haxe.buildHaxelib {
-  version = hl.version;
+  version = hashlink.version;
   pname = "hlsdl";
-  src = "${hl.src}/libs/sdl";
-  meta = hl.meta // { description = "sdl2 support for hl"; };
+  src = "${hashlink.src}/libs/sdl";
+  meta = {
+    inherit (hashlink.meta) license homepage;
+    description = "sdl2 support for hashlink";
+  };
 }

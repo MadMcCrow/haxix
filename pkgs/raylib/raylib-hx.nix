@@ -18,7 +18,7 @@ stdenvNoCC.mkDerivation {
       fi
       ${
         haxe.installHaxelib {
-          libname = "raylib-hx";
+          pname = "raylib-hx";
           files = "*";
           inherit version;
         }

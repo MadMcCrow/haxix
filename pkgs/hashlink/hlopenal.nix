@@ -1,8 +1,11 @@
-# openal library for hashlink-latest
-{ haxe, hl }:
+# openal library for hashlink
+{ haxe, hashlink, ... }:
 haxe.buildHaxelib {
-  version = hl.version;
-  pname = "openal";
-  src = "${hl.src}/libs/openal";
-  meta = hl.meta // { description = "openal support for hashlink-latest"; };
+  version = hashlink.version;
+  pname = "hlopenal";
+  src = "${hashlink.src}/libs/openal";
+  meta = {
+    inherit (hashlink.meta) license homepage;
+    description = "openal support for hashlink";
+  };
 }

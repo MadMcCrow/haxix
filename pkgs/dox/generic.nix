@@ -1,6 +1,6 @@
 { version, inputs, lib, haxe, ... }:
 haxe.buildHaxelib {
-  libname = "dox";
+  pname = "dox";
   inherit version;
   src = inputs.dox;
   meta = {

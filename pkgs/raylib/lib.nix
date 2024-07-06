@@ -1,13 +1,13 @@
-{ raylib, raylib-hx, haxe, ... }: {
+{ stdenv, raylib, raylib-hx, haxe, ... }: {
   buildRaylibHxGame = { src, buildHxml ? "Build.hxml", ... }@args:
-    pkgs.stdenv.mkDerivation ({
+    stdenv.mkDerivation ({
       inherit src;
       unpackPhase = ''
         cp -r $src/* ./
       '';
       # build with haxe compiler
       buildPhase = ''
-        ${haxe}/bin/haxe ${compileHxml}
+        ${haxe}/bin/haxe ${buildHxml}
       '';
     } // args);
 }

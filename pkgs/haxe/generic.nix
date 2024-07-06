@@ -3,8 +3,8 @@
 { version, src, stdenv, lib, fetchurl, haxe, ocaml-ng, zlib, pcre2, neko
 , mbedtls_2, darwin, ... }:
 haxe.overrideAttrs (previousAttrs: {
-  inherit version src;
-  buildInputs = [ zlib pcre2 neko mbedtls_2 ]
+  inherit version;
+  buildInputs = previousAttrs.buildInputs ++ [ zlib pcre2 neko mbedtls_2 ]
     ++ (with ocaml-ng.ocamlPackages_4_14; [
       ocaml
       findlib

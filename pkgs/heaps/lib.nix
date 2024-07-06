@@ -1,8 +1,7 @@
 # heaps/lib.nix
 # command to simplify building heaps games on nix
-{ lib, stdenv, haxe, hashlink, heaps, ... }: {
-  buildHeapsGame =
-    { compileHxml ? "compile.hxml", ... }@args:
+{ lib, stdenv, haxe, format, hashlink, hlopenal, hlsdl, heaps, ... }: {
+  buildHeapsGame = { compileHxml ? "compile.hxml", ... }@args:
     let
       name = args.pname or args.name;
       # disable HL/C on MacOS M1
@@ -10,7 +9,8 @@
     in stdenv.mkDerivation (args // {
       # build inputs
       buildInputs = (args.buildInputs or [ ]);
-      nativeBuildInputs = (args.nativeBuildInputs or [ ]) ++ [haxe hashlink heaps];
+      nativeBuildInputs = (args.nativeBuildInputs or [ ])
+        ++ [ haxe format hashlink hlopenal hlsdl heaps ];
       # copy source and the hxml
       unpackPhase = ''
         cp -r $src/* ./
@@ -20,8 +20,6 @@
         ${haxe}/bin/haxe ${compileHxml}
         OUTHL=$(cat ${compileHxml} | grep '^-hl *[[:graph:]]*.hl' || true)
         OUTHL=$(echo $OUTHL | sed 's/-hl[[:space:]]*//g')
-        ls -la ./build
-        edefe
         OUTC=$(cat ${compileHxml} | grep '^-hl *[[:graph:]]*.c' || true)
         OUTC=$(echo $OUTC | sed 's/-hl[[:space:]]*//g')
         # build HL/C
@@ -38,14 +36,10 @@
         mkdir -p $out/bin $out/lib
         # hl bytecode
         echo $OUTHL
-        ls -la build
-        defef
         if [ -f "$OUTHL" ]; then
         cp $OUTHL $out/lib/$(basename $OUTHL)
         echo "${hashlink}/bin/hl $out/lib/$(basename $OUTHL)" > $out/bin/${name};
         chmod +x $out/bin/${name};
-        ls $out/bin -la
-        efergdtg
         fi
         # native C
         if [ -f "$OUTC" ] && ${DoHLC}; then

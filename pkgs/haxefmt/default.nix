@@ -1,9 +1,11 @@
-{ callPackage, writeShellApplication, inputs, haxe, ... }: rec {
-  formatter = callPackage ./generic.nix {
-    inherit haxe;
-    src = inputs.formatter;
-    version = "1.15.0";
-  };
+{ callPackage, fetchFromGitHub, writeShellApplication, inputs, haxe, ...
+}@args: rec {
+  # haxelib :
+  formatter = callPackage ./generic.nix (args // rec {
+    version = "1.16.0";
+    sha256 = "sha256-1m4jtZn38dJplH+qG2izirxkn4Cc9pAxv01lJZetd8I=";
+  });
+
   # command to run in a shell-env
   haxefmt = writeShellApplication {
     name = "haxefmt";

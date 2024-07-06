@@ -16,22 +16,6 @@
         "type": "github"
       }
     },
-    "formatter": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1717362042,
-        "narHash": "sha256-UQNi4TsKho0E2cpJSyrBiQAThNtdiTZQ2QQl9ShCYiM=",
-        "owner": "HaxeCheckstyle",
-        "repo": "haxe-formatter",
-        "rev": "77d559c3b440a155fa6ba7301394d67080210da5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "HaxeCheckstyle",
-        "repo": "haxe-formatter",
-        "type": "github"
-      }
-    },
     "hashlink": {
       "flake": false,
       "locked": {
@@ -185,7 +169,6 @@
     "root": {
       "inputs": {
         "dox": "dox",
-        "formatter": "formatter",
         "hashlink": "hashlink",
         "haxe": "haxe",
         "haxe_format": "haxe_format",

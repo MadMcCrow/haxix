@@ -10,16 +10,16 @@ let
       builtins.concatStringsSep "," (map (x: "${x}/${dir}") objc);
   in [ "CPATH=${concatObjc "include"}" "LIBRARY_PATH=${concatObjc "lib"}" ];
   # emulation for m1 macOS
-  pkgs_eml = import inputs.nixpkgs { system = "x86_64-darwin";  };
+  pkgs_eml = import inputs.nixpkgs { system = "x86_64-darwin"; };
   # implementation :
-in pkgs_eml.hashlink.overrideAttrs (finalAttrs : previousAttrs: {
+in pkgs_eml.hashlink.overrideAttrs (finalAttrs: previousAttrs: {
   inherit version;
   src = inputs.hashlink;
   buildInputs = previousAttrs.buildInputs ++ [ libpng ] ++ objc;
   makeFlags = previousAttrs.makeFlags ++ ObjCmakeFlags;
-   postFixup = previousAttrs.postFixup + ''
-  #   install_name_tool -add_rpath $out/lib $out/bin/hl
-  # '';
+  postFixup = previousAttrs.postFixup + ''
+    #   install_name_tool -add_rpath $out/lib $out/bin/hl
+    # '';
   postInstall = ''
     ${haxe.installHaxelib {
       pname = "${finalAttrs.pname}";

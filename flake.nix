@@ -42,11 +42,6 @@
       url = "github:HeapsIO/heaps";
       flake = false;
     };
-    # formatter
-    formatter = {
-      url = "github:HaxeCheckstyle/haxe-formatter";
-      flake = false;
-    };
     # raylib source code
     raylib = {
       url = "github:Raysan5/raylib?ref=refs/tags/5.0";
@@ -76,6 +71,7 @@
           demos = pkgs.callPackage ./demo ({ inherit inputs; } // packages);
         in {
           legacyPackages."${system}" = packages // demos;
+          devShell."${system}" = pkgs.callPackage ./pkgs/shell.nix packages;
           # checks."${system}" = demos;
           # TODO : checks and dev shell
         };

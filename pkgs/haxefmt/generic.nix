@@ -1,7 +1,7 @@
-{ lib, haxe, src, version, ... }:
+{ lib, src, haxe, version, ... }:
 haxe.buildHaxelib {
   inherit src version;
-  pname = "haxe-formatter";
+  pname = "formatter";
   meta = {
     homepage = "https://github.com/HaxeCheckstyle/haxe-formatter";
     description = "A Haxe tool to format haxe code";
