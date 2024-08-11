@@ -31,4 +31,6 @@ if __name__ == "__main__" :
     print(f'heaps.io : {haxelib("HeapsIO", "heaps")}')
     print(f'haxefmt : {haxelib("HaxeCheckstyle", "haxe-formatter")}')
     print(f'raylib : {release("Raysan5", "raylib")}')
-    print(f'raylib-hx: {haxelib("foreignsasquatch","raylib-hx")}' )
+    print(f'raylib-hx : {haxelib("foreignsasquatch","raylib-hx")}')
+    print(f'hxp : {haxelib("openfl","hxp")}' )
+    print(f'lime : {release("openfl","releases")}')

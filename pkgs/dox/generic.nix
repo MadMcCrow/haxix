@@ -1,4 +1,10 @@
-{ version, inputs, lib, haxe, ... }:
+{
+  version,
+  inputs,
+  lib,
+  haxe,
+  ...
+}:
 haxe.buildHaxelib {
   pname = "dox";
   inherit version;

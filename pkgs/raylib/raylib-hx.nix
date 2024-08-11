@@ -1,6 +1,14 @@
 # raylib/raylib-hx.nix
 # Raylib bindings for haxe
-{ version, inputs, lib, stdenvNoCC, haxe, raylib, ... }:
+{
+  version,
+  inputs,
+  lib,
+  stdenvNoCC,
+  haxe,
+  raylib,
+  ...
+}:
 
 stdenvNoCC.mkDerivation {
   inherit version;
@@ -31,8 +39,6 @@ stdenvNoCC.mkDerivation {
     homepage = "https://github.com/foreignsasquatch/raylib-hx";
     license = lib.licenses.zlib;
     platforms = lib.platforms.all;
-    description =
-      "Haxe bindings for raylib, a simple and easy-to-use library to learn videogame programming.";
+    description = "Haxe bindings for raylib, a simple and easy-to-use library to learn videogame programming.";
   };
 }
-

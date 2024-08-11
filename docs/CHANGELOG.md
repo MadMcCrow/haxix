@@ -1,4 +1,9 @@
-## main 06/07/2024
+# main 10/08/2024
+ - cleaned dead code with deadix and statix
+ - added lime (from [this PR](https://github.com/MadMcCrow/haxix/pull/6), big thanks to  @bwkam)
+ - improved templates
+
+# main 06/07/2024
 - reordered packages to fix dependencies
 - respect nix-way to have libraries in flakes
 - updated haxe and other packages

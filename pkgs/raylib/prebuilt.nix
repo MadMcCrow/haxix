@@ -1,18 +1,27 @@
 # raylib.nix
 # raylib bindings for haxe
-{ stdenvNoCC, fetchzip, inputs, hxcpp, }:
+{
+  stdenvNoCC,
+  fetchzip,
+  inputs,
+  ...
+}:
 let
 
   withCommas = pkgs.lib.replaceStrings [ "." ] [ "," ];
 
-  raylib_generic = { version, file, hash }:
+  raylib_generic =
+    {
+      version,
+      file,
+      hash,
+    }:
     stdenvNoCC.mkDerivation {
       inherit version;
       # source is pre-build
       src = fetchzip {
         inherit hash;
-        url =
-          "https://github.com/raysan5/raylib/releases/download/${version}/${file}";
+        url = "https://github.com/raysan5/raylib/releases/download/${version}/${file}";
       };
       # package
       pname = "raylib";
@@ -25,10 +34,17 @@ let
         export RAYLIB_C_PATH=$out
       '';
       # meta
-      meta = pkgs.raylib.meta // { platforms = [ stdenv.system ]; };
+      meta = pkgs.raylib.meta // {
+        platforms = [ stdenv.system ];
+      };
     };
 
-  raylibhx_generic = { version, src, raylib }:
+  raylibhx_generic =
+    {
+      version,
+      src,
+      raylib,
+    }:
     stdenvNoCC.mkDerivation {
       inherit src;
       name = "raylib-hx-${version}";
@@ -53,18 +69,22 @@ let
         homepage = "https://github.com/foreignsasquatch/raylib-hx";
         license = pkgs.lib.licenses.zlib;
         platforms = pkgs.lib.platforms.all;
-        description =
-          "Haxe bindings for raylib, a simple and easy-to-use library to learn videogame programming.";
+        description = "Haxe bindings for raylib, a simple and easy-to-use library to learn videogame programming.";
       };
     };
-in rec {
+in
+rec {
   # raylib library
-  raylib = raylib_generic (if stdenv.isLinux then {
-    version = "5.0";
-    file = "raylib-5.0_linux_amd64.tar.gz";
-    hash = "";
-  } else
-    import ./darwin/raylib.nix);
+  raylib = raylib_generic (
+    if stdenv.isLinux then
+      {
+        version = "5.0";
+        file = "raylib-5.0_linux_amd64.tar.gz";
+        hash = "";
+      }
+    else
+      import ./darwin/raylib.nix
+  );
 
   # raylib-haxe-bindings
   raylib-hx = raylibhx_generic {

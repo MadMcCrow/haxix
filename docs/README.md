@@ -4,12 +4,24 @@ A flake to build and run games made with [heaps.io](https://heaps.io/) and possi
 
 ## Usage
 
-See the flake [template](template/flake.nix) for a example on how to use haxix in your own projects.
+Here's a quick code example.
+```nix
+{
+    # Add haxix to your flake inputs :
+    inputs.haxix.url = "github:MadMcCrow/haxix";
+    ...
+    # and now you can access all our packages and functions
+    haxePkgs = haxix.legacyPackages."${system}";
+}
+```
+for more details, look at the various templates, for example the [heaps template](../templates/)
 
 you can instantiate it in any folder with :
 ```
-nix flake init -t github:MadMcCrow/haxix#
+nix flake init -t github:MadMcCrow/haxix#heaps
 ```
+
+You can use `nix flake show --legacy` to see all the packages haxix provides
 
 ## TODO
 

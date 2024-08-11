@@ -1,7 +1,7 @@
 # openal library for hashlink
 { haxe, hashlink, ... }:
 haxe.buildHaxelib {
-  version = hashlink.version;
+  inherit (hashlink) version;
   pname = "hlopenal";
   src = "${hashlink.src}/libs/openal";
   meta = {

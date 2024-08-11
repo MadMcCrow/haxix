@@ -1,12 +1,25 @@
 # hxcpp/generic
 # how to build hxcpp from sources
-{ pkgs, haxe, version, src, ... }:
+{
+  lib,
+  stdenv,
+  neko,
+  haxePackages,
+  haxe,
+  version,
+  src,
+  ...
+}:
 let
-  withCommas = pkgs.lib.replaceStrings [ "." ] [ "," ];
-  # TODO : use buildHaxelib
-in pkgs.stdenv.mkDerivation {
+  withCommas = lib.replaceStrings [ "." ] [ "," ];
+in
+# TODO : use buildHaxelib
+stdenv.mkDerivation {
   pname = "hxcpp";
-  buildInputs = [ haxe pkgs.neko ];
+  buildInputs = [
+    haxe
+    neko
+  ];
   inherit src version;
   buildPhase = ''
     REPO=$(pwd)
@@ -33,15 +46,11 @@ in pkgs.stdenv.mkDerivation {
     runHook postInstall
   '';
   postFixup = ''
-    for f in $out/lib/haxe/hxcpp/${
-      withCommas version
-    }/{,project/libs/nekoapi/}bin/Linux{,64}/*; do
+    for f in $out/lib/haxe/hxcpp/${withCommas version}/{,project/libs/nekoapi/}bin/Linux{,64}/*; do
       chmod +w "$f"
       patchelf --set-interpreter $(cat $NIX_CC/nix-support/dynamic-linker)   "$f" || true
-      patchelf --set-rpath ${
-        pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ]
-      }  "$f" || true
+      patchelf --set-rpath ${lib.makeLibraryPath [ stdenv.cc.cc ]}  "$f" || true
     done
   '';
-  inherit (pkgs.haxePackages.hxcpp) meta;
+  inherit (haxePackages.hxcpp) meta;
 }

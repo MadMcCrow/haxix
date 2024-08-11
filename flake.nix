@@ -5,9 +5,6 @@
     # latest nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    # MacOS support
-    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
-
     # haxe : the language
     haxe = {
       type = "git";
@@ -54,7 +51,8 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs =
+    { self, nixpkgs, ... }@inputs:
     let
       # multiplatform support
       systems = [
@@ -64,26 +62,38 @@
         "x86_64-darwin"
       ];
       # the actual flake for every system
-      flake = system:
+      flake =
+        system:
         let
           pkgs = import nixpkgs { inherit system; };
           packages = pkgs.callPackage ./pkgs { inherit inputs; };
           demos = pkgs.callPackage ./demo ({ inherit inputs; } // packages);
-        in {
+        in
+        {
           legacyPackages."${system}" = packages;
-          devShell."${system}" = pkgs.callPackage ./pkgs/shell.nix packages;
+          devShells."${system}" = pkgs.callPackages ./pkgs/shell.nix packages;
           # TODO :
           #checks."${system}" = demos;
         };
-    in {
+    in
+    {
       # template for heaps projects :
-      templates.default = {
-        path = ./template;
-        description = "A simple haxe game project";
-        welcomeText = "";
-      };
-    } //
+      templates =
+        rec {
+          default = heaps; # we might not wanna be that opiniated
+          heaps = {
+            path = ./templates/heaps;
+            description = "A simple haxe game with heaps";
+            welcomeText = "";
+          };
+          lime = {
+            path = ./templates/lime;
+            description = "A simple haxe project with lime";
+            welcomeText = "";
+          };
+        };
+    }
     # gen for all systems :
-    (builtins.foldl' (x: y: nixpkgs.lib.recursiveUpdate x y) { }
-      (map flake systems));
+    // (builtins.foldl' (x: y: nixpkgs.lib.recursiveUpdate x y) { } (map flake systems));
+
 }

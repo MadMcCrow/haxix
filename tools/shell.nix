@@ -1,4 +1,9 @@
-{ pkgs ? import <nixpkgs> { } }:
+{
+  pkgs ? import <nixpkgs> { },
+}:
 pkgs.mkShell {
-  nativeBuildInputs = with pkgs; [ python311 python311Packages.requests ];
+  nativeBuildInputs = with pkgs; [
+    python311
+    python311Packages.requests
+  ];
 }

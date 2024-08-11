@@ -1,7 +1,7 @@
 # HLSDL library for hl
 { haxe, hashlink, ... }:
 haxe.buildHaxelib {
-  version = hashlink.version;
+  inherit (hashlink) version;
   pname = "hlsdl";
   src = "${hashlink.src}/libs/sdl";
   meta = {
