@@ -28,12 +28,6 @@
       url = "github:HaxeFoundation/format";
       flake = false;
     };
-    # hxcpp : runtime support for the C++ backend 
-    # of the Haxe compiler.
-    hxcpp = {
-      url = "github:HaxeFoundation/hxcpp?ref=refs/tags/v4.3.15";
-      flake = false;
-    };
     # heaps : the game engine
     heaps = {
       url = "github:HeapsIO/heaps";
@@ -78,20 +72,19 @@
     in
     {
       # template for heaps projects :
-      templates =
-        rec {
-          default = heaps; # we might not wanna be that opiniated
-          heaps = {
-            path = ./templates/heaps;
-            description = "A simple haxe game with heaps";
-            welcomeText = "";
-          };
-          lime = {
-            path = ./templates/lime;
-            description = "A simple haxe project with lime";
-            welcomeText = "";
-          };
+      templates = rec {
+        default = heaps; # we might not wanna be that opiniated
+        heaps = {
+          path = ./templates/heaps;
+          description = "A simple haxe game with heaps";
+          welcomeText = "";
         };
+        lime = {
+          path = ./templates/lime;
+          description = "A simple haxe project with lime";
+          welcomeText = "";
+        };
+      };
     }
     # gen for all systems :
     // (builtins.foldl' (x: y: nixpkgs.lib.recursiveUpdate x y) { } (map flake systems));

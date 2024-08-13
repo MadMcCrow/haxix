@@ -5,17 +5,19 @@
   inputs,
   ...
 }:
-builtins.foldl' (x: y: lib.recursiveUpdate x (y (x // { inherit inputs; }))) { } (
-  map (x: (args: callPackage x args)) [
-    ./haxe
-    ./hxcpp
-    ./format
-    ./hashlink
-    ./heaps
-    ./dox
-    ./haxefmt
-    ./raylib
-    ./hxp
-    ./lime
-  ]
-)
+let
+  # call package with previously defined packages
+  appendPackages = pkgs: module: pkgs // callPackage module (pkgs // { inherit inputs; });
+in
+builtins.foldl' appendPackages { } [
+  ./haxe
+  ./hxcpp
+  ./format
+  ./hashlink
+  ./heaps
+  ./dox
+  ./haxefmt
+  ./raylib
+  ./hxp
+  ./lime
+]

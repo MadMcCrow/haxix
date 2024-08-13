@@ -1,4 +1,4 @@
-# hxcpp/generic
+# hxcpp/default
 # how to build hxcpp from sources
 {
   lib,
@@ -6,28 +6,33 @@
   neko,
   haxePackages,
   haxe,
-  version,
   src,
+  version,
   ...
 }:
 let
   withCommas = lib.replaceStrings [ "." ] [ "," ];
+
+  # we need to figure out how to make cppia work !
+  # cppia = "REPO=$(pwd)
+  #   cd $REPO/project
+  #   haxe compile-cppia.hxml
+  #   cd $REPO
+  #   ";
 in
-# TODO : use buildHaxelib
 stdenv.mkDerivation {
+  inherit src version;
   pname = "hxcpp";
   buildInputs = [
     haxe
     neko
   ];
-  inherit src version;
   buildPhase = ''
     REPO=$(pwd)
     cd $REPO/tools/run
-    haxe compile.hxml
+    ${lib.getExe haxe} compile.hxml
     cd $REPO/tools/hxcpp
-    haxe compile.hxml
-    # haxe compile-cpp.hxml
+    ${lib.getExe haxe} compile.hxml
     cd $REPO
   '';
 
@@ -45,6 +50,7 @@ stdenv.mkDerivation {
     )
     runHook postInstall
   '';
+
   postFixup = ''
     for f in $out/lib/haxe/hxcpp/${withCommas version}/{,project/libs/nekoapi/}bin/Linux{,64}/*; do
       chmod +w "$f"
@@ -52,5 +58,6 @@ stdenv.mkDerivation {
       patchelf --set-rpath ${lib.makeLibraryPath [ stdenv.cc.cc ]}  "$f" || true
     done
   '';
+
   inherit (haxePackages.hxcpp) meta;
 }

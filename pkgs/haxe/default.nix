@@ -3,9 +3,10 @@
 { callPackage, ... }:
 let
   haxe = callPackage ./generic.nix {
-    version = "4.3.4"; # using something else than a number may break packages
+    version = "4.3.6"; # using something else than a number may break packages
   };
+  lib = callPackage ./lib.nix { inherit haxe; };
 in
 {
-  haxe = haxe // (callPackage ./lib.nix { inherit haxe; });
+  haxe = haxe // lib;
 }

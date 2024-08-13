@@ -1,6 +1,11 @@
 # haxefmt/default.nix
 # haxefmt is a formatting tool to format haxe code
-{ lib, writeShellApplication, haxe, ... }:
+{
+  lib,
+  writeShellApplication,
+  haxe,
+  ...
+}:
 rec {
   # the library 
   formatter = haxe.buildHaxelib {
