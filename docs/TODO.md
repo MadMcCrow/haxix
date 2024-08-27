@@ -1,8 +1,8 @@
 # TODO :
 
-- [ ] Github Action
-    - [ ] `nix flake check`
-    - [ ] check build packages
+- [X] Github Action
+    - [X] `nix flake check`
+    - [X] check build packages
     - [ ] Build Cachix cache
     - [ ] auto upgrade (on `latest` branch)
 - [ ] Other Haxe game engines
@@ -11,6 +11,10 @@
         - [X] Lime
         - [ ] Testing
         - [ ] Rest of OpenFL !
+    - [ ] Armory3D
+      - [ ] Blender-LTS
+      - [ ] Armory SDK
+      - [ ] Kha
 - [ ] tool script to help with updates
   - [X] parse latest version from github/haxelib
   - [ ] compare version with the one provided by this flake

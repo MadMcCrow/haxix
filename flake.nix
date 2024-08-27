@@ -61,13 +61,12 @@
         let
           pkgs = import nixpkgs { inherit system; };
           packages = pkgs.callPackage ./pkgs { inherit inputs; };
-          demos = pkgs.callPackage ./demo ({ inherit inputs; } // packages);
+          # demos = pkgs.callPackage ./demo ({ inherit inputs; } // packages);
         in
         {
           legacyPackages."${system}" = packages;
           devShells."${system}" = pkgs.callPackages ./pkgs/shell.nix packages;
-          # TODO :
-          #checks."${system}" = demos;
+          checks."${system}" = pkgs.callPackages ./pkgs/checks.nix packages;
         };
     in
     {

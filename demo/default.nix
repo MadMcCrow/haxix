@@ -20,8 +20,8 @@
   #    version = "0.0.1-alpha";
   # };
 
-  lime-demo = lime.mkGame {
-    name = "lime-helloworld";
+  lime-demo = lime.buildLimeGame {
+    pname = "lime-helloworld";
     src = ./lime;
     version = "0.0.1-alpha";
     target = "html5";

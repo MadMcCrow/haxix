@@ -74,6 +74,11 @@ in
             runHook postInstall
           '';
 
+    doInstallCheck = true;
+    installCheckPhase = ''
+        ls $out/lib/haxe/${pname}
+      '';
+
         meta = {
           homepage = "http://lib.haxe.org/p/${pname}";
           license = lib.licenses.free;

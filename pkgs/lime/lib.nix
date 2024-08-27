@@ -35,7 +35,7 @@ rec {
     }@attrs:
     stdenv.mkDerivation rec {
       # derivation name
-      name = attrs.name or "${attrs.pname}-${attrs.version}" "please define pname or name";
+      name = attrs.name or "${attrs.pname}-${attrs.version}";
       inherit src version;
 
       buildInputs = [

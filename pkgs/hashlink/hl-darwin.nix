@@ -47,5 +47,10 @@ pkgs_eml.hashlink.overrideAttrs (
         inherit version;
       }}
     '';
+    doInstallCheck = true;
+    installCheckPhase = ''
+        ls $out/lib/haxe/hashlink
+        $out/bin/hl --version
+      '';
   }
 )
