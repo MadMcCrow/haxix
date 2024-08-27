@@ -13,6 +13,8 @@ let
   # we need objective-C
   objc = with darwin; [
     apple_sdk_11_0.objc4
+    apple_sdk_11_0.libs.xpc
+    apple_sdk_11_0.frameworks.Security
     libobjc
   ];
   ObjCmakeFlags =
