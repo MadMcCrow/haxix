@@ -7,14 +7,9 @@
   haxe,
   ...
 }@args:
-let
-  version = "1.14";
-in
 rec {
   # three packages 
-  hashlink = callPackage (if stdenv.isDarwin then ./hl-darwin.nix else ./hl.nix) (
-    args // { inherit version; }
-  );
+  hashlink = callPackage ./generic.nix (args // {version = "1.14";} );
   hlsdl = callPackage ./hlsdl.nix (args // { inherit haxe hashlink; });
   hlopenal = callPackage ./hlopenal.nix (args // { inherit haxe hashlink; });
 }
