@@ -25,19 +25,19 @@ You can use `nix flake show --legacy` to see all the packages haxix provides
 
 ## TODO
 
-See [TODO.md](docs/TODO.md). these are the most likely things to be added to the project.
+See [TODO.md](./TODO.md). these are the most likely things to be added to the project.
 
 ## Contribute
 
-Any [contribution](docs/CONTRIBUTING.md) welcome. You can contribute on features, documentation, or bug fixes.
+Any [contribution](./CONTRIBUTING.md) welcome. You can contribute on features, documentation, or bug fixes.
 
 ## Licence
 
-Licensed under [MIT](Licence.md)
+Licensed under [MIT](./Licence.md)
 
 ## Authors
 
-See [AUTHORS](docs/AUTHORS.md) for the complete list of people who helped make haxix.
+See [AUTHORS](./AUTHORS.md) for the complete list of people who helped make haxix.
 
 ## Status
 
