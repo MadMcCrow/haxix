@@ -33,4 +33,4 @@ if __name__ == "__main__" :
     print(f'raylib : {release("Raysan5", "raylib")}')
     print(f'raylib-hx : {haxelib("foreignsasquatch","raylib-hx")}')
     print(f'hxp : {haxelib("openfl","hxp")}' )
-    print(f'lime : {release("openfl","releases")}')
+    print(f'lime : {release("openfl","lime")}')

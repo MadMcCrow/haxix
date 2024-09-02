@@ -3,6 +3,9 @@
 # we might wanna split into a multitude of shells
 {
   mkShell,
+  statix,
+  deadnix,
+  nixfmt-rfc-style,
   haxe,
   format,
   hxcpp,
@@ -21,16 +24,43 @@
   ...
 }:
 let
-haxeShell = inputs : mkShell {
-  buildInputs = [haxe haxefmt formatter dox] ++ inputs;
-};
+  # helper : 
+  haxeShell =
+    inputs:
+    mkShell {
+      buildInputs = [
+        haxe
+        haxefmt
+        formatter
+        dox
+      ] ++ inputs;
+    };
 in
 rec {
-  default = haxeShell [];
+  # for working on haxix :
+  default = haxeShell [
+    statix
+    deadnix
+    nixfmt-rfc-style
+  ];
 
-  heapsShell = haxeShell [ format hashlink hlsdl hlopenal heaps ];
+  heapsShell = haxeShell [
+    format
+    hashlink
+    hlsdl
+    hlopenal
+    heaps
+  ];
 
-  limeShell = haxeShell [ neko hxp lime ];
+  limeShell = haxeShell [
+    neko
+    hxp
+    lime
+  ];
 
-  raylibShell = haxeShell [ raylib raylib-hx hxcpp ];
+  raylibShell = haxeShell [
+    raylib
+    raylib-hx
+    hxcpp
+  ];
 }

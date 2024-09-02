@@ -49,4 +49,9 @@ haxe.overrideAttrs (previousAttrs: {
       stdlib-shims
     ])
     ++ (lib.optional stdenv.isDarwin darwin.apple_sdk.frameworks.Security);
+  
+  # add support for lib.getExe
+  meta = previousAttrs.meta // {
+    mainProgram = "haxe";
+  };
 })

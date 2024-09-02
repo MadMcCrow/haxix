@@ -2,17 +2,18 @@
 # hashlink-latest interpreter for haxe, on MacOS.
 # only intel Mac supported, uses rosetta to run on M1
 {
-  inputs,
-  version,
   haxe,
   darwin,
   libpng,
+  inputs,
   ...
 }:
 let
   # we need objective-C
   objc = with darwin; [
     apple_sdk_11_0.objc4
+    apple_sdk_11_0.libs.xpc
+    apple_sdk_11_0.frameworks.Security
     libobjc
   ];
   ObjCmakeFlags =
@@ -29,8 +30,6 @@ in
 # implementation :
 pkgs_eml.hashlink.overrideAttrs (
   finalAttrs: previousAttrs: {
-    inherit version;
-    src = inputs.hashlink;
     buildInputs = previousAttrs.buildInputs ++ [ libpng ] ++ objc;
     makeFlags = previousAttrs.makeFlags ++ ObjCmakeFlags;
     postFixup =
@@ -38,12 +37,5 @@ pkgs_eml.hashlink.overrideAttrs (
       + ''
         #   install_name_tool -add_rpath $out/lib $out/bin/hl
         # '';
-    postInstall = ''
-      ${haxe.installHaxelib {
-        pname = "${finalAttrs.pname}";
-        files = "other/haxelib/*";
-        inherit version;
-      }}
-    '';
-  }
+    }
 )
