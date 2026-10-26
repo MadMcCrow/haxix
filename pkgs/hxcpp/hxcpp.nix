@@ -1,4 +1,5 @@
-# hxcpp/default
+# hxcpp.nix
+# hxcpp is the cpp exporter for haxe
 # how to build hxcpp from sources
 {
   lib,
@@ -11,6 +12,8 @@
   ...
 }:
 let
+  sources
+
   withCommas = lib.replaceStrings [ "." ] [ "," ];
 
   # we need to figure out how to make cppia work !

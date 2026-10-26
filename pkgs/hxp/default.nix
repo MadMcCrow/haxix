@@ -1,9 +1,9 @@
-# hxp/default.nix
+# hxp.nix
 # provide openfl/hxp
 # TODO : use flake input ?
 { lib, haxe, ... }:
 {
-  hxp = haxe.buildHaxelib {
+  hxp = haxelib.buildHaxelib {
     pname = "hxp";
     version = "1.3.0";
     sha256 = "sha256-h1vziyWzJUk/pHGkkMO1gMrs38rdhKjp9HYi6+QBbCM=";

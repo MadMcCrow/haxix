@@ -1,6 +1,5 @@
-# heaps/generic.nix
-# Build heaps games with nix 
-# TODO : remove function mkGame from module (move to separate "lib" module)
+# heaps.nix
+# HEAPS game engine
 {
   src,
   version,
@@ -14,7 +13,7 @@
   openal,
   ...
 }:
-haxe.buildHaxelib {
+haxelib.buildHaxelib {
   inherit src version;
   pname = "heaps";
   buildInputs = [

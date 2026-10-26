@@ -3,15 +3,21 @@
 {
   lib,
   writeShellApplication,
-  haxe,
+  haxelib,
   ...
 }:
+let
+  pname = "formatter";
+  sources = import ../_npins;
+  pin = sources.${pname};
+in
 rec {
-  # the library 
-  formatter = haxe.buildHaxelib {
-    pname = "formatter";
-    version = "1.16.0";
-    sha256 = "sha256-1m4jtZn38dJplH+qG2izirxkn4Cc9pAxv01lJZetd8I=";
+  # the library
+  haxe-formatter = haxelib.buildHaxelib {
+    pname = lib.toLower pname;
+    inherit (pin) version;
+    src = pin;
+
     meta = {
       homepage = "https://github.com/HaxeCheckstyle/haxe-formatter";
       description = "A Haxe tool to format haxe code";
@@ -24,7 +30,7 @@ rec {
     name = "haxefmt";
     runtimeInputs = [
       haxe
-      formatter
+      haxe-formatter
     ];
     text = ''
       if [ "$#" -gt 0 ]

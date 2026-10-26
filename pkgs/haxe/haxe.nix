@@ -1,8 +1,6 @@
-# haxe/generic.nix
+# haxe.nix
 # build haxe from sources
 {
-  version,
-  src,
   stdenv,
   lib,
   fetchurl,
@@ -15,8 +13,13 @@
   darwin,
   ...
 }:
+let
+  sources = import ../_npins;
+  pin = sources.haxe;
+in
 haxe.overrideAttrs (previousAttrs: {
-  inherit version;
+  version = pin.version ;
+  src = lib.head (lib.splitString "-" pin.version);
   buildInputs =
     previousAttrs.buildInputs
     ++ [
@@ -38,18 +41,14 @@ haxe.overrideAttrs (previousAttrs: {
       camlp-streams
       terminal_size
       (luv.overrideAttrs {
-        version = "0.5.12";
-        src = fetchurl {
-          url = "https://github.com/aantron/luv/releases/download/0.5.12/luv-0.5.12.tar.gz";
-          sha256 = "sha256-dp9qCIYqSdROIAQ+Jw73F3vMe7hnkDe8BgZWImNMVsA=";
-        };
-
+        inherit (sources.${luv}) version;
+        src = sources.${luv};
       })
       extlib
       stdlib-shims
     ])
     ++ (lib.optional stdenv.isDarwin darwin.apple_sdk.frameworks.Security);
-  
+
   # add support for lib.getExe
   meta = previousAttrs.meta // {
     mainProgram = "haxe";
