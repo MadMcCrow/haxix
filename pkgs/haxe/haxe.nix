@@ -14,10 +14,12 @@
   ...
 }:
 let
+  # pinned sources
   sources = import ../_npins;
   pin = sources.haxe;
-in
-haxe.overrideAttrs (previousAttrs: {
+
+  # build without our nix helper
+  haxe-unlib = haxe.overrideAttrs (previousAttrs: {
   version = pin.version ;
   src = lib.head (lib.splitString "-" pin.version);
   buildInputs =
@@ -53,4 +55,7 @@ haxe.overrideAttrs (previousAttrs: {
   meta = previousAttrs.meta // {
     mainProgram = "haxe";
   };
-})
+});
+in (haxe-unlib //
+  # add  the library to the package
+  ( pkgs.callPackage ( self + "/lib/haxelib.nix" ) { haxe = haxe-unlib; } )

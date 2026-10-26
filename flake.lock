@@ -1,96 +1,61 @@
 {
   "nodes": {
-    "dox": {
+    "flake-compat": {
       "flake": false,
       "locked": {
-        "lastModified": 1705391174,
-        "narHash": "sha256-rwAXbGYs2TEEOMGv/lRHxSqTjfcsHkM36PFdpMOe4sQ=",
-        "owner": "HaxeFoundation",
-        "repo": "dox",
-        "rev": "161c4c2c745fec05212a6f0cd681ce5fecd33c95",
+        "lastModified": 1777699697,
+        "narHash": "sha256-Eg9b/rq/ECYwNwEXs5i9wHyhxNI0JrYx2srdI2uZMaQ=",
+        "rev": "382052b74656a369c5408822af3f2501e9b1af81",
+        "type": "tarball",
+        "url": "https://git.lix.systems/api/v1/repos/lix-project/flake-compat/archive/382052b74656a369c5408822af3f2501e9b1af81.tar.gz?rev=382052b74656a369c5408822af3f2501e9b1af81"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://git.lix.systems/lix-project/flake-compat/archive/main.tar.gz"
+      }
+    },
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790898470,
+        "narHash": "sha256-zTwuwezD0w3hpga6a6P8emidzAZFyWqlNeRBlpWOOl8=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "024633cd702b10285db5cb19b40ad48d2399ba60",
         "type": "github"
       },
       "original": {
-        "owner": "HaxeFoundation",
-        "repo": "dox",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
         "type": "github"
       }
     },
-    "hashlink": {
-      "flake": false,
+    "import-tree": {
       "locked": {
-        "lastModified": 1723107425,
-        "narHash": "sha256-vTqmFq+g65gNQJtE024YaX0RkTXwMI3rG8T3s/tPmQc=",
-        "owner": "HaxeFoundation",
-        "repo": "hashlink",
-        "rev": "9cf7efa118409bef3a7c263bffc36da107751e60",
+        "lastModified": 1788467110,
+        "narHash": "sha256-ljEMTXP/rH0tOvDzc9gzwww6KcHRPRnEHzd9lK48V7s=",
+        "owner": "denful",
+        "repo": "import-tree",
+        "rev": "eb1b52eaecc57f7c136d07ae8a93e724dfecac46",
         "type": "github"
       },
       "original": {
-        "owner": "HaxeFoundation",
-        "ref": "refs/tags/latest",
-        "repo": "hashlink",
-        "type": "github"
-      }
-    },
-    "haxe": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1723182863,
-        "narHash": "sha256-Ds+8iYJHfYzkWAYSI6LbBK4MnErdLuqTGW9GvIwIS8Y=",
-        "ref": "development",
-        "rev": "a9d039d1df4faf23133038d15773d376942a9431",
-        "revCount": 21286,
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/HaxeFoundation/haxe.git"
-      },
-      "original": {
-        "ref": "development",
-        "submodules": true,
-        "type": "git",
-        "url": "https://github.com/HaxeFoundation/haxe.git"
-      }
-    },
-    "haxe_format": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1714745707,
-        "narHash": "sha256-gwiZBm3aqiUOhrfudLDFQzGo/j7IGWid1TLX9bvzfic=",
-        "owner": "HaxeFoundation",
-        "repo": "format",
-        "rev": "a19833b2c0d238875b2c720043ffff0a2af55eb1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "HaxeFoundation",
-        "repo": "format",
-        "type": "github"
-      }
-    },
-    "heaps": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1723197874,
-        "narHash": "sha256-+GlQnPnn7Dk3jJsOG0WgwtuLDqcf2dJJ4bEr9N1YxPk=",
-        "owner": "HeapsIO",
-        "repo": "heaps",
-        "rev": "d63c19089fa85bb38cb6045f1d6f50e52b9253a6",
-        "type": "github"
-      },
-      "original": {
-        "owner": "HeapsIO",
-        "repo": "heaps",
+        "owner": "denful",
+        "repo": "import-tree",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1723221148,
-        "narHash": "sha256-7pjpeQlZUNQ4eeVntytU3jkw9dFK3k1Htgk2iuXjaD8=",
+        "lastModified": 1792842277,
+        "narHash": "sha256-pGPnZGi8y9d76xNeracniXO3dsYVROEmMkMc8jD0Ihc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "154bcb95ad51bc257c2ce4043a725de6ca700ef6",
+        "rev": "d3b13ad75cc492690728f9307e443dec9ef9a20e",
         "type": "github"
       },
       "original": {
@@ -100,49 +65,33 @@
         "type": "github"
       }
     },
-    "raylib": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1700044250,
-        "narHash": "sha256-gEstNs3huQ1uikVXOW4uoYnIDr5l8O9jgZRTX1mkRww=",
-        "owner": "Raysan5",
-        "repo": "raylib",
-        "rev": "ae50bfa2cc569c0f8d5bc4315d39db64005b1b08",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Raysan5",
-        "ref": "refs/tags/5.0",
-        "repo": "raylib",
-        "type": "github"
-      }
-    },
-    "raylib-hx": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1719123080,
-        "narHash": "sha256-Vx4ASVULfyg0JM6897L9lpUqlYXB2jlRKfHdTs/1DXE=",
-        "owner": "foreignsasquatch",
-        "repo": "raylib-hx",
-        "rev": "5e365324c678d215332370e732f084d02ee797e9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "foreignsasquatch",
-        "repo": "raylib-hx",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
-        "dox": "dox",
-        "hashlink": "hashlink",
-        "haxe": "haxe",
-        "haxe_format": "haxe_format",
-        "heaps": "heaps",
+        "flake-compat": "flake-compat",
+        "flake-parts": "flake-parts",
+        "import-tree": "import-tree",
         "nixpkgs": "nixpkgs",
-        "raylib": "raylib",
-        "raylib-hx": "raylib-hx"
+        "treefmt-nix": "treefmt-nix"
+      }
+    },
+    "treefmt-nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791885023,
+        "narHash": "sha256-C3alQ2MEt0zVrUSho5NUDo3jmhbff72++bfwoqT9Omo=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "0d6d739a833ba9a9c93034862e4a7b061a062a1c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "type": "github"
       }
     }
   },

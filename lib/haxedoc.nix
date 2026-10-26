@@ -1,15 +1,12 @@
-# mkHaxeDoc
-# haxedoc : the resulting documentation of a haxe derivation :
-# TODO: support for custom Compile.hxml  
+# helps user make docs
 {
-  stdenvNoCC,
   haxe,
   dox,
   ...
-}:
+}
 {
-  buildHaxedoc =
-    {
+  # function helper to build docs for your derivations
+  buildHaxeDoc = {
       haxeDrv,
       target,
       package,
@@ -28,7 +25,7 @@
         cp -R $src/src/* ./
       '';
       buildPhase = ''
-        ls -la 
+        ls -la
         ${haxe}/bin/haxe -xml docs/doc.xml -D doc-gen \
         ${builtins.concatStringsSep " " (map (x: "-lib ${x}") haxeLibs)} \
         --classpath ${classPath} ${target} ${package}

@@ -1,0 +1,214 @@
+{
+  "pins": {
+    "castle": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "ncannasse",
+        "repo": "castle"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "1.6.0",
+      "revision": "9d0beb71900b0228fdc688f764398f20861672e8",
+      "url": "https://api.github.com/repos/ncannasse/castle/tarball/refs/tags/1.6.0",
+      "hash": "sha256-Meb3+z3cHW6LTZfnyDkZ2+HMNAD8KdeoRj+DKte6v1k="
+    },
+    "dox": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "HaxeFoundation",
+        "repo": "dox"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "1.6.0",
+      "revision": "68b558c8a719ff89a6a49de4388f930af8c13019",
+      "url": "https://api.github.com/repos/HaxeFoundation/dox/tarball/refs/tags/1.6.0",
+      "hash": "sha256-wbSAJ9DsuJvo1oM30i3L6O+N1GmSxDlPlANEUXtJTk8="
+    },
+    "hashlink": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "HaxeFoundation",
+        "repo": "hashlink"
+      },
+      "pre_releases": true,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "1.16",
+      "revision": "c3f2a1563cf7aa9f4076b0808a7eaf40e18e8f14",
+      "url": "https://api.github.com/repos/HaxeFoundation/hashlink/tarball/refs/tags/1.16",
+      "hash": "sha256-sT5Z4y4tYSVD3IdDJqgnWXdzhWWcewlVTjesE65LPUc="
+    },
+    "haxe": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "HaxeFoundation",
+        "repo": "haxe"
+      },
+      "pre_releases": true,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "5.0.0-preview.1",
+      "revision": "2c1e544e0a2c7524ef4c8e103f1b0580362ea538",
+      "url": "https://api.github.com/repos/HaxeFoundation/haxe/tarball/refs/tags/5.0.0-preview.1",
+      "hash": "sha256-pTY0Cg83BMXFMpzb35iHDe0ZgHI3UBl/7aQDhxMX+Zo="
+    },
+    "haxe-format": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "HaxeFoundation",
+        "repo": "format"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "775a06f0a7aa64cbd060b5c3ba62f65d7fed684a",
+      "url": "https://github.com/HaxeFoundation/format/archive/775a06f0a7aa64cbd060b5c3ba62f65d7fed684a.tar.gz",
+      "hash": "sha256-CtKi+pS05VbOui9qSNKN1bAWzJ4BA5MlYVsnzXVwyEU="
+    },
+    "haxe-formatter": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "HaxeCheckstyle",
+        "repo": "haxe-formatter"
+      },
+      "pre_releases": true,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v1.18.0",
+      "revision": "93ba289893d515614298f4ce7cee8619c31b420c",
+      "url": "https://api.github.com/repos/HaxeCheckstyle/haxe-formatter/tarball/refs/tags/v1.18.0",
+      "hash": "sha256-nuACcOgszGSn9Z6AP883x228Mlax8L0ZOqHu4+vRGl8="
+    },
+    "heaps": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "HeapsIO",
+        "repo": "heaps"
+      },
+      "pre_releases": true,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "2.1.1",
+      "revision": "ac44ed4cea162f5731c79dcbb39201d4b73eb162",
+      "url": "https://api.github.com/repos/HeapsIO/heaps/tarball/refs/tags/2.1.1",
+      "hash": "sha256-WLZ5NyUeFluRDxgQ+tXUt1Cjx8eEQsMKE6Xp3y9xkF0="
+    },
+    "hxcpp": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "HaxeFoundation",
+        "repo": "hxcpp"
+      },
+      "pre_releases": true,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v4.3.176",
+      "revision": "504403dbcc0f289dba818ca53685a584f671ddc3",
+      "url": "https://api.github.com/repos/HaxeFoundation/hxcpp/tarball/refs/tags/v4.3.176",
+      "hash": "sha256-VXD9GLhnrv6wffLHUVutfoeRYWo78tRrgVvQ8IfjMWY="
+    },
+    "hxnodejs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "HaxeFoundation",
+        "repo": "hxnodejs"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "f88685a70b2e4f03dbe0a824ce90ea8b56b27753",
+      "url": "https://github.com/HaxeFoundation/hxnodejs/archive/f88685a70b2e4f03dbe0a824ce90ea8b56b27753.tar.gz",
+      "hash": "sha256-LiCdE4GIabOnS1VGTk/Sq0WomoIQMNW0bzpsirnW55g="
+    },
+    "luv": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "aantron",
+        "repo": "luv"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "0.5.14",
+      "revision": "d90ecd20643e12b3cdf5622241ba422931e169c3",
+      "url": "https://api.github.com/repos/aantron/luv/tarball/refs/tags/0.5.14",
+      "hash": "sha256-A3tty7D0+oxcqRxTwbfX0ZS2llU0ge+D1nJIiKC4RZ8="
+    },
+    "neutralinojs": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "neutralinojs",
+        "repo": "neutralinojs"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v6.10.0",
+      "revision": "4361b63eb1157fc7dedb29b92815a08ec0002767",
+      "url": "https://api.github.com/repos/neutralinojs/neutralinojs/tarball/refs/tags/v6.10.0",
+      "hash": "sha256-H0c22T1kZJsQLI0k/1XJv6K6Wa5OCqKiny0vTT8gEG8="
+    },
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixpkgs-unstable",
+      "artifact": "nixexprs.tar.xz",
+      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1100901.d3b13ad75cc4/nixexprs.tar.xz",
+      "hash": "sha256-lrp+A0ZwQN3V0tSZP6vVFIX/16FFOzr19mSup8XD80w="
+    },
+    "raylib": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "raysan5",
+        "repo": "raylib"
+      },
+      "pre_releases": true,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "6.2",
+      "revision": "02566453880e06bec97f5b8160fa6fe1e98397ca",
+      "url": "https://api.github.com/repos/raysan5/raylib/tarball/refs/tags/6.2",
+      "hash": "sha256-z885D8MdNdx/sOG+xMfk2gwZfaIrgMnbW7Xx1Ee4f6M="
+    },
+    "raylib-hx": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "foreignsasquatch",
+        "repo": "raylib-hx"
+      },
+      "pre_releases": true,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "4.0",
+      "revision": "2577c96dc2b1a4dd5f47671957e20666195acddb",
+      "url": "https://api.github.com/repos/foreignsasquatch/raylib-hx/tarball/refs/tags/4.0",
+      "hash": "sha256-0qoHHHLFyxbX99XqQOhcGqLp6V+RBKJoSaqls0LzUOM="
+    }
+  },
+  "version": 8
+}

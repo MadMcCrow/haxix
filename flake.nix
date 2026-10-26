@@ -5,87 +5,55 @@
     # latest nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    # haxe : the language
-    haxe = {
-      type = "git";
-      url = "https://github.com/HaxeFoundation/haxe.git";
-      ref = "development";
-      flake = false;
-      submodules = true;
+    # flake support
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    # hashlink : the haxe interpreter
-    hashlink = {
-      url = "github:HaxeFoundation/hashlink?ref=refs/tags/latest";
-      flake = false;
-    };
-    # Dox : the documentation tool
-    dox = {
-      url = "github:HaxeFoundation/dox";
+
+    # allows working without flakes
+    # flake = false is optional
+    flake-compat = {
+      url = "https://git.lix.systems/lix-project/flake-compat/archive/main.tar.gz";
       flake = false;
     };
-    # format : the format support library
-    haxe_format = {
-      url = "github:HaxeFoundation/format";
-      flake = false;
-    };
-    # heaps : the game engine
-    heaps = {
-      url = "github:HeapsIO/heaps";
-      flake = false;
-    };
-    # raylib source code
-    raylib = {
-      url = "github:Raysan5/raylib?ref=refs/tags/5.0";
-      flake = false;
-    };
-    # raylib haxe bindings
-    raylib-hx = {
-      url = "github:foreignsasquatch/raylib-hx";
-      flake = false;
+
+    # import all implicitly
+    import-tree.url = "github:denful/import-tree";
+
+    # auto format repo
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+      outputs =
+        inputs@{
+          flake-parts,
+          nixpkgs,
+          self,
+          ...
+        }:
+        flake-parts.lib.mkFlake { inherit inputs; } (
+          { lib, ... }: {
 
-  outputs =
-    { self, nixpkgs, ... }@inputs:
-    let
-      # multiplatform support
-      systems = [
-        "x86_64-linux"
-        # "aarch64-linux" <- not supported yet
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ];
-      # the actual flake for every system
-      flake =
-        system:
-        let
-          pkgs = import nixpkgs { inherit system; };
-          packages = pkgs.callPackage ./pkgs { inherit inputs; };
-          # demos = pkgs.callPackage ./demo ({ inherit inputs; } // packages);
-        in
-        {
-          legacyPackages."${system}" = packages;
-          devShells."${system}" = pkgs.callPackages ./pkgs/shell.nix packages;
-          checks."${system}" = pkgs.callPackages ./pkgs/checks.nix packages;
-        };
-    in
-    {
-      # template for heaps projects :
-      templates = rec {
-        default = heaps; # we might not wanna be that opiniated
-        heaps = {
-          path = ./templates/heaps;
-          description = "A simple haxe game with heaps";
-          welcomeText = "";
-        };
-        lime = {
-          path = ./templates/lime;
-          description = "A simple haxe project with lime";
-          welcomeText = "";
-        };
-      };
-    }
-    # gen for all systems :
-    // (builtins.foldl' (x: y: nixpkgs.lib.recursiveUpdate x y) { } (map flake systems));
+            # multiplatform support
+            systems = [
+              "x86_64-linux"
+              # "aarch64-linux" <- not supported yet
+              "aarch64-darwin"
+              "x86_64-darwin"
+            ];
+
+            # TODO : replace by auto-detect directories
+            imports = [
+              # ./dev # shells and development tools
+               # ./docs -> need to implement a man/doc output
+              # ./lib
+              ./pkgs
+              # ./templates
+            ];
+          }
+        );
 
 }

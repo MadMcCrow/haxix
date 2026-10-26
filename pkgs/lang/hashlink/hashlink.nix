@@ -1,11 +1,15 @@
 {stdenv, callPackage, haxe, libpng, hashlink, version, inputs, ...} @args :
-let 
+let
+  # pinned sources
+  sources = import ../../_npins;
+  pin = sources.hashlink;
+
   # get the correct hashlink for the platform :
-  myHashlink = if stdenv.isDarwin then (callPackage ./darwin.nix args ) else hashlink;
+  myHashlink = if stdenv.isDarwin then (callPackage ./_darwin.nix args ) else hashlink;
 # implement our special sauce (same for all platforms)
 in myHashlink.overrideAttrs ( finalAttrs: previousAttrs: {
-    inherit version;
-    src = inputs.hashlink;
+    inherit (pin) version;
+    src = pin;
     buildInputs = previousAttrs.buildInputs ++ [ libpng ];
     postInstall = ''
       ${haxe.installHaxelib {

@@ -1,13 +1,8 @@
+# lib/raylib.nix
+# helper function
+{raylib, raylib-hx, ... } :
 {
-  stdenv,
-  raylib,
-  raylib-hx,
-  haxe,
-  ...
-}:
-{
-  buildRaylibHxGame =
-    {
+  buildRaylibHxGame = {
       src,
       buildHxml ? "Build.hxml",
       ...

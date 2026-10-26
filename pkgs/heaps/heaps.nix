@@ -1,8 +1,7 @@
 # heaps.nix
 # HEAPS game engine
 {
-  src,
-  version,
+  self,
   haxePackages,
   haxe,
   format,
@@ -13,9 +12,18 @@
   openal,
   ...
 }:
-haxelib.buildHaxelib {
-  inherit src version;
+let
+  # pinned sources
   pname = "heaps";
+  sources = import ../_npins;
+  pin = sources.${pname};
+  heaps-unlib =
+(haxelib.buildHaxelib {
+  # get from pin
+  src = pin;
+  inherit (pin) version;
+  inherit pname;
+
   buildInputs = [
     format
     hashlink
@@ -24,5 +32,9 @@ haxelib.buildHaxelib {
     hlsdl
     hlopenal
   ];
+
   inherit (haxePackages.heaps) meta;
-}
+});
+in
+# append our helper function
+heaps-unlib // (pkgs.callPackage (self + "/heapslib.nix" {heaps = heaps-unlib; inherit haxe;})

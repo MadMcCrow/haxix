@@ -1,20 +1,30 @@
 # raylib/raylib-hx.nix
 # Raylib bindings for haxe
 {
-  version,
-  inputs,
   lib,
   stdenvNoCC,
   haxe,
   raylib,
   ...
 }:
+let
+  # npins sources
+  sources = (import ../_npins);
 
-stdenvNoCC.mkDerivation {
-  inherit version;
-  src = inputs.raylib-hx;
-  pname = "raylib-hx";
-  buildInputs = [ raylib ]; # maybe add haxe
+  # raylib override
+  raylib = let
+  pin = sources.raylib; in raylib.overrideAttrs {
+    inherit (pin) version;
+    src = pin;
+  };
+  # our pin
+  pin = sources.raylib-hx;
+
+in stdenvNoCC.mkDerivation {
+  inherit (pin) version;
+  src = pin;
+
+  buildInputs = [ raylib haxe ];
   # install
   installPhase = ''
     runHook preInstall
@@ -28,7 +38,7 @@ stdenvNoCC.mkDerivation {
         haxe.installHaxelib {
           pname = "raylib-hx";
           files = "*";
-          inherit version;
+          inherit (pin) version;
         }
       }
     )

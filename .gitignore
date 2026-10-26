@@ -1,6 +1,5 @@
 # nix evalutation
 result*
-source*
 # hashlink build result
 *.hl
 # hashlink/c out build folder

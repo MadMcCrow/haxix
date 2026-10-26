@@ -15,6 +15,10 @@
       - [ ] Blender-LTS
       - [ ] Armory SDK
       - [ ] Kha
+    - [X] Heaps
+      - [ ] Castle DB
+        - [ ] Replace nwjs with neutrinojs for performance
+      - 
 - [ ] tool script to help with updates
   - [X] parse latest version from github/haxelib
   - [ ] compare version with the one provided by this flake
