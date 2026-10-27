@@ -5,6 +5,10 @@
     # latest nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    # darwin support
+    # see https://nixos.org/manual/nixpkgs/unstable/release-notes#x86_64-darwin-26.11
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
+
     # flake support
     flake-parts = {
       url = "github:hercules-ci/flake-parts";

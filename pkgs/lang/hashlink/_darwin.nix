@@ -25,7 +25,7 @@ let
       "LIBRARY_PATH=${concatObjc "lib"}"
     ];
   # emulation for m1 macOS
-  pkgs_eml = import inputs.nixpkgs { system = "x86_64-darwin"; };
+  pkgs_eml = import inputs.nixpkgs-darwin { system = "x86_64-darwin"; };
 in
 # implementation :
 pkgs_eml.hashlink.overrideAttrs (

@@ -1,6 +1,6 @@
 # lime/generic.nix
 # provide latest lime
-{ pkgs, lib, haxe, ... }:
+args@{ pkgs, lib, haxe, format, hxp, self, ... }:
 let
 lime-unlib = haxe.buildHaxelib {
   pname = "lime";
@@ -12,4 +12,4 @@ lime-unlib = haxe.buildHaxelib {
     license = lib.licenses.mit;
   };
 };
-in lime-unlib // (pkgs.callPackage (self + "/lib/limelib.nix") {lime = lime-unlib; inherit haxe;})
+in lime-unlib // (pkgs.callPackage (self + "/lib/limelib.nix") ({lime = lime-unlib;} // args))

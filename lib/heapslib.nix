@@ -20,7 +20,7 @@
     let
       name = args.pname or args.name;
       # disable HL/C on MacOS M1
-      DoHLC = if stdenv.isDarwin then "false" else "true";
+      DoHLC = if stdenv.hostPlatform.isDarwin then "false" else "true";
     in
     stdenv.mkDerivation (
       args

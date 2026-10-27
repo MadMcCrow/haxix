@@ -8,4 +8,4 @@ in
 pkgs.haxePackages.format.overrideAttrs {
     version = "3.8.0"; # this is the latest known release
     src = sources."haxe-format";
-  };
+  }

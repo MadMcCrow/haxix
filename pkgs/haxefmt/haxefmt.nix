@@ -3,7 +3,7 @@
 {
   lib,
   writeShellApplication,
-  haxelib,
+  haxe,
   ...
 }:
 let
@@ -13,7 +13,7 @@ let
 in
 rec {
   # the library
-  haxe-formatter = haxelib.buildHaxelib {
+  haxe-formatter = haxe.buildHaxelib {
     pname = lib.toLower pname;
     inherit (pin) version;
     src = pin;

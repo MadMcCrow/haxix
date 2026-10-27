@@ -1,14 +1,15 @@
-{stdenv, callPackage, haxe, libpng, hashlink, version, inputs, ...} @args :
+{stdenv, callPackage, haxe, libpng, hashlink, ...} @args :
 let
   # pinned sources
   sources = import ../../_npins;
   pin = sources.hashlink;
-
+  inherit (pin) version;
   # get the correct hashlink for the platform :
-  myHashlink = if stdenv.isDarwin then (callPackage ./_darwin.nix args ) else hashlink;
+  myHashlink = if stdenv.hostPlatform.isDarwin then (callPackage ./_darwin.nix args ) else hashlink;
+in
 # implement our special sauce (same for all platforms)
-in myHashlink.overrideAttrs ( finalAttrs: previousAttrs: {
-    inherit (pin) version;
+myHashlink.overrideAttrs ( finalAttrs: previousAttrs: {
+    inherit version;
     src = pin;
     buildInputs = previousAttrs.buildInputs ++ [ libpng ];
     postInstall = ''

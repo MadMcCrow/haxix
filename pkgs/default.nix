@@ -1,9 +1,15 @@
 # flake part module for packages
 args@{
   inputs,
-  self,
   ...
 }:
+with builtins;
+let
+  # import the whole directory ( ignoring the default )
+  packageFiles =
+  filter (x: !(inputs.nixpkgs.lib.hasInfix "default.nix" x))
+  (inputs.import-tree.leaves (./.));
+in
 {
   perSystem =
     {
@@ -11,31 +17,22 @@ args@{
       lib,
       ...
     }:
-    with lib;
-    with builtins;
     {
       # only expose packages supported on this platform
-      packages = filterAttrs (_: v: meta.availableOn pkgs.stdenv.hostPlatform v) (
+      packages = lib.filterAttrs (_: v: lib.meta.availableOn pkgs.stdenv.hostPlatform v) (
         # import all packages in a shared scope
-        pkgs.lib.makeScope pkgs.newScope (self:
+        lib.makeScope pkgs.newScope (self:
         listToAttrs (
-          map (
-            x:
-            let
-              p = self.callPackage x args;
-            in
-            nameValuePair (getName p) p
-          )
-          # import the whole directory ( ignoring the default )
-          (lib.traceVal
-          (filter (x: !(lib.hasInfix "default.nix" x))
-          (inputs.import-tree.leaves (./.))))
+          map ( path :
+          lib.nameValuePair (lib.removeSuffix ".nix" (builtins.baseNameOf (toString path))) (self.callPackage path args))
+          packageFiles
         ))
       );
 
       # add an update script
       apps.update =
         with pkgs;
+        with lib;
         let
           # update pinned sources
           script = writeShellScriptBin "update-pins" ''

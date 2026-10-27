@@ -2,8 +2,9 @@
 {
   haxe,
   dox,
+  stdenvNoCC,
   ...
-}
+} :
 {
   # function helper to build docs for your derivations
   buildHaxeDoc = {

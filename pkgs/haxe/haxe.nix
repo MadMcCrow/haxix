@@ -4,13 +4,15 @@
   stdenv,
   lib,
   fetchurl,
-  haxe,
+  pkgs,
   ocaml-ng,
   zlib,
   pcre2,
   neko,
   mbedtls_2,
   darwin,
+  callPackage,
+  self,
   ...
 }:
 let
@@ -19,9 +21,10 @@ let
   pin = sources.haxe;
 
   # build without our nix helper
-  haxe-unlib = haxe.overrideAttrs (previousAttrs: {
+  # we need to specify pkgs instead of "haxe" directly to avoid infrec
+  haxe-unlib = pkgs.haxe.overrideAttrs (previousAttrs: {
   version = pin.version ;
-  src = lib.head (lib.splitString "-" pin.version);
+  src = pin;
   buildInputs =
     previousAttrs.buildInputs
     ++ [
@@ -49,13 +52,13 @@ let
       extlib
       stdlib-shims
     ])
-    ++ (lib.optional stdenv.isDarwin darwin.apple_sdk.frameworks.Security);
+    ++ (lib.optional stdenv.hostPlatform.isDarwin darwin.apple_sdk.frameworks.Security);
 
   # add support for lib.getExe
   meta = previousAttrs.meta // {
     mainProgram = "haxe";
   };
 });
-in (haxe-unlib //
+in haxe-unlib //
   # add  the library to the package
-  ( pkgs.callPackage ( self + "/lib/haxelib.nix" ) { haxe = haxe-unlib; } )
+  ( callPackage ( self + "/lib/haxelib.nix" ) { haxe = haxe-unlib; inherit self; } )

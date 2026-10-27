@@ -1,9 +1,10 @@
 {
   stdenvNoCC,
-  version,
   inputs,
   lib,
   haxe,
+  callPackage,
+  self,
   ...
 }:
 let
@@ -19,5 +20,11 @@ let
     license = lib.licenses.mit;
   };
 };
+
+  libdox = callPackage (self + "/lib/haxedoc.nix") {
+    dox = dox-unlib;
+    inherit haxe self;
+  };
 in
-dox-unlib // (pkgs.callPackage (self + "/lib/haxedoc.nix") {dox = dox-unlib; inherit haxe;})
+# assemble
+dox-unlib // libdox

@@ -7,13 +7,13 @@
   neko,
   haxePackages,
   haxe,
-  src,
-  version,
   ...
 }:
 let
-  sources
-
+  # pinned sources
+  pname = "hxcpp";
+  pin = (import ../_npins).${pname};
+  inherit (pin) version;
   withCommas = lib.replaceStrings [ "." ] [ "," ];
 
   # we need to figure out how to make cppia work !
@@ -24,8 +24,8 @@ let
   #   ";
 in
 stdenv.mkDerivation {
-  inherit src version;
-  pname = "hxcpp";
+  src = pin;
+  inherit pname version;
   buildInputs = [
     haxe
     neko

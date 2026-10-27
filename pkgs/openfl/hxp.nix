@@ -3,7 +3,7 @@
 # TODO : use flake input ?
 { lib, haxe, ... }:
 {
-  hxp = haxelib.buildHaxelib {
+  hxp = haxe.buildHaxelib {
     pname = "hxp";
     version = "1.3.0";
     sha256 = "sha256-h1vziyWzJUk/pHGkkMO1gMrs38rdhKjp9HYi6+QBbCM=";
