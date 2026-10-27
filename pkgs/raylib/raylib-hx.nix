@@ -13,7 +13,7 @@ let
 
   # raylib override
   raylib = let
-  pin = sources.raylib; in raylib.overrideAttrs {
+    pin = sources.raylib; in raylib.overrideAttrs {
     inherit (pin) version;
     src = pin;
   };
@@ -21,6 +21,7 @@ let
   pin = sources.raylib-hx;
 
 in stdenvNoCC.mkDerivation {
+  name = "raylib-hx";
   inherit (pin) version;
   src = pin;
 

@@ -16,18 +16,17 @@
   formatter,
   haxefmt,
   dox,
-  raylib,
   raylib-hx,
   hxp,
   castle,
   hxnodejs,
-  neutralino,
+  neutralinojs,
   lime,
   neko,
   ...
 }:
 let
-  # helper : 
+  # helper :
   haxeShell =
     inputs:
     mkShell {
@@ -42,7 +41,7 @@ in
 rec {
   # for working on haxix :
   default = haxeShell [
-    neutralino
+    neutralinojs
     statix
     deadnix
     nixfmt-rfc-style
@@ -63,7 +62,6 @@ rec {
   ];
 
   raylibShell = haxeShell [
-    raylib
     raylib-hx
     hxcpp
   ];

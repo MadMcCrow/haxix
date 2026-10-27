@@ -1,6 +1,6 @@
 # Castle
 # Datatable editor for Heaps
-{ stdenv,fetchFromGithub, neutralino, hxnodejs, haxe, ...} :
+{ lib, stdenv, fetchFromGithub, neutralinojs, hxnodejs, haxe, ...} :
 let
   pname = "castle";
   sources = import ../_npins;
@@ -10,8 +10,12 @@ stdenv.mkDerivation {
   inherit pname;
   inherit (pin) version;
   src = pin;
-  buildInputs = [neutralino hxnodejs haxe];
+  buildInputs = [neutralinojs hxnodejs haxe];
   buildPhase = ''
     ${haxe}/bin/haxe castle.hxml
   '';
+  meta = {
+    description = "Castle DB is a structured static database for Heaps";
+    license = lib.licenses.isc;
+  };
 }

@@ -17,17 +17,25 @@ in
       lib,
       ...
     }:
+    let
+     # import all packages in a shared scope
+      scope = lib.makeScope pkgs.newScope (self:
+      listToAttrs (
+        map ( path :
+        lib.nameValuePair (lib.removeSuffix ".nix" (builtins.baseNameOf (toString path))) (self.callPackage path args))
+        packageFiles
+      ));
+
+      packages =  lib.filterAttrs (
+              _: v: lib.isDerivation v && lib.meta.availableOn pkgs.stdenv.hostPlatform v
+            ) scope;
+    in
     {
       # only expose packages supported on this platform
-      packages = lib.filterAttrs (_: v: lib.meta.availableOn pkgs.stdenv.hostPlatform v) (
-        # import all packages in a shared scope
-        lib.makeScope pkgs.newScope (self:
-        listToAttrs (
-          map ( path :
-          lib.nameValuePair (lib.removeSuffix ".nix" (builtins.baseNameOf (toString path))) (self.callPackage path args))
-          packageFiles
-        ))
-      );
+      inherit packages;
+
+      # packages with libraries added
+      legacyPackages = packages;
 
       # add an update script
       apps.update =

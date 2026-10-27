@@ -2,7 +2,7 @@
 # neutralino is a lighter nwjs
 {buildNpmPackage, fetchzip,  lib, ...} :
 let
-  pname = "neutralino";
+  pname = "neutralinojs";
   sources = import ../_npins;
   pin = sources.${pname};
 in

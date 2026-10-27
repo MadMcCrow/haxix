@@ -4,8 +4,13 @@
   self,
   ...
 }:
+let
+    treefmt = import ./treefmt.nix;
+in
 {
   imports = [ inputs.treefmt-nix.flakeModule ];
+
+  flake = { inherit treefmt; };
 
   perSystem =
     {
@@ -17,12 +22,14 @@
     let
       # expose our packages :
       haxe_pkgs = self.packages.${system};
+
     in
     {
+      # add packages to checks
       checks = pkgs.callPackages ./checks.nix haxe_pkgs;
+      #
       devShells = pkgs.callPackages ./shells.nix haxe_pkgs;
-      treefmt = import ./treefmt;
-      # add formatter package
-      packages.formatter = inputs.treefmt-nix.lib.mkWrapper pkgs (import ./treefmt);
+      # add treefmt formatter
+      packages.treefmt = inputs.treefmt-nix.lib.mkWrapper pkgs treefmt;
     };
 }

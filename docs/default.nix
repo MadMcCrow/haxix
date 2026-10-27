@@ -1,23 +1,38 @@
+# flake part module for docs
+{
+  inputs,
+  self,
+  ...
+}:
+let
+  mkDocs = { pkgs, pname, version, src,... } : pkgs.stdenvNoCC.mkDerivation {
+    inherit pname version src;
 
+    nativeBuildInputs = [ pkgs.mdbook ];
 
-outputs = { self, nixpkgs, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      packages.${system}.docs = pkgs.stdenvNoCC.mkDerivation {
-        pname = "project-docs";
-        version = "1.0";
-        src = self;
+    buildPhase = ''
+      mdbook build
+    '';
 
-        nativeBuildInputs = [ pkgs.mdbook ];
-
-        buildPhase = ''
-          mdbook build
-        '';
-
-        installPhase = ''
-          cp -r book $out
-        '';
+    installPhase = ''
+      cp -r book $out
+    '';
+  };
+in
+{
+  perSystem =
+    {
+      pkgs,
+      lib,
+      system,
+      ...
+    }:
+    {
+      packages.haxix-docs = mkDocs {
+        inherit pkgs;
+        pname = "haxix-docs";
+        version = "0.1";
+        src = ./.;
       };
     };
+}

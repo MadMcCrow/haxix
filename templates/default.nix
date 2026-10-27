@@ -4,12 +4,12 @@
     flake.templates = rec {
       default = heaps; # we might not wanna be that opiniated
       heaps = {
-        path = ./templates/heaps;
+        path = ./heaps;
         description = "A simple haxe game with heaps";
         welcomeText = "";
       };
       lime = {
-        path = ./templates/lime;
+        path = ./lime;
         description = "A simple haxe project with lime";
         welcomeText = "";
       };

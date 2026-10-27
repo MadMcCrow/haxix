@@ -1,36 +1,19 @@
-# haxefmt/default.nix
+# haxefmt/formatter.nix
 # haxefmt is a formatting tool to format haxe code
+# the command
 {
   lib,
   writeShellApplication,
   haxe,
+  formatter,
   ...
 }:
-let
-  pname = "formatter";
-  sources = import ../_npins;
-  pin = sources.${pname};
-in
-rec {
-  # the library
-  haxe-formatter = haxe.buildHaxelib {
-    pname = lib.toLower pname;
-    inherit (pin) version;
-    src = pin;
-
-    meta = {
-      homepage = "https://github.com/HaxeCheckstyle/haxe-formatter";
-      description = "A Haxe tool to format haxe code";
-      license = lib.licenses.mit;
-    };
-  };
-
   # command to run in a shell-env
-  haxefmt = writeShellApplication {
+  writeShellApplication {
     name = "haxefmt";
     runtimeInputs = [
       haxe
-      haxe-formatter
+      formatter
     ];
     text = ''
       if [ "$#" -gt 0 ]
@@ -38,5 +21,8 @@ rec {
       else echo "provide at least an argument"
       fi
     '';
-  };
-}
+    meta = {
+      description = "format haxe code with haxe-formatter";
+      inherit (formatter.meta) license;
+    };
+  }

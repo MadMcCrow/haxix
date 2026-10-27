@@ -46,16 +46,17 @@
               "x86_64-linux"
               # "aarch64-linux" <- not supported yet
               "aarch64-darwin"
-              "x86_64-darwin"
+              # "x86_64-darwin" -> not supported anymore
             ];
 
             # TODO : replace by auto-detect directories
             imports = [
-              # ./dev # shells and development tools
-               # ./docs -> need to implement a man/doc output
-              # ./lib
+              ./demo # runnable demos
+              ./dev # shells and development tools
+              ./docs
+              ./lib
               ./pkgs
-              # ./templates
+              ./templates
             ];
           }
         );

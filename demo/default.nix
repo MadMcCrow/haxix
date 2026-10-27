@@ -1,7 +1,6 @@
 {
-  heaps,
-  # raylib,
-  lime,
+  inputs,
+  self,
   ...
 }:
 {
@@ -9,6 +8,7 @@ perSystem =
   {
     pkgs,
     lib,
+    system,
     ...
   }:
 let
@@ -36,20 +36,19 @@ let
     target = "html5";
   };
 
-  demos = [
+  demos = builtins.listToAttrs ( map (p:
+    lib.nameValuePair (lib.getName p) p) [
      heaps-demo
     lime-demo
-  ];
+  ]);
 in {
   # make demos runnable apps :
-  apps = builtins.listToAttrs ( map (p:
-    nameValuePair (getName p)
+  apps = lib.mapAttrs ( _ : v:
     {
       type = "app";
-      program = "${getExe p}";
-    }) demos);
+      program = "${lib.getExe v}";
+    }) demos;
   # make demos checks :
-  checks = builtins.listToAttrs ( map (p:
-    nameValuePair (getName p) p) demos);
+  checks = demos;
 };
 }
