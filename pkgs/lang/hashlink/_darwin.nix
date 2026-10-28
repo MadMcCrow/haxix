@@ -1,41 +1,22 @@
-# darwin/hashlink-latest.nix
-# hashlink-latest interpreter for haxe, on MacOS.
-# only intel Mac supported, uses rosetta to run on M1
-{
-  haxe,
-  darwin,
-  libpng,
-  inputs,
-  ...
-}:
+# hashlink for MacOS: x86_64 build from the darwin branch, run through Rosetta on M1
+{ inputs, ... }:
 let
-  # we need objective-C
-  objc = with darwin; [
-    apple_sdk_11_0.objc4
-    apple_sdk_11_0.libs.xpc
-    apple_sdk_11_0.frameworks.Security
-    libobjc
-  ];
-  ObjCmakeFlags =
-    let
-      concatObjc = dir: builtins.concatStringsSep "," (map (x: "${x}/${dir}") objc);
-    in
-    [
-      "CPATH=${concatObjc "include"}"
-      "LIBRARY_PATH=${concatObjc "lib"}"
-    ];
-  # emulation for m1 macOS
-  pkgs_eml = import inputs.nixpkgs-darwin { system = "x86_64-darwin"; };
+  # import x86_64-darwin packages
+  pkgs_eml = import inputs.nixpkgs-darwin {
+      system = "x86_64-darwin";
+      config.allowDeprecatedx86_64Darwin = true; # silences the 26.05 warning
+    };
+    inherit (pkgs_eml) lib;
 in
-# implementation :
-pkgs_eml.hashlink.overrideAttrs (
-  finalAttrs: previousAttrs: {
-    buildInputs = previousAttrs.buildInputs ++ [ libpng ] ++ objc;
-    makeFlags = previousAttrs.makeFlags ++ ObjCmakeFlags;
-    postFixup =
-      previousAttrs.postFixup
-      + ''
-        #   install_name_tool -add_rpath $out/lib $out/bin/hl
-        # '';
-    }
-)
+assert lib.assertMsg (lib.versionOlder lib.trivial.release "26.11")
+  "hashlink JIT on darwin needs x86_64-darwin, which is dropped after 26.05";
+pkgs_eml.hashlink.overrideAttrs (_finalAttrs: previousAttrs: {
+  buildInputs =
+    (builtins.filter (p: (p.pname or "") != "SDL2") previousAttrs.buildInputs)
+    ++ [
+      pkgs_eml.libpng
+      pkgs_eml.apple-sdk_14
+      pkgs_eml.sdl3
+    ];
+
+})

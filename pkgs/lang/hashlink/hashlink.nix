@@ -1,4 +1,4 @@
-{pkgs, stdenv, callPackage, haxe, libpng, ...} @args :
+{pkgs, lib, stdenv, callPackage, haxe, libpng, ...} @args :
 let
   # pinned sources
   sources = import ../../_npins;
@@ -12,16 +12,23 @@ myHashlink.overrideAttrs ( finalAttrs: previousAttrs: {
     inherit version;
     src = pin;
     buildInputs = previousAttrs.buildInputs ++ [ libpng ];
-    postInstall = ''
-      ${haxe.installHaxelib {
-        pname = "${finalAttrs.pname}";
-        files = "other/haxelib/*";
-        inherit version;
-      }}
-    '';
+
+    postInstall = (previousAttrs.postInstall or "") + ''
+        (
+          cd "$NIX_BUILD_TOP/source"
+          ${haxe.installHaxelib {
+            pname = finalAttrs.pname;
+            files = "other/haxelib/*";
+            inherit version;
+          }}
+        )
+      '';
     doInstallCheck = true;
     installCheckPhase = ''
         ls $out/lib/haxe/hashlink
         $out/bin/hl --version
       '';
+      meta = previousAttrs.meta // {
+         platforms = lib.platforms.linux ++ lib.platforms.darwin ++ ["x86_64-darwin"];
+       };
   })
