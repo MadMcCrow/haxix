@@ -4,11 +4,9 @@ let
   sources = import ../../_npins;
   pin = sources.hashlink;
   inherit (pin) version;
-  # get the correct hashlink for the platform :
-  myHashlink = if stdenv.hostPlatform.isDarwin then (callPackage ./_darwin.nix args ) else pkgs.hashlink;
 in
 # implement our special sauce (same for all platforms)
-myHashlink.overrideAttrs ( finalAttrs: previousAttrs: {
+pkgs.hashlink.overrideAttrs ( finalAttrs: previousAttrs: {
     inherit version;
     src = pin;
     buildInputs = previousAttrs.buildInputs ++ [ libpng ];
@@ -28,7 +26,4 @@ myHashlink.overrideAttrs ( finalAttrs: previousAttrs: {
         ls $out/lib/haxe/hashlink
         $out/bin/hl --version
       '';
-      meta = previousAttrs.meta // {
-         platforms = lib.platforms.linux ++ lib.platforms.darwin ++ ["x86_64-darwin"];
-       };
   })

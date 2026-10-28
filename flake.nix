@@ -51,12 +51,12 @@
 
             # TODO : replace by auto-detect directories
             imports = [
-              ./demo # runnable demos
-              ./dev # shells and development tools
-              ./docs
-              ./lib
+              #./demo # runnable demos
+              #./dev # shells and development tools
+              #./docs
+              #./lib
               ./pkgs
-              ./templates
+              #./templates
             ];
           }
         );

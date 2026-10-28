@@ -58,7 +58,7 @@
       "pre_releases": true,
       "version_upper_bound": null,
       "release_prefix": null,
-      "submodules": false,
+      "submodules": true,
       "version": "5.0.0-preview.1",
       "revision": "2c1e544e0a2c7524ef4c8e103f1b0580362ea538",
       "url": "https://api.github.com/repos/HaxeFoundation/haxe/tarball/refs/tags/5.0.0-preview.1",
@@ -169,13 +169,6 @@
       "revision": "4361b63eb1157fc7dedb29b92815a08ec0002767",
       "url": "https://api.github.com/repos/neutralinojs/neutralinojs/tarball/refs/tags/v6.10.0",
       "hash": "sha256-H0c22T1kZJsQLI0k/1XJv6K6Wa5OCqKiny0vTT8gEG8="
-    },
-    "nixpkgs": {
-      "type": "Channel",
-      "name": "nixpkgs-unstable",
-      "artifact": "nixexprs.tar.xz",
-      "url": "https://releases.nixos.org/nixpkgs/nixpkgs-26.11pre1100901.d3b13ad75cc4/nixexprs.tar.xz",
-      "hash": "sha256-lrp+A0ZwQN3V0tSZP6vVFIX/16FFOzr19mSup8XD80w="
     },
     "raylib": {
       "type": "GitRelease",

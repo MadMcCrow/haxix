@@ -16,7 +16,7 @@ let
   haxe_pkgs = self.packages.${system};
   # an example of a game
   heaps-demo = haxe_pkgs.heaps.buildHeapsGame {
-    name = "heaps-helloworld";
+    name = "demo-heaps";
     src = ./heaps;
     version = "0.0.1-alpha";
     native = false;
@@ -30,7 +30,7 @@ let
   # };
 
   lime-demo = haxe_pkgs.lime.buildLimeGame {
-    pname = "lime-helloworld";
+    pname = "demo-lime";
     src = ./lime;
     version = "0.0.1-alpha";
     target = "html5";
