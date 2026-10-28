@@ -5,95 +5,60 @@
     # latest nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    # haxe : the language
-    haxe = {
-      type = "git";
-      url = "https://github.com/HaxeFoundation/haxe.git";
-      ref = "development";
-      flake = false;
-      submodules = true;
+    # darwin support
+    # see https://nixos.org/manual/nixpkgs/unstable/release-notes#x86_64-darwin-26.11
+    nixpkgs-darwin.url = "github:NixOS/nixpkgs/nixpkgs-26.05-darwin";
+
+    # flake support
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
-    # hashlink : the haxe interpreter
-    hashlink = {
-      url = "github:HaxeFoundation/hashlink?ref=refs/tags/latest";
-      flake = false;
-    };
-    # Dox : the documentation tool
-    dox = {
-      url = "github:HaxeFoundation/dox";
+
+    # allows working without flakes
+    # flake = false is optional
+    flake-compat = {
+      url = "https://git.lix.systems/lix-project/flake-compat/archive/main.tar.gz";
       flake = false;
     };
-    # format : the format support library
-    haxe_format = {
-      url = "github:HaxeFoundation/format";
-      flake = false;
-    };
-    # hxcpp : runtime support for the C++ backend 
-    # of the Haxe compiler.
-    hxcpp = {
-      url = "github:HaxeFoundation/hxcpp?ref=refs/tags/v4.3.15";
-      flake = false;
-    };
-    # heaps : the game engine
-    heaps = {
-      url = "github:HeapsIO/heaps";
-      flake = false;
-    };
-    # raylib source code
-    raylib = {
-      url = "github:Raysan5/raylib?ref=refs/tags/5.0";
-      flake = false;
-    };
-    # raylib haxe bindings
-    raylib-hx = {
-      url = "github:foreignsasquatch/raylib-hx";
-      flake = false;
+
+    # import all implicitly
+    import-tree.url = "github:denful/import-tree";
+
+    # auto format repo
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+      outputs =
+        inputs@{
+          flake-parts,
+          nixpkgs,
+          self,
+          ...
+        }:
+        flake-parts.lib.mkFlake { inherit inputs; } (
+          { lib, ... }: {
 
-  outputs =
-    { self, nixpkgs, ... }@inputs:
-    let
-      # multiplatform support
-      systems = [
-        "x86_64-linux"
-        # "aarch64-linux" <- not supported yet
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ];
-      # the actual flake for every system
-      flake =
-        system:
-        let
-          pkgs = import nixpkgs { inherit system; };
-          packages = pkgs.callPackage ./pkgs { inherit inputs; };
-          demos = pkgs.callPackage ./demo ({ inherit inputs; } // packages);
-        in
-        {
-          legacyPackages."${system}" = packages;
-          devShells."${system}" = pkgs.callPackages ./pkgs/shell.nix packages;
-          # TODO :
-          #checks."${system}" = demos;
-        };
-    in
-    {
-      # template for heaps projects :
-      templates =
-        rec {
-          default = heaps; # we might not wanna be that opiniated
-          heaps = {
-            path = ./templates/heaps;
-            description = "A simple haxe game with heaps";
-            welcomeText = "";
-          };
-          lime = {
-            path = ./templates/lime;
-            description = "A simple haxe project with lime";
-            welcomeText = "";
-          };
-        };
-    }
-    # gen for all systems :
-    // (builtins.foldl' (x: y: nixpkgs.lib.recursiveUpdate x y) { } (map flake systems));
+            # multiplatform support
+            systems = [
+              "x86_64-linux"
+              # "aarch64-linux" <- not supported yet
+              "aarch64-darwin"
+              # "x86_64-darwin" -> not supported anymore
+            ];
+
+            # TODO : replace by auto-detect directories
+            imports = [
+              #./demo # runnable demos
+              #./dev # shells and development tools
+              #./docs
+              #./lib
+              ./pkgs
+              #./templates
+            ];
+          }
+        );
 
 }

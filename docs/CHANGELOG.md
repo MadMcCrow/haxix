@@ -1,3 +1,6 @@
+# dev 02/09/2024
+ - added checks. 
+
 # main 10/08/2024
  - cleaned dead code with deadix and statix
  - added lime (from [this PR](https://github.com/MadMcCrow/haxix/pull/6), big thanks to  @bwkam)

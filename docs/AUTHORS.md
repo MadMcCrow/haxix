@@ -1,7 +1,7 @@
 # Contributors:
 
 [Noé Perard-Gayot](https://github.com/MadMcCrow) - Original flake, maintainer
-[Beshoy Kamel](https://github.com/bwkam) - Latest Haxe, and hashlink implementation
+[Beshoy Kamel](https://github.com/bwkam) - Latest Haxe, and hashlink implementation, Lime support
 
 # Special Thanks to :
 - the nix community and its [unofficial discord](https://discord.gg/NJZ83pdM)
